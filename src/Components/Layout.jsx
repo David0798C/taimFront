@@ -8,6 +8,7 @@ const Nav = styled.nav`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 `;
 
 // Estilos para la lista de navegación
