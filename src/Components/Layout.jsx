@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Nav = styled.nav`
   padding: 10px 10px;
   background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px #1c5f1c;
   border-radius: 8px;
   margin-bottom: 20px;
   font-family: Arial, Helvetica, sans-serif;
@@ -51,7 +51,7 @@ const Li = styled.li`
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: #f0f0f0;
+      background-color: #c0f3bf;
     }
 
     @media (max-width: 768px) {
