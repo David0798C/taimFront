@@ -7,8 +7,14 @@ const Nav = styled.nav`
   background-color: #fff;
   box-shadow: 0 4px 6px #1c5f1c;
   border-radius: 8px;
+  margin-top: 5px;
   margin-bottom: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  position: fixed; /* Fijo en la pantalla */
+  top: 0; /* Alineado al tope de la pantalla */
+  left: 0; /* Alineado al lado izquierdo de la pantalla */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
 `;
 
 // Estilos para la lista de navegación
@@ -66,6 +72,7 @@ const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 60px; /* Añadir padding para compensar la barra de navegación fija */
 `;
 
 // Contenedor para el contenido
@@ -116,5 +123,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
-
