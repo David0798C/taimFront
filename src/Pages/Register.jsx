@@ -1,6 +1,5 @@
 import {
   RegisterContainer,
-  Image,
   Input,
   InputContainer,
 } from "../StyledComponents/StyledRegister";
