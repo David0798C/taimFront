@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Logo from '../pic/Ilustración_sin_título.png';
+import Logo from '../pic/Ilustración_con_título.png';
 
 // Estilos para los enlaces
 const Enlace = styled(Link)`
