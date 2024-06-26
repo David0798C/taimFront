@@ -1,68 +1,43 @@
-
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import Logo from '../pic/Ilustración_con_título.png';
-
-// Estilos para los enlaces
-const Enlace = styled(Link)`
-  text-decoration: none;
-  color: black;
-  display: block;
-  padding: 10px 20px;
-`;
-
-// Estilos para los botones
-const Button = styled.button`
-  margin: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #f0f0f0;
-  }
-`;
-
-// Estilos para la imagen
-const Img = styled.img`
-  width: 30%;
-  height: auto;
-  display: block;
-`;
-
-// Contenedor para centrar los elementos
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-`;
+import { Enlace, Button, Img, Container, ButtonContainer, Background, DescriptionContainer, Description } from '../StyledComponents/StyledHomePages';
 
 const HomePage = () => {
   return (
-    <Container>
-      <Img src={Logo} alt="" />
-      <ButtonContainer>
-        <Button>
-          <Enlace to="/login">Inicio Sesión</Enlace>
-        </Button>
-        <Button>
-          <Enlace to="/register">Registrarse</Enlace>
-        </Button>
-      </ButtonContainer>
-    </Container>
+    <>
+      <Background />
+      <Container>
+        <Img src={Logo} alt="Logo" />
+        <ButtonContainer>
+          <Button>
+            <Enlace to="/login">Inicio Sesión</Enlace>
+          </Button>
+          <Button>
+            <Enlace to="/register">Registrarse</Enlace>
+          </Button>
+        </ButtonContainer>
+        <DescriptionContainer>
+          <Description>
+            <h1>¿Qué es TAIM?</h1>
+            <p>Taim es una web de intercambio de servicios en el cual la moneda de cambio es el tiempo. <br /> Somos los poco conocidos Bancos del Tiempo.</p>
+          </Description>
+          <Description>
+            <h1>¿Qué ofrecemos?</h1>
+            <p>En esta web encontrarás a personas que ofrecen sus habilidades y conocimientos a cambio de las tuyas.</p>
+          </Description>
+                  <Description>
+          <h1>¿Cómo funciona?</h1>
+          <p>
+            Lo primero de todo será registrarse en la página. <br />
+            Luego tendrás que rellenar tu perfil con las habilidades y conocimientos que tienes para ofrecer y lo que te gustaría recibir a cambio de ellas. <br />
+            A continuación tendrás que añadir lo más valioso: <strong>Tu tiempo</strong> . <br />
+            Una vez todo esto añadido podrás esperar que alguien quiera hacer un trato contigo o <br />
+            entrar en la sección de Ofertas y ver qué cosas hay que te interesen y hacer tú los tratos.
+          </p>
+        </Description>
+        </DescriptionContainer>
+
+      </Container>
+    </>
   );
 };
 
