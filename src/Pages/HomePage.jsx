@@ -35,7 +35,6 @@ const HomePage = () => {
           </p>
         </Description>
         </DescriptionContainer>
-
       </Container>
     </>
   );

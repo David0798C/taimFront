@@ -1,7 +1,7 @@
 // HomePageStyles.js
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import BackgroundImage from '../pic/fondo1.jpg'
+import BackgroundImage from '../pic/fondo2.jpg'
 
 export const Enlace = styled(Link)`
     text-decoration: none;
