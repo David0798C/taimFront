@@ -66,3 +66,19 @@ export const Button = styled.button`
     border-color: #4ad627;
   }
 `;
+
+export const GifContainer = styled.div`
+  position: relative;
+  width: 500px;
+  height: auto;
+  display: flex;
+  align-items: end;
+`;
+
+export const Gif = styled.img`
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: end;
+  transition: 0.5s;
+`;
