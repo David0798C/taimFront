@@ -1,7 +1,11 @@
 import React from "react";
 
 const Ofertas = () => {
-  return <div>Ofertas</div>;
+  return (
+    <div>
+      <ContainerOfertas></ContainerOfertas>
+    </div>
+  );
 };
 
 export default Ofertas;
