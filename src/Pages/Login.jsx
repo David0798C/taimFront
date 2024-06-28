@@ -7,10 +7,21 @@ import {
   Enlace,
 } from "../styledComponents/StyledLogin";
 
+import {loginUser, setAuth} from "../services/auth.js"
+
 const Login = () => {
   const [nombre, setNombre] = useState();
-
   const [password, setPassword] = useState();
+
+
+  const loginUsuario = () => {
+    loginUser(nombre, password).then((res) => {
+      console.log(res)
+      if(res.data === "Login exitoso"){
+        setAuth(nombre, password);
+      }
+    });
+  };
 
   return (
     <div>
@@ -24,11 +35,11 @@ const Login = () => {
             onChange={(e) => setNombre(e.target.value)}
           />
           <Input
-            type="text"
+            type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button>
+          <Button onClick={loginUsuario}>
             <Enlace to="/Ofertas">Login</Enlace>
           </Button>
         </LoginStyle>

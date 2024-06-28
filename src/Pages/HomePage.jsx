@@ -1,9 +1,9 @@
 import Logo from '../pic/Ilustración_con_título.png';
 import gifAnimado from '../pic/GifAnimado.gif'
 import gifEstatico from '../pic/Gif estático .png'
-import { Enlace, Button, Img, Container, ButtonContainer, Background, DescriptionContainer, Description } from '../StyledComponents/StyledHomePages';
+import { Enlace, Button, Img, Container, ButtonContainer, Background, DescriptionContainer, Description } from '../styledComponents/StyledHomePages';
 import {useState} from 'react';
-import {GifContainer, Gif} from '../StyledComponents/StyledUserPage';
+import {GifContainer, Gif} from '../styledComponents/StyledUserPage';
 
 const HomePage = () => {
 

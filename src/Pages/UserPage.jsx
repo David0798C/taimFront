@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Container, CardContainer, Button, InterestContainer, Background, GifContainer, Gif} from '../StyledComponents/StyledUserPage';
+import {Container, CardContainer, Button, InterestContainer, Background, GifContainer, Gif} from '../styledComponents/StyledUserPage';
 import gifAnimado from '../pic/Gif animado.gif'
 import gifEstatico from '../pic/Gif estático .png'
 

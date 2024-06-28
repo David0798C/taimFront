@@ -9,7 +9,7 @@ import {
   P,
   Image,
   Button,
-} from "../StyledComponents/StyledOfertes";
+} from "../styledComponents/StyledOfertes";
 
 const Ofertas = () => {
   const [Offer, setOffer] = useState();
