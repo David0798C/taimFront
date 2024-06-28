@@ -5,9 +5,17 @@ import gifEstatico from '../pic/Gif estático .png'
 
 const UserProfile = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
+    if (!isAnimating) {
+      setIsHovered(true);
+      setIsAnimating(true);
+      setTimeout(() => {
+        setIsHovered(false);
+        setIsAnimating(false);
+      }, 1550); // La duración del GIF en milisegundos
+    }
   };
   return (
     <>
