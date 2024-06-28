@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ContainerOfertas,
   ContainerRow,
@@ -9,12 +9,19 @@ import {
   P,
   Image,
   Button,
-} from "../StyledComponents/StyledOfertes";
+} from "../styledComponents/StyledOfertes.js";
+
+import { getTask } from "../services/task";
 
 const Ofertas = () => {
   const [Offer, setOffer] = useState();
 
-  const saveOfert = () => {};
+  useEffect(() => {
+    getTask().then((res) => {
+      console.log(res);
+    });
+  }, []);
+
   return (
     <div>
       <ContainerOfertas>
@@ -29,9 +36,7 @@ const Ofertas = () => {
 
             <P>Horas de la Oferta</P>
 
-            <Button onClick={(e) => setOffer(e.target.value)}>
-              Añadir la oferta
-            </Button>
+            <Button>Añadir la oferta</Button>
           </ContainerColumn>
 
           <ContainerColumn>
@@ -81,7 +86,7 @@ const Ofertas = () => {
           </ContainerColumn>
 
           <ContainerColumn>
-            <H3>Nombre de la oferta</H3>
+            <H3></H3>
             <Image></Image>
 
             <H4>Nombre de la persona</H4>
