@@ -5,7 +5,7 @@ import {
   Input,
   Button,
   Enlace,
-} from "../StyledComponents/StyledLogin";
+} from "../styledComponents/StyledLogin";
 
 const Login = () => {
   const [nombre, setNombre] = useState();

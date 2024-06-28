@@ -1,4 +1,4 @@
-import {Container, CardContainer, Button, InterestContainer, Background} from '../StyledComponents/StyledUserPage';
+import {Container, CardContainer, Button, InterestContainer, Background} from '../styledComponents/StyledUserPage';
 
 const UserProfile = () => {
   return (

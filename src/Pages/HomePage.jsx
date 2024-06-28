@@ -1,5 +1,5 @@
 import Logo from '../pic/Ilustración_con_título.png';
-import { Enlace, Button, Img, Container, ButtonContainer, Background, DescriptionContainer, Description } from '../StyledComponents/StyledHomePages';
+import { Enlace, Button, Img, Container, ButtonContainer, Background, DescriptionContainer, Description } from '../styledComponents/StyledHomePages';
 
 const HomePage = () => {
   return (
