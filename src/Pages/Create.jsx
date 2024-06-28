@@ -1,5 +1,24 @@
+import {
+  ContainerCreate,
+  H1,
+  ContainerIzq,
+  Input,
+} from "../StyledComponents/StyledCreate";
+
 const Create = () => {
-  return <div>Create</div>;
+  return (
+    <div>
+      <ContainerCreate>
+        <H1>Crear Oferta</H1>
+
+        <ContainerIzq>
+          {/* Formulario de creación de oferta */}
+
+          <Input placeholder="Nombre de la Oferta"></Input>
+        </ContainerIzq>
+      </ContainerCreate>
+    </div>
+  );
 };
 
 export default Create;
