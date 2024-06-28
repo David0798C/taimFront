@@ -20,9 +20,9 @@ export const ContainerColumn = styled.div`
   padding: 20px;
   background-color: #ffffff;
   margin: 10px;
-  box-shadow: 10px 10px 10px #d9d9d9;
-  border-left: 1px solid #d9d9d9;
-  border-top: 1px solid #d9d9d9;
+  box-shadow: 10px 5px 10px#d9d9d9;
+  border-left: 1px solid #22df22;
+  border-top: 1px solid #22df22;
 
   border-radius: 5px;
 `;
@@ -38,7 +38,7 @@ export const Image = styled.div`
 
 export const Button = styled.button`
   margin: auto;
-  width: 100px;
+  width: 150px;
   border-radius: 5px;
   padding: 10px;
   background-color: transparent;
