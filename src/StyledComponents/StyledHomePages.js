@@ -76,3 +76,11 @@ export const Description = styled.div`
     text-align: center;
     max-width: 1200px;
 `;
+
+export const Gif = styled.img`
+    width: 60%;
+    height: auto;
+    display: block;
+    transition: 0.2s;
+    align-items: center;
+`;

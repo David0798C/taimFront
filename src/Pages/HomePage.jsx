@@ -1,11 +1,30 @@
 import Logo from '../pic/Ilustración_con_título.png';
+import gifAnimado from '../pic/GifAnimado.gif'
+import gifEstatico from '../pic/Gif estático .png'
 import { Enlace, Button, Img, Container, ButtonContainer, Background, DescriptionContainer, Description } from '../StyledComponents/StyledHomePages';
+import {useState} from 'react';
+import {GifContainer, Gif} from '../StyledComponents/StyledUserPage';
 
 const HomePage = () => {
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleMouseEnter = () => {
+    if (!isAnimating) {
+      setIsHovered(true);
+      setIsAnimating(true);
+      setTimeout(() => {
+        setIsHovered(false);
+        setIsAnimating(false);
+      }, 1550); // La duración del GIF en milisegundos
+    }
+  };
   return (
     <>
       <Background />
-      <Container>
+      <Container onMouseEnter={handleMouseEnter}>
+        <Gif src={isHovered ? gifAnimado : gifEstatico} alt="Mi GIF" />
         <Img src={Logo} alt="Logo" />
         <ButtonContainer>
           <Button>
