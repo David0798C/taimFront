@@ -1,8 +1,9 @@
 import {
   ContainerCreate,
   H1,
-  ContainerIzq,
+  ContainerInput,
   Input,
+  InputNumber,
 } from "../StyledComponents/StyledCreate";
 
 const Create = () => {
@@ -11,11 +12,11 @@ const Create = () => {
       <ContainerCreate>
         <H1>Crear Oferta</H1>
 
-        <ContainerIzq>
-          {/* Formulario de creación de oferta */}
-
+        <ContainerInput>
           <Input placeholder="Nombre de la Oferta"></Input>
-        </ContainerIzq>
+
+          <InputNumber type="number"></InputNumber>
+        </ContainerInput>
       </ContainerCreate>
     </div>
   );

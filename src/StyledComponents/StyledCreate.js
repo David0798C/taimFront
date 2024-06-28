@@ -2,18 +2,20 @@ import styled from "styled-components";
 
 export const ContainerCreate = styled.div`
   width: 100%;
-  background-color: red;
   margin: auto;
-  height: 1000px;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  height: 350px;
 `;
 
 export const H1 = styled.h1`
   text-align: center;
 `;
 
-export const ContainerIzq = styled.div`
-  width: 50%;
-  background-color: blue;
+export const ContainerInput = styled.div`
+  width: 70%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -32,6 +34,7 @@ export const Input = styled.input`
   background-position: center bottom, center calc(100% - 1px);
   background-repeat: no-repeat;
   background-size: 0 2px, 100% 1px;
+  background-color: transparent;
   padding: 0;
   color: #bfbfbf;
   min-height: 35px;
@@ -44,4 +47,8 @@ export const Input = styled.input`
     transition-duration: 0.3s;
     color: #525252;
   }
+`;
+
+export const InputNumber = styled.input`
+  margin-top: 50px;
 `;
