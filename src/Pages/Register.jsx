@@ -4,19 +4,24 @@ import {
   Input,
   InputContainer,
   Button,
-} from "../StyledComponents/StyledRegister";
+} from "../styledComponents/StyledRegister";
+
+import { insertUser } from "../services/auth.js";
 
 const Register = () => {
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
-  const [Username, setUsername] = useState();
-  const [Email, setEmail] = useState();
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [password2, setPassword2] = useState();
+  const [birthday, setBirthday] = useState();
 
   const ConfirmPassword = () => {
     if (password === password2) {
-      alert("La contraseña coincide");
+      insertUser({ name, surname, username, email, password, birthday }).then((res) => {
+        console.log(res)
+      });
     } else {
       alert("Las contraseñas no coinciden");
     }
@@ -42,14 +47,20 @@ const Register = () => {
 
           <Input
             type="text"
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <Input
             type="text"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Birthday"
+            onChange={(e) => setBirthday(e.target.value)}
+          />
+
+          <Input
+            type="text"
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
           />
 
           <Input

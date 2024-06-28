@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "./Components/Layout";
-import HomePage from "./Pages/HomePage";
-import Login from "./Pages/Login";
-import UserPage from "./Pages/UserPage";
-import Create from "./Pages/Create";
-import Register from "./Pages/Register";
-import Ofertas from "./Pages/Ofertas";
+import Layout from "./components/Layout";
+import HomePage from "./pages/HomePage";
+import Login from "./pages/Login";
+import UserPage from "./pages/UserPage";
+import Create from "./pages/Create";
+import Register from "./pages/Register";
+import Ofertas from "./pages/Ofertas";
 
 const Router = () => (
   <BrowserRouter>
