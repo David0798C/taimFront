@@ -34,9 +34,11 @@ const Ofertas = () => {
               <H3>{oferta.title}</H3>
               <Image></Image>
 
-              <H4>{oferta.user?.name}</H4>
+              <H4>
+                {oferta.user?.name} {oferta.user?.surname}
+              </H4>
 
-              <P>{oferta.description}</P>
+              <P>{oferta?.description}</P>
 
               <Button>Añadir Oferta</Button>
             </ContainerColumn>

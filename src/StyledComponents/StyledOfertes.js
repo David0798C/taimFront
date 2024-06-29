@@ -10,9 +10,10 @@ export const ContainerOfertas = styled.div`
 export const ContainerRow = styled.div`
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin-bottom: 50px;
   border-radius: 5px;
+  background-color: red;
 `;
 
 export const ContainerColumn = styled.div`
@@ -64,5 +65,8 @@ export const H4 = styled.h4`
 `;
 
 export const P = styled.p`
-  text-align: center;
+  text-align: left;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
 `;
