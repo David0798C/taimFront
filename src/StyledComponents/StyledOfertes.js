@@ -4,8 +4,7 @@ import styled from "styled-components";
 
 export const ContainerOfertas = styled.div`
   width: 100%;
-
-  margin-top: 20px;
+  margin: auto;
 `;
 
 export const ContainerRow = styled.div`
@@ -23,7 +22,6 @@ export const ContainerColumn = styled.div`
   box-shadow: 10px 5px 10px#d9d9d9;
   border-left: 1px solid #22df22;
   border-top: 1px solid #22df22;
-
   border-radius: 5px;
 `;
 
