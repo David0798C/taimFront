@@ -4,16 +4,16 @@ import styled from "styled-components";
 
 export const ContainerOfertas = styled.div`
   width: 100%;
-
-  margin-top: 20px;
+  margin: auto;
 `;
 
 export const ContainerRow = styled.div`
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin-bottom: 50px;
   border-radius: 5px;
+  background-color: red;
 `;
 
 export const ContainerColumn = styled.div`
@@ -23,7 +23,6 @@ export const ContainerColumn = styled.div`
   box-shadow: 10px 5px 10px#d9d9d9;
   border-left: 1px solid #22df22;
   border-top: 1px solid #22df22;
-
   border-radius: 5px;
 `;
 
@@ -37,6 +36,7 @@ export const Image = styled.div`
 `;
 
 export const Button = styled.button`
+  margin-top: 20px;
   margin: auto;
   width: 150px;
   border-radius: 5px;
@@ -66,5 +66,8 @@ export const H4 = styled.h4`
 `;
 
 export const P = styled.p`
-  text-align: center;
+  text-align: left;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
 `;

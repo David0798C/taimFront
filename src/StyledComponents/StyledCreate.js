@@ -51,4 +51,25 @@ export const Input = styled.input`
 
 export const InputNumber = styled.input`
   margin-top: 50px;
+  border: 0.2em solid #76d429;
+  padding: 0.8em 0.9em;
+  border-radius: 2em;
+  color: #000000;
+`;
+
+export const Button = styled.button`
+  margin-top: 40px;
+
+  width: 150px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid black;
+  color: black;
+  display: block;
+
+  &:hover {
+    transition: 0.2s;
+    border-color: #4ad627;
+  }
 `;
