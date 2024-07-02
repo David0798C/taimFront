@@ -11,7 +11,7 @@ import {
   Button,
 } from "../styledComponents/StyledOfertes.js";
 
-import { getTask } from "../services/task";
+import { getTask } from "../services/task.js";
 
 const Ofertas = () => {
   const [Offer, setOffer] = useState([]);
