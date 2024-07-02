@@ -78,9 +78,9 @@ export const Description = styled.div`
 `;
 
 export const Gif = styled.img`
-    width: 60%;
+    width: 120%;
     height: auto;
     display: block;
-    transition: 0.2s;
-    align-items: center;
+    align-items: end;
+    transition: 0.5s;
 `;
