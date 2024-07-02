@@ -26,13 +26,8 @@ export const Button = styled.button`
 }
 `;
 
-export const Img = styled.img`
-    width: 40%;
-    height: auto;
-    display: block;
-`;
-
 export const Container = styled.div`
+padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,9 +73,16 @@ export const Description = styled.div`
 `;
 
 export const Gif = styled.img`
-    width: 60%;
+    width: 120%;
     height: auto;
     display: block;
-    transition: 0.2s;
-    align-items: center;
+    text-align: center;
+    margin-bottom: 0;
+    transition: 0.5s;
+`;
+
+export const H1 = styled.h1`
+    margin-top: 0px;
+    font-size: 10rem;
+    font-family:Arial, Helvetica, sans-serif;
 `;
