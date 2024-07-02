@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Container,
   CardContainer,
@@ -12,25 +11,9 @@ import gifAnimado from "../pic/Gif animado.gif";
 import gifEstatico from "../pic/Gif estático .png";
 
 const UserProfile = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const handleMouseEnter = () => {
-    if (!isAnimating) {
-      setIsHovered(true);
-      setIsAnimating(true);
-      setTimeout(() => {
-        setIsHovered(false);
-        setIsAnimating(false);
-      }, 1550); // La duración del GIF en milisegundos
-    }
-  };
   return (
     <>
       <Background />
-      <GifContainer onMouseEnter={handleMouseEnter}>
-        <Gif src={isHovered ? gifAnimado : gifEstatico} alt="Mi GIF" />
-      </GifContainer>
       <Container>
         <CardContainer>
           <img

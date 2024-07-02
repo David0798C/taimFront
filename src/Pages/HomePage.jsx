@@ -1,10 +1,8 @@
-import Logo from "../pic/Ilustración_con_título.png";
-import gifAnimado from "../pic/GifAnimado.gif";
-import gifEstatico from "../pic/Gif estático .png";
+import gifAnimado from "../pic/gitAnimado.gif";
+import gifEstatico from "../pic/gitEstatico.png";
 import {
   Enlace,
   Button,
-  Img,
   Container,
   ButtonContainer,
   Background,
@@ -25,7 +23,7 @@ const HomePage = () => {
       setTimeout(() => {
         setIsHovered(false);
         setIsAnimating(false);
-      }, 1550); // La duración del GIF en milisegundos
+      }, 2500); // La duración del GIF en milisegundos
     }
   };
   return (
@@ -33,7 +31,6 @@ const HomePage = () => {
       <Background />
       <Container onMouseEnter={handleMouseEnter}>
         <Gif src={isHovered ? gifAnimado : gifEstatico} alt="Mi GIF" />
-        <Img src={Logo} alt="Logo" />
         <ButtonContainer>
           <Button>
             <Enlace to="/login">Inicio Sesión</Enlace>
