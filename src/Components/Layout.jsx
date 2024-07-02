@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import homeIcon from '../pic/logoLayout.png';
 
 // Estilos para la navegación
 const Nav = styled.nav`
-  padding: 10px 10px;
   background-color: #fff;
-  box-shadow: 0 4px 6px #1c5f1c;
-  border-radius: 8px;
+  opacity: 0.8;
   margin-top: 5px;
   margin-bottom: 20px;
   font-family: Arial, Helvetica, sans-serif;
@@ -15,6 +14,16 @@ const Nav = styled.nav`
   left: 0; /* Alineado al lado izquierdo de la pantalla */
   width: 100%; /* Ocupa todo el ancho de la pantalla */
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  display: flex;
+  align-items: center; /* Centra verticalmente el contenido */
+`;
+
+const Img = styled.img`
+  width: 10%;
+  height: auto;
+  cursor: pointer;
+  margin-right: auto;
+  padding-left: 50px; /* Empuja la imagen hacia la izquierda */
 `;
 
 // Estilos para la lista de navegación
@@ -25,7 +34,9 @@ const Ul = styled.ul`
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
-
+  width: 100%; /* Ocupa todo el ancho disponible */
+  position: relative;
+  
   @media (max-width: 768px) {
     justify-content: space-around;
   }
@@ -38,7 +49,9 @@ const Ul = styled.ul`
 
 // Estilos para los elementos de la lista de navegación
 const Li = styled.li`
-  margin: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 768px) {
     margin: 0 10px;
@@ -51,14 +64,9 @@ const Li = styled.li`
   a {
     text-decoration: none;
     color: #000;
-    font-size: 16px;
+    font-size: 22px;
     padding: 10px 20px;
     border-radius: 8px;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #c0f3bf;
-    }
 
     @media (max-width: 768px) {
       font-size: 14px;
@@ -66,6 +74,7 @@ const Li = styled.li`
     }
   }
 `;
+
 
 // Contenedor para el layout
 const LayoutContainer = styled.div`
@@ -106,13 +115,13 @@ const Layout = ({ children }) => {
   return (
     <LayoutContainer>
       <Nav>
+        <Li><Link to="/"><Img src={homeIcon} alt="Home" /></Link></Li>
         <Ul>
-          <Li><Link to="/">Home</Link></Li>
-          <Li><Link to="/login">Login</Link></Li>
+          <Li><Link to="/ofertas">Ofertas</Link></Li>
           <Li><Link to="/user">User</Link></Li>
           <Li><Link to="/create">Create</Link></Li>
           <Li><Link to="/register">Registrarse</Link></Li>
-          <Li><Link to="/ofertas">Ofertas</Link></Li>
+          <Li><Link to="/login">Login</Link></Li>
         </Ul>
       </Nav>
       <Content>
@@ -123,3 +132,4 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+
