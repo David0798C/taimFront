@@ -12,10 +12,13 @@ import {
 } from "../styledComponents/StyledHomePages";
 import { useState } from "react";
 import { Gif } from "../styledComponents/StyledHomePages";
+import { useContext } from 'react';
+import { MyContext } from '../MyContext.js';
 
 const HomePage = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const { logged, setLogged } = useContext(MyContext);
 
   const handleMouseEnter = () => {
     if (!isAnimating) {
@@ -27,20 +30,24 @@ const HomePage = () => {
       }, 2500); // La duración del GIF en milisegundos
     }
   };
+  
   return (
     <>
       <Background />
       <Container onMouseEnter={handleMouseEnter}>
         <Gif src={isHovered ? gifAnimado : gifEstatico} alt="Mi GIF" />
-        <H1>T A I M</H1>
-        <ButtonContainer>
-          <Button>
-            <Enlace to="/login">Inicio Sesión</Enlace>
-          </Button>
-          <Button>
-            <Enlace to="/register">Registrarse</Enlace>
-          </Button>
-        </ButtonContainer>
+        <H1>T  A  I  M</H1>
+        {!logged &&
+          <ButtonContainer>
+            <Button>
+              <Enlace to="/login">Inicio Sesión</Enlace>
+            </Button>
+            <Button>
+              <Enlace to="/register">Registrarse</Enlace>
+            </Button>
+          </ButtonContainer>
+        }
+
         <DescriptionContainer>
           <Description>
             <h1>¿Qué es TAIM?</h1>
@@ -76,5 +83,6 @@ const HomePage = () => {
     </>
   );
 };
+
 
 export default HomePage;
