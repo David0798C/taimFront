@@ -10,7 +10,3 @@ export const loginUser = async (username, password) => await instance.post("/log
         },
     }
 )
-
-export const setAuth = (username, password) => {
-    instance.defaults.headers.common.Authorization = 'Basic ' + btoa(username + ':' + password);;
-};
