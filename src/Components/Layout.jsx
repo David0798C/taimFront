@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import homeIcon from '../pic/logoLayout.png';
+import { BsStar } from "react-icons/bs";
 
 // Estilos para la navegación
 const Nav = styled.nav`
@@ -9,21 +11,20 @@ const Nav = styled.nav`
   margin-top: 5px;
   margin-bottom: 20px;
   font-family: Arial, Helvetica, sans-serif;
-  position: fixed; /* Fijo en la pantalla */
-  top: 0; /* Alineado al tope de la pantalla */
-  left: 0; /* Alineado al lado izquierdo de la pantalla */
-  width: 100%; /* Ocupa todo el ancho de la pantalla */
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   display: flex;
-  align-items: center; /* Centra verticalmente el contenido */
+  align-items: center;
+  padding: 0 10px;
 `;
 
 const Img = styled.img`
   width: 10%;
   height: auto;
   cursor: pointer;
-  margin-right: auto;
-  padding-left: 50px; /* Empuja la imagen hacia la izquierda */
 `;
 
 // Estilos para la lista de navegación
@@ -34,16 +35,19 @@ const Ul = styled.ul`
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
-  width: 100%; /* Ocupa todo el ancho disponible */
+  width: 100%;
   position: relative;
-  
-  @media (max-width: 768px) {
-    justify-content: space-around;
-  }
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
+    display: ${({ open }) => (open ? 'flex' : 'none')};
     flex-direction: column;
     align-items: center;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
   }
 `;
 
@@ -54,10 +58,6 @@ const Li = styled.li`
   align-items: center;
 
   @media (max-width: 768px) {
-    margin: 0 10px;
-  }
-
-  @media (max-width: 480px) {
     margin: 10px 0;
   }
 
@@ -75,13 +75,30 @@ const Li = styled.li`
   }
 `;
 
+// Estilos para el icono de hamburguesa
+const HamburgerIcon = styled.div`
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: auto;
+
+  @media (max-width: 768px) {
+    display: flex;
+    margin-left: 10px; /* Ajusta el margen para empujar el icono más hacia la izquierda */
+  }
+
+  svg {
+    padding-right: 50px;
+    font-size: 25px;
+  }
+`;
 
 // Contenedor para el layout
 const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px; /* Añadir padding para compensar la barra de navegación fija */
+  padding-top: 60px;
 `;
 
 // Contenedor para el contenido
@@ -112,11 +129,20 @@ const Content = styled.div`
 `;
 
 const Layout = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <LayoutContainer>
       <Nav>
-        <Li><Link to="/"><Img src={homeIcon} alt="Home" /></Link></Li>
-        <Ul>
+        <Link to="/"><Img src={homeIcon} alt="Home" /></Link>
+        <HamburgerIcon onClick={toggleMenu}>
+          <BsStar />
+        </HamburgerIcon>
+        <Ul open={isOpen}>
           <Li><Link to="/ofertas">Ofertas</Link></Li>
           <Li><Link to="/user">User</Link></Li>
           <Li><Link to="/create">Create</Link></Li>
@@ -132,4 +158,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
