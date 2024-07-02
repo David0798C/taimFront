@@ -25,6 +25,7 @@ const Img = styled.img`
   width: 10%;
   height: auto;
   cursor: pointer;
+  padding-left: 50px;
 `;
 
 // Estilos para la lista de navegación
