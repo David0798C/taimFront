@@ -4,7 +4,7 @@ import {
   Input,
   InputContainer,
   Button,
-} from "../styledcomponents/StyledRegister.js";
+} from "../styledComponents/StyledRegister.js";
 
 import { insertUser } from "../services/auth.js";
 

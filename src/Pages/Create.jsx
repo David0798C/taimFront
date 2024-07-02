@@ -3,7 +3,7 @@ import {
   H1,
   ContainerIzq,
   Input,
-} from "../styledcomponents/StyledCreate";
+} from "../styledComponents/StyledCreate";
 
 const Create = () => {
   return (

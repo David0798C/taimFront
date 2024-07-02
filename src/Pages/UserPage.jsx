@@ -7,7 +7,7 @@ import {
   Background,
   GifContainer,
   Gif,
-} from "../styledcomponents/StyledUserPage";
+} from "../styledComponents/StyledUserPage";
 import gifAnimado from "../pic/Gif animado.gif";
 import gifEstatico from "../pic/Gif estático .png";
 
