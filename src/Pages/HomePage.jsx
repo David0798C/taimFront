@@ -8,6 +8,7 @@ import {
   Background,
   DescriptionContainer,
   Description,
+  H1,
 } from "../styledComponents/StyledHomePages";
 import { useState } from "react";
 import { Gif } from "../styledComponents/StyledHomePages";
@@ -31,6 +32,7 @@ const HomePage = () => {
       <Background />
       <Container onMouseEnter={handleMouseEnter}>
         <Gif src={isHovered ? gifAnimado : gifEstatico} alt="Mi GIF" />
+        <H1>T  A  I  M</H1>
         <ButtonContainer>
           <Button>
             <Enlace to="/login">Inicio Sesión</Enlace>
