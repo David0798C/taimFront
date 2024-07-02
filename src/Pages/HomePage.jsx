@@ -10,9 +10,9 @@ import {
   Background,
   DescriptionContainer,
   Description,
-} from "../styledComponents/StyledHomePages";
+} from "../styledcomponents/StyledHomePages";
 import { useState } from "react";
-import { GifContainer, Gif } from "../styledComponents/StyledUserPage";
+import { GifContainer, Gif } from "../styledcomponents/StyledUserPage";
 
 const HomePage = () => {
   const [isHovered, setIsHovered] = useState(false);

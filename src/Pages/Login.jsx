@@ -5,9 +5,9 @@ import {
   Input,
   Button,
   Enlace,
-} from "../styledComponents/StyledLogin.js";
+} from "../styledcomponents/StyledLogin.js";
 
-import {loginUser, setAuth} from "../services/auth.js"
+import { loginUser, setAuth } from "../services/auth.js"
 
 const Login = () => {
   const [nombre, setNombre] = useState();
@@ -17,7 +17,7 @@ const Login = () => {
   const loginUsuario = () => {
     loginUser(nombre, password).then((res) => {
       console.log(res)
-      if(res.data === "Login exitoso"){
+      if (res.data === "Login exitoso") {
         setAuth(nombre, password);
       }
     });
