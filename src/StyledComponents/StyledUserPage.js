@@ -52,6 +52,17 @@ background-color: white;
   display: flex;
   gap: 1rem;
   `;
+
+export const SkillsContainer = styled.div`
+background-color: white;
+  max-width: 40rem;
+  padding: 1.5rem;
+  margin-bottom:1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1rem;
+  `;
 export const Button = styled.button`
   width: 100px;
   border-radius: 5px;
@@ -67,6 +78,22 @@ export const Button = styled.button`
   }
 `;
 
+export const ButtonEdit = styled.button`
+  position: absolute;
+  margin-top: 110px;
+  margin-left: 22px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2px solid black;
+  color: black;
+  height: 40px;
+
+  &:hover {
+    transition: 0.2s;
+    border-color: #4ad627;
+  }
+`;
 export const GifContainer = styled.div`
   position: relative;
   width: 500px;
