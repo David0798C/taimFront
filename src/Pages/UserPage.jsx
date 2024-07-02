@@ -4,12 +4,7 @@ import {
   Button,
   InterestContainer,
   Background,
-  GifContainer,
-  Gif,
 } from "../styledComponents/StyledUserPage";
-import gifAnimado from "../pic/Gif animado.gif";
-import gifEstatico from "../pic/Gif estático .png";
-
 const UserProfile = () => {
   return (
     <>
