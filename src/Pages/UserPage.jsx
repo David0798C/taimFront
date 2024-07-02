@@ -12,20 +12,15 @@ import { getUser } from "../services/user";
 
 const UserProfile = () => {
     const [data, setData] = useState();
-    const [name, setName] = useState();
-    const [surname, setSurname] = useState();
-    const [email, setEmail] = useState();
-    const [userName, setUserName] = useState();
-    const [birthday, setBirthday] = useState();
-    const [profilePic, setProfilePic] = useState();
-    const [location, setLocation] = useState();
-    const [description, setDescription] = useState();
-    const [interests, setInterests] = useState();
-    const [skills, setSkills] = useState();
-    const [rating, setRating] = useState();
 
     useEffect(() => {
-        getUser().then(data => setData(data.data))
+        getUser().then(res => {
+            console.log(res.data);
+            const c = JSON.parse(res.data);
+            console.log(c)
+            setData(res.data);
+            // TODO 
+        });
     }, []);
 
     return (
@@ -39,15 +34,16 @@ const UserProfile = () => {
                         alt="User Profile"
                         className="profile-image"
                     />
-                    <div>
-                        <h1 className="name">Nombre Apellido </h1>
-                        <p>@username</p>
-                        <p>@email</p>
-                        <p>Localidad</p>
-                        <p>Desarrollador Web</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, minima. Eos eum nisi nam atque veritatis culpa mollitia minima perferendis.</p>
-                        <Button>Seguir</Button>
-                    </div>
+                    {data?.map((data) => (
+                        <div key={data.id}>
+                            < h1 className="name" > {data?.name} {data?.surname}Nombre Apellido </h1>
+                            <p>{data?.username}@username</p>
+                            <p>{data?.email}@email</p>
+                            <p>{data?.location}Localidad</p>
+                            <p>{data?.description} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti iure pariatur obcaecati vero, voluptas facilis incidunt maiores dolorum rerum.</p>
+                            <Button>Seguir</Button>
+                        </div>
+                    ))}
                 </CardContainer>
                 <SkillsContainer>
                     <h1>Habilidades</h1>
@@ -73,7 +69,7 @@ const UserProfile = () => {
                         <li>Historia del Arte</li>
                     </ul>
                 </InterestContainer>
-            </Container>
+            </Container >
         </>
     );
 };
