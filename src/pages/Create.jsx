@@ -26,17 +26,27 @@ const Create = () => {
 
   const { id } = useContext(MyContext);
 
-  
+  // const [setUserId] = useState();
+
   const handleClickCrear = async () => {
-    await createTask({ title, description, category, location, date, hours });
+    await createTask({
+      title,
+      description,
+      category,
+      location,
+      date,
+      hours,
+      user: { id },
+    });
     alert("Has creado una oferta");
   };
 
-  useEffect(() => {
-    getUser().then((res) => {
-      console.log(res.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getUser().then((res) => {
+  //     console.log(res.data.id);
+  //     setUserId(res.data.id);
+  //   });
+  // }, []);
 
   return (
     <div>
