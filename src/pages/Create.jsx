@@ -26,6 +26,7 @@ const Create = () => {
 
   const { id } = useContext(MyContext);
 
+  
   const handleClickCrear = async () => {
     await createTask({ title, description, category, location, date, hours });
     alert("Has creado una oferta");
@@ -34,7 +35,6 @@ const Create = () => {
   useEffect(() => {
     getUser().then((res) => {
       console.log(res.data);
-      res.data;
     });
   }, []);
 

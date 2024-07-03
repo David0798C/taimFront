@@ -16,8 +16,7 @@ import { MyContext } from "../MyContext.js";
 const Login = () => {
   const [nombre, setNombre] = useState();
   const [password, setPassword] = useState();
-  const { setLogged } = useContext(MyContext);
-  const { setId } = useContext(MyContext);
+  const { setLogged, setId } = useContext(MyContext);
 
   const loginUsuario = () => {
     loginUser(nombre, password).then((res) => {
