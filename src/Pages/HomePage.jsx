@@ -33,11 +33,7 @@ const HomePage = () => {
   
   return (
     <>
-      <Background />
-      <Container onMouseEnter={handleMouseEnter}>
-        <Gif src={isHovered ? gifAnimado : gifEstatico} alt="Mi GIF" />
-        <H1>T  A  I  M</H1>
-        {!logged &&
+      <Background />        {!logged &&
           <ButtonContainer>
             <Button>
               <Enlace to="/login">Inicio Sesión</Enlace>
@@ -47,12 +43,16 @@ const HomePage = () => {
             </Button>
           </ButtonContainer>
         }
+      <Container onMouseEnter={handleMouseEnter}>
+        <Gif src={isHovered ? gifAnimado : gifEstatico} alt="Mi GIF" />
+        <H1>T  A  I  M</H1>
+
 
         <DescriptionContainer>
           <Description>
             <h1>¿Qué es TAIM?</h1>
             <p>
-              Taim es una web de intercambio de servicios en el cual la moneda
+              TAIM, Tiempo Acumulado de Intercamvio Mutuo, <br /> es una web de intercambio de servicios en el cual la moneda
               de cambio es el tiempo. <br /> Somos los poco conocidos Bancos del
               Tiempo.
             </p>
