@@ -9,9 +9,9 @@ import {
   DescriptionContainer,
   Description,
   H1,
-} from "../styledComponents/StyledHomePages";
+} from "../styledComponents/StyledHomePages.js";
 import { useState } from "react";
-import { Gif } from "../styledComponents/StyledHomePages";
+import { Gif } from "../styledComponents/StyledHomePages.js";
 import { useContext } from 'react';
 import { MyContext } from '../MyContext.js';
 

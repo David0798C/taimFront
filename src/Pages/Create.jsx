@@ -6,7 +6,7 @@ import {
   Input,
   InputNumber,
   Button,
-} from "../styledComponents/StyledCreate";
+} from "../stylo/StyledCreate";
 import { createTask } from "../services/task";
 
 const Create = () => {
