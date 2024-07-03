@@ -40,12 +40,12 @@ const Ofertas = () => {
 
               <P>{oferta?.description}</P>
 
+              <P>{oferta?.hours}</P>
+
               <Button>Añadir Oferta</Button>
             </ContainerColumn>
           ))}
         </ContainerRow>
-
-        <ContainerRow></ContainerRow>
       </ContainerOfertas>
     </div>
   );
