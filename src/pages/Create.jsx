@@ -8,6 +8,7 @@ import {
   Button,
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
+import { MyContext } from '../MyContext.js';
 
 const Create = () => {
   const [title, setOfferTitle] = useState();
@@ -18,6 +19,8 @@ const Create = () => {
   const [date, setOfferDate] = useState();
 
   const [hours, setOfferTime] = useState();
+
+  const { id, setId } = useContext(MyContext);
 
   const handleClickCrear = async () => {
     await createTask({ title, description, category, location, date, hours });
