@@ -12,12 +12,14 @@ import { loginUser} from "../services/auth.js";
 import { setAuth } from "../services/api.js";
 import { useContext } from 'react';
 import { MyContext } from '../MyContext.js';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [nombre, setNombre] = useState();
   const [password, setPassword] = useState();
   const { logged, setLogged } = useContext(MyContext);
   const { id, setId } = useContext(MyContext);
+  const navigate = useNavigate();
 
   const loginUsuario = () => {
     loginUser(nombre, password).then((res) => {
@@ -26,7 +28,12 @@ const Login = () => {
         setAuth(nombre, password);
         setId(res.data.id)
         setLogged(true);
-      }
+        navigate("/user");
+      }else {
+          alert("No estas Registrado");
+          navigate("/register");
+          console.error('Error al iniciar sesión:', res.data.resp);
+        }
     });
   };
 
