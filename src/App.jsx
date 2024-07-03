@@ -1,16 +1,14 @@
 import Router from "./Router";
 import { useState, React } from "react";
-import { MyContext } from "./MyContext";
+import UserProvider from "./providers/UserProvider";
 
 function App() {
-  const [logged, setLogged] = useState("");
-  const [id, setId] = useState("");
 
   return (
     <div>
-      <MyContext.Provider value={{ logged, setLogged, id, setId }}>
+      <UserProvider>
         <Router />
-      </MyContext.Provider>
+      </UserProvider>
     </div>
   );
 }

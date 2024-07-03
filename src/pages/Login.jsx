@@ -10,15 +10,13 @@ import {
 import { loginUser } from "../services/auth.js";
 
 import { setAuth } from "../services/api.js";
-import { useContext } from 'react';
-import { MyContext } from '../MyContext.js';
+import { useUserContext } from '../providers/UserProvider.jsx';
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [nombre, setNombre] = useState();
   const [password, setPassword] = useState();
-  const { logged, setLogged } = useContext(MyContext);
-  const { id, setId } = useContext(MyContext);
+  const [setUser] = useUserContext();
   const navigate = useNavigate();
 
   const loginUsuario = () => {
@@ -26,8 +24,7 @@ const Login = () => {
       console.log(res);
       if (res.status == 200) {
         setAuth(nombre, password);
-        setId(res.data.id);
-        setLogged(true);
+        setUser(res.data)
         navigate("/user");
       }else {
           alert("No estas Registrado");

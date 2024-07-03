@@ -8,8 +8,7 @@ import {
   Button,
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
-import { getUser } from "../services/user.js";
-import { MyContext } from "../MyContext.js";
+import { useUserContext } from '../providers/UserProvider';
 
 const Create = () => {
   const [title, setOfferTitle] = useState();
@@ -22,9 +21,10 @@ const Create = () => {
 
   const [date, setOfferDate] = useState();
 
-  const [hours, setOfferTime] = useState();
+  const [hours, setOfferTime] = useState();ç
 
-  const { id } = useContext(MyContext);
+  const [user] = useUserContext();
+
 
   // const [setUserId] = useState();
 
