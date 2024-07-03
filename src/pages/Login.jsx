@@ -5,7 +5,7 @@ import {
   Input,
   Button,
   Enlace,
-} from "../stylo/StyledLogin.js";
+} from "../styledComponents/StyledLogin.js";
 
 import { loginUser} from "../services/auth.js"
 

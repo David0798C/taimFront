@@ -9,7 +9,7 @@ import {
   P,
   Image,
   Button,
-} from ".../styledComponents/StyledOfertes";
+} from "../styledComponents/StyledOfertes.js";
 
 import { getTask } from "../services/task.js";
 
