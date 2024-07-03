@@ -9,6 +9,7 @@ import {
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
 import { getUser } from "../services/user.js";
+import { MyContext } from "../MyContext.js";
 
 const Create = () => {
   const [title, setOfferTitle] = useState();
@@ -23,7 +24,7 @@ const Create = () => {
 
   const [hours, setOfferTime] = useState();
 
-  const [user, setUser] = useState();
+  const { id } = useContext(MyContext);
 
   const handleClickCrear = async () => {
     await createTask({ title, description, category, location, date, hours });
@@ -33,7 +34,7 @@ const Create = () => {
   useEffect(() => {
     getUser().then((res) => {
       console.log(res.data);
-      setUser(res.data);
+      res.data;
     });
   }, []);
 
