@@ -15,11 +15,10 @@ const Register = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [password2, setPassword2] = useState();
-  const [birthday, setBirthday] = useState();
 
   const ConfirmPassword = () => {
     if (password === password2) {
-      insertUser({ name, surname, username, email, password, birthday }).then((res) => {
+      insertUser({ name, surname, username, email, password }).then((res) => {
         console.log(res)
       });
     } else {
@@ -49,12 +48,6 @@ const Register = () => {
             type="text"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
-          />
-
-          <Input
-            type="text"
-            placeholder="Birthday"
-            onChange={(e) => setBirthday(e.target.value)}
           />
 
           <Input
