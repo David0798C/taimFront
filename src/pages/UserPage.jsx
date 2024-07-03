@@ -8,7 +8,7 @@ import {
     ButtonEdit,
 } from "../styledComponents/StyledUserPage";
 import { useEffect, useState } from 'react';
-import { getUser } from "../services/user";
+import { getUser, getUserById } from "../services/user";
 
 const UserProfile = () => {
     const [data, setData] = useState();
