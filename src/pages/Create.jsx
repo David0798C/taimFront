@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ContainerCreate,
   H1,
@@ -8,21 +8,34 @@ import {
   Button,
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
+import { getUser } from "../services/user.js";
 
 const Create = () => {
   const [title, setOfferTitle] = useState();
+
   const [description, setOfferDesc] = useState();
+
   const [category, setOfferCat] = useState();
+
   const [location, setOfferLoc] = useState();
 
   const [date, setOfferDate] = useState();
 
   const [hours, setOfferTime] = useState();
 
+  const [user, setUser] = useState();
+
   const handleClickCrear = async () => {
     await createTask({ title, description, category, location, date, hours });
     alert("Has creado una oferta");
   };
+
+  useEffect(() => {
+    getUser().then((res) => {
+      console.log(res.data);
+      setUser(res.data);
+    });
+  }, []);
 
   return (
     <div>
