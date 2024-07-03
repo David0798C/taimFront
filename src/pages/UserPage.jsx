@@ -17,7 +17,6 @@ const UserProfile = () => {
         getUser().then(res => {
             console.log(res.data);
             setData(res.data);
-            // TODO 
         });
     }, []);
 
@@ -37,7 +36,6 @@ const UserProfile = () => {
                             < h1 className="name" > {data?.name} {data?.surname}</h1>
                             <p>{data?.username}</p>
                             <p>{data?.email}</p>
-                            <p>{data?.birthday}</p>
                             <p>{data?.location}Localidad</p>
                             <p>{data?.description} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti iure pariatur obcaecati vero, voluptas facilis incidunt maiores dolorum rerum.</p>
                             <Button>Seguir</Button>
