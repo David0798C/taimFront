@@ -8,8 +8,7 @@ import {
   Button,
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
-import { getUser } from "../services/user.js";
-import { MyContext } from "../MyContext.js";
+import { useUserContext } from '../providers/UserProvider';
 
 const Create = () => {
   const [title, setOfferTitle] = useState();
@@ -22,10 +21,12 @@ const Create = () => {
 
   const [date, setOfferDate] = useState();
 
-  const [hours, setOfferTime] = useState();
+  const [hours, setOfferTime] = useState();ç
 
-  const { id } = useContext(MyContext);
+  const [user] = useUserContext();
 
+
+  
   const handleClickCrear = async () => {
     await createTask({ title, description, category, location, date, hours });
     alert("Has creado una oferta");
@@ -34,7 +35,6 @@ const Create = () => {
   useEffect(() => {
     getUser().then((res) => {
       console.log(res.data);
-      res.data;
     });
   }, []);
 
