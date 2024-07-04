@@ -8,7 +8,7 @@ import {
   Button,
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
-import { useUserContext } from '../providers/UserProvider';
+import { useUserContext } from "../providers/UserProvider";
 
 const Create = () => {
   const [title, setOfferTitle] = useState();
@@ -21,10 +21,8 @@ const Create = () => {
 
   const [date, setOfferDate] = useState();
 
-  const [hours, setOfferTime] = useState();ç
-
+  const [hours, setOfferTime] = useState();
   const [user] = useUserContext();
-
 
   // const [setUserId] = useState();
 
@@ -36,17 +34,13 @@ const Create = () => {
       location,
       date,
       hours,
-      user: { id },
+      user: {
+        id: user.id,
+      },
     });
+
     alert("Has creado una oferta");
   };
-
-  // useEffect(() => {
-  //   getUser().then((res) => {
-  //     console.log(res.data.id);
-  //     setUserId(res.data.id);
-  //   });
-  // }, []);
 
   return (
     <div>
