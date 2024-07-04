@@ -1,16 +1,14 @@
 import Router from "./Router";
-import { useState, React } from "react";
-import UserProvider from "./providers/UserProvider";
+import UserProvider, { useUserContext } from "./providers/UserProvider";
+import Login from "./pages/Login";
 
 function App() {
+  const [user] = useUserContext();
 
-  return (
-    <div>
-      <UserProvider>
-        <Router />
-      </UserProvider>
-    </div>
-  );
+  console.log('1111111111111', user)
+  return user ? <Router /> : <Login />;
+
 }
 
 export default App;
+
