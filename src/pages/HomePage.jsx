@@ -9,11 +9,11 @@ import {
   DescriptionContainer,
   Description,
   H1,
-} from "../styledComponents/StyledHomePages";
+} from "../styledComponents/StyledHomePages.js";
 import { useState } from "react";
-import { Gif } from "../styledComponents/StyledHomePages";
-import { useContext } from 'react';
-import { MyContext } from '../MyContext.js';
+import { Gif } from "../styledComponents/StyledHomePages.js";
+import { useContext } from "react";
+import { MyContext } from "../MyContext.js";
 
 const HomePage = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -30,31 +30,31 @@ const HomePage = () => {
       }, 2500); // La duración del GIF en milisegundos
     }
   };
-  
+
   return (
     <>
-      <Background />
+      <Background />{" "}
+      {!logged && (
+        <ButtonContainer>
+          <Button>
+            <Enlace to="/login">Inicio Sesión</Enlace>
+          </Button>
+          <Button>
+            <Enlace to="/register">Registrarse</Enlace>
+          </Button>
+        </ButtonContainer>
+      )}
       <Container onMouseEnter={handleMouseEnter}>
         <Gif src={isHovered ? gifAnimado : gifEstatico} alt="Mi GIF" />
-        <H1>T  A  I  M</H1>
-        {!logged &&
-          <ButtonContainer>
-            <Button>
-              <Enlace to="/login">Inicio Sesión</Enlace>
-            </Button>
-            <Button>
-              <Enlace to="/register">Registrarse</Enlace>
-            </Button>
-          </ButtonContainer>
-        }
+        <H1>T A I M</H1>
 
         <DescriptionContainer>
           <Description>
             <h1>¿Qué es TAIM?</h1>
             <p>
-              Taim es una web de intercambio de servicios en el cual la moneda
-              de cambio es el tiempo. <br /> Somos los poco conocidos Bancos del
-              Tiempo.
+              TAIM, Tiempo Acumulado de Intercamvio Mutuo, <br /> es una web de
+              intercambio de servicios en el cual la moneda de cambio es el
+              tiempo. <br /> Somos los poco conocidos Bancos del Tiempo.
             </p>
           </Description>
           <Description>
@@ -83,6 +83,5 @@ const HomePage = () => {
     </>
   );
 };
-
 
 export default HomePage;
