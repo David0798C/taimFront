@@ -15,20 +15,19 @@ const UserProfile = () => {
     return (
         <>
             <Background />
-            <Container key={user.id}>
+            <Container key={user?.id}>
                 <CardContainer>
                     <a href="#"><RiEdit2Fill className="edit" size={25} /></a>
                     <img
-                        src="https://placehold.co/300?text=User"
-                        alt="User Profile"
+                        src={user?.profilePic}
                         className="profile-image"
                     />
                     <div>
                         <h2 className="name" > {user?.name} {user?.surname}</h2>
                         <h4 className="username">@{user?.username}</h4>
                         <p className="email">{user?.email}</p>
-                        <p>{user?.location}Localidad</p>
-                        <p>{user?.description} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti iure pariatur obcaecati vero, voluptas facilis incidunt maiores dolorum rerum.</p>
+                        <p>{user?.location}</p>
+                        <p>{user?.description}</p>
                         <Button>Seguir</Button>
                     </div>
 
@@ -36,25 +35,14 @@ const UserProfile = () => {
                 <SkillsContainer>
                     <h1>Habilidades</h1>
                     <ul>
-                        <li>JavaScript</li>
-                        <li>React</li>
-                        <li>Node.js</li>
+                        <li>{user?.skills}</li>
                     </ul>
                 </SkillsContainer>
                 <InterestContainer>
-                    <h1>Lo que ofrezco</h1>
+                    <h1>Intereses</h1>
                     <br />
                     <ul>
-                        <li>Matemáticas</li>
-                        <li>Química</li>
-                    </ul>
-                </InterestContainer>
-                <InterestContainer>
-                    <h1>Lo que busco</h1>
-                    <br />
-                    <ul>
-                        <li>Latín</li>
-                        <li>Historia del Arte</li>
+                        <li>{user?.interests}</li>
                     </ul>
                 </InterestContainer>
             </Container >
