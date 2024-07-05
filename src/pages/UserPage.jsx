@@ -5,69 +5,59 @@ import {
     InterestContainer,
     Background,
     SkillsContainer,
-    ButtonEdit,
 } from "../styledComponents/StyledUserPage";
-import { useEffect, useState } from 'react';
-import { getUser, getUserById } from "../services/user";
+import { RiEdit2Fill } from "react-icons/ri";
+import { useUserContext } from "../providers/UserProvider";
 
 const UserProfile = () => {
-    const [data, setData] = useState();
-
-    useEffect(() => {
-        getUser().then(res => {
-            console.log(res.data);
-            setData(res.data);
-        });
-    }, []);
+    const [user] = useUserContext();
 
     return (
         <>
             <Background />
-            {data?.map((data) => (
-                <Container key={data.id}>
-                    <CardContainer>
-                        <ButtonEdit>Editar</ButtonEdit>
-                        <img
-                            src="https://placehold.co/300?text=User"
-                            alt="User Profile"
-                            className="profile-image"
-                        />
-                        <div>
-                            < h1 className="name" > {data?.name} {data?.surname}</h1>
-                            <p>{data?.username}</p>
-                            <p>{data?.email}</p>
-                            <p>{data?.location}Localidad</p>
-                            <p>{data?.description} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti iure pariatur obcaecati vero, voluptas facilis incidunt maiores dolorum rerum.</p>
-                            <Button>Seguir</Button>
-                        </div>
+            <Container key={user.id}>
+                <CardContainer>
+                    <a href="#"><RiEdit2Fill className="edit" size={25} /></a>
+                    <img
+                        src="https://placehold.co/300?text=User"
+                        alt="User Profile"
+                        className="profile-image"
+                    />
+                    <div>
+                        <h2 className="name" > {user?.name} {user?.surname}</h2>
+                        <h4 className="username">@{user?.username}</h4>
+                        <p className="email">{user?.email}</p>
+                        <p>{user?.location}Localidad</p>
+                        <p>{user?.description} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti iure pariatur obcaecati vero, voluptas facilis incidunt maiores dolorum rerum.</p>
+                        <Button>Seguir</Button>
+                    </div>
 
-                    </CardContainer>
-                    <SkillsContainer>
-                        <h1>Habilidades</h1>
-                        <ul>
-                            <li>JavaScript</li>
-                            <li>React</li>
-                            <li>Node.js</li>
-                        </ul>
-                    </SkillsContainer>
-                    <InterestContainer>
-                        <h1>Lo que ofrezco</h1>
-                        <br />
-                        <ul>
-                            <li>Matemáticas</li>
-                            <li>Química</li>
-                        </ul>
-                    </InterestContainer>
-                    <InterestContainer>
-                        <h1>Lo que busco</h1>
-                        <br />
-                        <ul>
-                            <li>Latín</li>
-                            <li>Historia del Arte</li>
-                        </ul>
-                    </InterestContainer>
-                </Container >
-            ))}
+                </CardContainer>
+                <SkillsContainer>
+                    <h1>Habilidades</h1>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                    </ul>
+                </SkillsContainer>
+                <InterestContainer>
+                    <h1>Lo que ofrezco</h1>
+                    <br />
+                    <ul>
+                        <li>Matemáticas</li>
+                        <li>Química</li>
+                    </ul>
+                </InterestContainer>
+                <InterestContainer>
+                    <h1>Lo que busco</h1>
+                    <br />
+                    <ul>
+                        <li>Latín</li>
+                        <li>Historia del Arte</li>
+                    </ul>
+                </InterestContainer>
+            </Container >
         </>
     );
 };
