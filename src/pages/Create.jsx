@@ -21,7 +21,7 @@ const Create = () => {
 
   const [date, setOfferDate] = useState();
 
-  const [hours, setOfferTime] = useState();ç
+  const [hours, setOfferTime] = useState();
 
   const [user] = useUserContext();
 
