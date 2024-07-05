@@ -1,7 +1,7 @@
 import Router from "./Router";
 import RouterUL from "./RouterUL";
 import { React } from "react";
-import useUserContext from "./providers/UserProvider";
+import {useUserContext} from "./providers/UserProvider";
 
 function App() {
 
