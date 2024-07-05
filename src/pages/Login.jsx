@@ -17,7 +17,7 @@ const Login = () => {
   const [nombre, setNombre] = useState();
   const [password, setPassword] = useState();
   const [,setUser] = useUserContext();
-  const navigate = useNavigate();
+//  const navigate = useNavigate();
 
   const loginUsuario = () => {
     loginUser(nombre, password).then((res) => {
@@ -25,10 +25,10 @@ const Login = () => {
       if (res.status == 200) {
         setAuth(nombre, password);
         setUser(res.data)
-        navigate("/user");
+//        navigate("/user");
       }else {
           alert("No estas Registrado");
-          navigate("/register");
+//          navigate("/register");
           console.error('Error al iniciar sesión:', res.data.resp);
         }
     });

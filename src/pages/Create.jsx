@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   ContainerCreate,
   H1,
@@ -22,11 +22,13 @@ const Create = () => {
   const [date, setOfferDate] = useState();
 
   const [hours, setOfferTime] = useState();
+
   const [user] = useUserContext();
 
   // const [setUserId] = useState();
 
   const handleClickCrear = async () => {
+    console.log(user);
     await createTask({
       title,
       description,
