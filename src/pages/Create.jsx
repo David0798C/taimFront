@@ -8,19 +8,39 @@ import {
   Button,
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
+import { useUserContext } from "../providers/UserProvider";
 
 const Create = () => {
   const [title, setOfferTitle] = useState();
+
   const [description, setOfferDesc] = useState();
+
   const [category, setOfferCat] = useState();
+
   const [location, setOfferLoc] = useState();
 
   const [date, setOfferDate] = useState();
 
   const [hours, setOfferTime] = useState();
 
+  const [user] = useUserContext();
+
+  // const [setUserId] = useState();
+
   const handleClickCrear = async () => {
-    await createTask({ title, description, category, location, date, hours });
+    console.log(user);
+    await createTask({
+      title,
+      description,
+      category,
+      location,
+      date,
+      hours,
+      user: {
+        id: user.id,
+      },
+    });
+
     alert("Has creado una oferta");
   };
 
