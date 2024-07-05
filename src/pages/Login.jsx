@@ -8,8 +8,6 @@ import {
 } from "../styledComponents/StyledLogin.js";
 
 import { loginUser } from "../services/auth.js";
-
-import { setAuth } from "../services/api.js";
 import { useUserContext } from '../providers/UserProvider.jsx';
 import { useNavigate } from "react-router-dom";
 
@@ -23,7 +21,6 @@ const Login = () => {
     loginUser(nombre, password).then((res) => {
       console.log(res);
       if (res.status == 200) {
-        setAuth(nombre, password);
         setUser(res.data)
 //        navigate("/user");
       }else {

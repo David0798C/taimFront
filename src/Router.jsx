@@ -6,6 +6,7 @@ import UserPage from "./pages/UserPage";
 import Create from "./pages/Create";
 import Register from "./pages/Register";
 import Ofertas from "./pages/Ofertas";
+import PrivateRoute from "./PrivateRoute"
 
 const Router = () => (
   <BrowserRouter>
@@ -13,10 +14,10 @@ const Router = () => (
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/user" element={<UserPage />} />
-        <Route path="/create" element={<Create />} />
+        <Route path="/user" element={<PrivateRoute component={UserPage} />} />
+        <Route path="/create" element={<PrivateRoute component={Create} />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/ofertas" element={<Ofertas />} />
+        <Route path="/ofertas" element={<PrivateRoute component={Ofertas} />} />
       </Routes>
     </Layout>
   </BrowserRouter>
