@@ -5,6 +5,7 @@ import {
   Input,
   Button,
   Enlace,
+  Parrafo,
 } from "../styledComponents/StyledLogin.js";
 
 import { loginUser } from "../services/auth.js";
@@ -15,19 +16,21 @@ const Login = () => {
   const [nombre, setNombre] = useState();
   const [password, setPassword] = useState();
   const [,setUser] = useUserContext();
-//  const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
 
   const loginUsuario = () => {
     loginUser(nombre, password).then((res) => {
       console.log(res);
       if (res.status == 200) {
-        setUser(res.data)
-//        navigate("/user");
-      }else {
-          alert("No estas Registrado");
-//          navigate("/register");
-          console.error('Error al iniciar sesión:', res.data.resp);
-        }
+        setUser(res.data);
+        navigate("/user");
+      } else {
+        alert('Algo ha salido mal');
+      }
+    }).catch((err) => {
+      setErrorMessage("Usuario y/o contraseña incorrectos.");
+      console.error('Error al iniciar sesión:', err);
     });
   };
 
@@ -47,6 +50,7 @@ const Login = () => {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
+          <Parrafo>{errorMessage}</Parrafo>
           <Button onClick={loginUsuario}>
             <Enlace to="">Login</Enlace>
           </Button>

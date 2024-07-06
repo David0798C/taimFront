@@ -73,3 +73,8 @@ export const Enlace = styled(Link)`
   color: black;
   display: block;
 `;
+export const Parrafo = styled.p`
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+`;

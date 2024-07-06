@@ -20,6 +20,7 @@ const Register = () => {
     if (password === password2) {
       insertUser({ name, surname, username, email, password }).then((res) => {
         console.log(res)
+        alert("Usuario registrado correctamente");
       });
     } else {
       alert("Las contraseñas no coinciden");
