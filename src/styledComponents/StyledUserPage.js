@@ -1,11 +1,24 @@
 import styled from 'styled-components';
 import BackgroundImage from '../pic/fondo2.jpg';
+import {createGlobalStyle} from 'styled-components';
+import font from '../fonts/aukim/AukimLight.otf';
 
+export const GlobalStyle = createGlobalStyle`
+	body {
+        font-family: myFont;
+        font-size: 1.5rem;
+	}
+    @font-face {
+        font-family: myFont;
+        src: url(${font});
+    }
+`;
 export const Container = styled.div`
   min-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 100px;
 `;
 export const Background = styled.div`
     position: fixed;
@@ -120,3 +133,10 @@ export const Gif = styled.img`
   align-items: end;
   transition: 0.5s;
 `;
+
+export const LogoutButtonContainer = styled.div`
+  position: absolute;
+  top: 250px;
+  right: 20px;
+`;
+

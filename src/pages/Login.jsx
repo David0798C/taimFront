@@ -11,6 +11,7 @@ import {
 import { loginUser } from "../services/auth.js";
 import { useUserContext } from '../providers/UserProvider.jsx';
 import { useNavigate } from "react-router-dom";
+import {GlobalStyle} from '../styledComponents/StyledRegister';
 
 const Login = () => {
   const [nombre, setNombre] = useState();
@@ -36,6 +37,7 @@ const Login = () => {
 
   return (
     <div>
+      <GlobalStyle />
       <LoginContainer>
         <h1>Login</h1>
 

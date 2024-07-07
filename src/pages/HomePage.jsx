@@ -1,5 +1,3 @@
-import gifAnimado from "../pic/gitAnimado.gif";
-import gifEstatico from "../pic/gitEstatico.png";
 import {
   Enlace,
   Button,
@@ -9,32 +7,27 @@ import {
   DescriptionContainer,
   Description,
   H1,
+  GlobalStyle,
 } from "../styledComponents/StyledHomePages.js";
-import { useState } from "react";
-import { Gif } from "../styledComponents/StyledHomePages.js";
+
 import { useContext } from "react";
 import { MyContext } from "../MyContext.js";
+import 'animate.css';
 
 const HomePage = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+
   const { logged, setLogged } = useContext(MyContext);
 
-  const handleMouseEnter = () => {
-    if (!isAnimating) {
-      setIsHovered(true);
-      setIsAnimating(true);
-      setTimeout(() => {
-        setIsHovered(false);
-        setIsAnimating(false);
-      }, 2500); // La duración del GIF en milisegundos
-    }
-  };
 
   return (
     <>
-      <Background />{" "}
+      <GlobalStyle />
+      <Background />
+      <H1 className="animate__animated animate__slideInLeft">T A I M</H1>
+
+      {" "}
       {!logged && (
+        
         <ButtonContainer>
           <Button>
             <Enlace to="/login">Inicio Sesión</Enlace>
@@ -44,9 +37,8 @@ const HomePage = () => {
           </Button>
         </ButtonContainer>
       )}
-      <Container onMouseEnter={handleMouseEnter}>
-        <Gif src={isHovered ? gifAnimado : gifEstatico} alt="Mi GIF" />
-        <H1>T A I M</H1>
+      <Container>
+
 
         <DescriptionContainer>
           <Description>

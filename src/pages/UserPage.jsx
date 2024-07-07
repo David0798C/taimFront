@@ -5,16 +5,22 @@ import {
     InterestContainer,
     Background,
     SkillsContainer,
+    LogoutButtonContainer
 } from "../styledComponents/StyledUserPage";
 import { RiEdit2Fill } from "react-icons/ri";
 import { useUserContext } from "../providers/UserProvider";
+import {GlobalStyle} from '../styledComponents/StyledRegister';
 
 const UserProfile = () => {
-    const [user] = useUserContext();
+    const [user, , logout] = useUserContext();
 
     return (
         <>
+        <GlobalStyle />
             <Background />
+            <LogoutButtonContainer>
+                <Button onClick={logout}>Cerrar Sesión</Button>
+            </LogoutButtonContainer>
             <Container key={user?.id}>
                 <CardContainer>
                     <a href="#"><RiEdit2Fill className="edit" size={25} /></a>
@@ -30,7 +36,6 @@ const UserProfile = () => {
                         <p>{user?.description}</p>
                         <Button>Seguir</Button>
                     </div>
-
                 </CardContainer>
                 <SkillsContainer>
                     <h1>Habilidades</h1>

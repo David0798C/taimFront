@@ -1,28 +1,59 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import homeIcon from '../pic/logoLayout.png';
 import { BsStar } from "react-icons/bs";
+import gifAnimado from '../pic/gitAnimado.gif';
+import gifEstatico from '../pic/gitEstatico.png';
+import {createGlobalStyle} from 'styled-components';
+import font from '../fonts/aukim/AukimLight.otf';
 
-// Estilos para la navegación
-const Nav = styled.nav`
-  background-color: #fff;
-  opacity: 0.8;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+export const GlobalStyle = createGlobalStyle`
+	body {
+        font-family: myFont;
+        font-size: 1.5rem;
+	}
+    @font-face {
+        font-family: myFont;
+        src: url(${font});
+    }
+`;
+
+// Contenedor principal
+const Container = styled.div`
+  display: flex;
+  width: 100%;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
   z-index: 1000;
+`;
+
+// Estilos para NavIcon
+const NavIcon = styled.div`
+  background-color: #fff;
+  opacity: 0.8;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 50%;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 0 10px;
 `;
 
+// Estilos para Nav
+const Nav = styled.nav`
+  background-color: #fff;
+  opacity: 0.8;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 10px;
+`;
+
+// Estilos para la imagen del icono
 const Img = styled.img`
-  width: 10%;
+  width: 30%;
   height: auto;
   cursor: pointer;
   padding-left: 50px;
@@ -85,7 +116,7 @@ const HamburgerIcon = styled.div`
 
   @media (max-width: 768px) {
     display: flex;
-    margin-left: 10px; /* Ajusta el margen para empujar el icono más hacia la izquierda */
+    margin-left: 10px;
   }
 
   svg {
@@ -131,26 +162,41 @@ const Content = styled.div`
 
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleMouseEnter = () => {
+    if (!isAnimating) {
+      setIsHovered(true);
+      setIsAnimating(true);
+      setTimeout(() => {
+        setIsHovered(false);
+        setIsAnimating(false);
+      }, 2000);
+    }
+  };
+
   return (
     <LayoutContainer>
-      <Nav>
-        <Link to="/"><Img src={homeIcon} alt="Home" /></Link>
-        <HamburgerIcon onClick={toggleMenu}>
-          <BsStar />
-        </HamburgerIcon>
-        <Ul open={isOpen}>
-          <Li><Link to="/ofertas">Ofertas</Link></Li>
-          <Li><Link to="/user">User</Link></Li>
-          <Li><Link to="/create">Create</Link></Li>
-          <Li><Link to="/register">Registrarse</Link></Li>
-          <Li><Link to="/login">Login</Link></Li>
-        </Ul>
-      </Nav>
+      <Container>
+        <NavIcon onMouseEnter={handleMouseEnter}>
+          <Link to="/"><Img src={isHovered ? gifAnimado : gifEstatico} alt="Home" /></Link>
+        </NavIcon>
+        <Nav>
+          <HamburgerIcon onClick={toggleMenu}>
+            <BsStar />
+          </HamburgerIcon>
+          <Ul open={isOpen}>
+            <Li><Link to="/ofertas">Ofertas</Link></Li>
+            <Li><Link to="/create">Create</Link></Li>
+            <Li><Link to="/user">User</Link></Li>
+          </Ul>
+        </Nav>
+      </Container>
       <Content>
         {children}
       </Content>
@@ -159,3 +205,4 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+

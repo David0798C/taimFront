@@ -7,6 +7,7 @@ import {
 } from "../styledComponents/StyledRegister.js";
 
 import { insertUser } from "../services/auth.js";
+import {GlobalStyle} from '../styledComponents/StyledRegister';
 
 const Register = () => {
   const [name, setName] = useState();
@@ -29,6 +30,7 @@ const Register = () => {
 
   return (
     <div>
+      <GlobalStyle />
       <RegisterContainer>
         <h1>Register</h1>
 

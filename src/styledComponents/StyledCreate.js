@@ -1,4 +1,17 @@
 import styled from "styled-components";
+import {createGlobalStyle} from 'styled-components';
+import font from '../fonts/aukim/AukimLight.otf';
+
+export const GlobalStyle = createGlobalStyle`
+	body {
+        font-family: myFont;
+        font-size: 1.5rem;
+	}
+    @font-face {
+        font-family: myFont;
+        src: url(${font});
+    }
+`;
 
 export const ContainerCreate = styled.div`
   width: 100%;

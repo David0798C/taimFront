@@ -1,7 +1,21 @@
 // HomePageStyles.js
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import BackgroundImage from '../pic/fondo2.jpg'
+import BackgroundImage from '../pic/fondo4.jpg'
+import { createGlobalStyle } from 'styled-components';
+import font from '../fonts/aukim/AukimLight.otf'
+
+
+export const GlobalStyle = createGlobalStyle`
+	body {
+        font-family: myFont;
+        font-size: 1.5rem;
+	}
+    @font-face {
+        font-family: myFont;
+        src: url(${font});
+    }
+`;
 
 export const Enlace = styled(Link)`
     text-decoration: none;
@@ -73,7 +87,7 @@ export const Description = styled.div`
 `;
 
 export const Gif = styled.img`
-    width: 120%;
+    width: 100%;
     height: auto;
     display: block;
     text-align: center;
@@ -82,7 +96,16 @@ export const Gif = styled.img`
 `;
 
 export const H1 = styled.h1`
-    margin-top: 0px;
-    font-size: 10rem;
-    font-family:Arial, Helvetica, sans-serif;
-`;
+padding-bottom: 0;
+    display: flex;
+    font-size: 12rem;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: baseline;
+
+    .animate__animated {
+        animation-delay: 0.2s;
+        animation-duration: 10s;
+    }
+    `;
