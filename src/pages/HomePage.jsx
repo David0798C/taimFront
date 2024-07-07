@@ -31,23 +31,24 @@ const HomePage = () => {
       <GlobalStyle />
       <H1 className="animate__animated animate__slideInLeft">T A I M</H1>
 
+      {" "}
       {!logged && (
+        
         <ButtonContainer>
           <Button>
-            <Enlace href="/login">Inicio Sesión</Enlace>
+            <Enlace to="/login">Inicio Sesión</Enlace>
           </Button>
           <Button>
-            <Enlace href="/register">Registrarse</Enlace>
+            <Enlace to="/register">Registrarse</Enlace>
           </Button>
         </ButtonContainer>
       )}
-
       <Container>
         <DescriptionContainer>
           <Description data-aos="fade-up">
             <h1>¿Qué es TAIM?</h1>
             <p>
-              TAIM, Tiempo Acumulado de Intercambio Mutuo, <br /> es una web de
+              TAIM, Tiempo Acumulado de Intercamvio Mutuo, <br /> es una web de
               intercambio de servicios en el cual la moneda de cambio es el
               tiempo. <br /> Somos los poco conocidos Bancos del Tiempo.
             </p>
@@ -66,7 +67,7 @@ const HomePage = () => {
               Luego tendrás que rellenar tu perfil con las habilidades y
               conocimientos que tienes para ofrecer y lo que te gustaría recibir
               a cambio de ellas. <br />A continuación tendrás que añadir lo más
-              valioso: <strong>Tu tiempo</strong>. <br />
+              valioso: <strong>Tu tiempo</strong> . <br />
               Una vez todo esto añadido podrás esperar que alguien quiera hacer
               un trato contigo o <br />
               entrar en la sección de Ofertas y ver qué cosas hay que te
