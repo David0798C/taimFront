@@ -3,13 +3,12 @@ import {
     CardContainer,
     Button,
     InterestContainer,
-    Background,
     SkillsContainer,
     LogoutButtonContainer
 } from "../styledComponents/StyledUserPage";
 import { RiEdit2Fill } from "react-icons/ri";
 import { useUserContext } from "../providers/UserProvider";
-import {GlobalStyle} from '../styledComponents/StyledRegister';
+import {GlobalStyle} from "../styledComponents/StyledHomePages.js";
 
 const UserProfile = () => {
     const [user, , logout] = useUserContext();
@@ -17,7 +16,6 @@ const UserProfile = () => {
     return (
         <>
         <GlobalStyle />
-            <Background />
             <LogoutButtonContainer>
                 <Button onClick={logout}>Cerrar Sesión</Button>
             </LogoutButtonContainer>

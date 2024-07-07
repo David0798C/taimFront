@@ -9,7 +9,7 @@ import {
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
 import { useUserContext } from "../providers/UserProvider";
-import {GlobalStyle} from '../styledComponents/StyledRegister';
+import {GlobalStyle} from "../styledComponents/StyledHomePages.js";
 
 const Create = () => {
   const [title, setOfferTitle] = useState();

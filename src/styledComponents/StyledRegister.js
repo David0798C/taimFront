@@ -1,17 +1,5 @@
 import styled from "styled-components";
-import {createGlobalStyle} from 'styled-components';
-import font from '../fonts/aukim/AukimLight.otf';
 
-export const GlobalStyle = createGlobalStyle`
-	body {
-        font-family: myFont;
-        font-size: 1.5rem;
-	}
-    @font-face {
-        font-family: myFont;
-        src: url(${font});
-    }
-`;
 export const RegisterContainer = styled.div`
   max-width: 80%;
   /* background-color: #2bca5a; */
@@ -54,7 +42,7 @@ export const Input = styled.input`
   background-size: 0 2px, 100% 1px;
   padding: 0;
 
-  color: #bfbfbf;
+  color: black;
   min-height: 35px;
   display: initial;
   width: 100%;

@@ -1,18 +1,5 @@
 import styled from 'styled-components';
-import BackgroundImage from '../pic/fondo2.jpg';
-import {createGlobalStyle} from 'styled-components';
-import font from '../fonts/aukim/AukimLight.otf';
 
-export const GlobalStyle = createGlobalStyle`
-	body {
-        font-family: myFont;
-        font-size: 1.5rem;
-	}
-    @font-face {
-        font-family: myFont;
-        src: url(${font});
-    }
-`;
 export const Container = styled.div`
   min-height: 100px;
   display: flex;
@@ -20,19 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   padding-top: 100px;
 `;
-export const Background = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${BackgroundImage});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.3; 
-  z-index: -1; // Asegúrate de que el fondo esté detrás de los otros elementos
-`;
+
 
 export const CardContainer = styled.div`
 background-color: white;

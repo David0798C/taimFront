@@ -3,7 +3,6 @@ import {
   Button,
   Container,
   ButtonContainer,
-  Background,
   DescriptionContainer,
   Description,
   H1,
@@ -22,7 +21,6 @@ const HomePage = () => {
   return (
     <>
       <GlobalStyle />
-      <Background />
       <H1 className="animate__animated animate__slideInLeft">T A I M</H1>
 
       {" "}

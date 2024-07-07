@@ -7,7 +7,7 @@ import {
 } from "../styledComponents/StyledRegister.js";
 
 import { insertUser } from "../services/auth.js";
-import {GlobalStyle} from '../styledComponents/StyledRegister';
+import {GlobalStyle} from "../styledComponents/StyledHomePages.js";
 
 const Register = () => {
   const [name, setName] = useState();

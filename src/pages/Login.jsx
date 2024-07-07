@@ -11,7 +11,7 @@ import {
 import { loginUser } from "../services/auth.js";
 import { useUserContext } from '../providers/UserProvider.jsx';
 import { useNavigate } from "react-router-dom";
-import {GlobalStyle} from '../styledComponents/StyledRegister';
+import {GlobalStyle} from "../styledComponents/StyledHomePages.js";
 
 const Login = () => {
   const [nombre, setNombre] = useState();

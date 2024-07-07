@@ -12,7 +12,7 @@ import {
 } from "../styledComponents/StyledOfertes.js";
 
 import { getTask } from "../services/task.js";
-import {GlobalStyle} from '../styledComponents/StyledRegister';
+import {GlobalStyle} from "../styledComponents/StyledHomePages.js";
 
 const Ofertas = () => {
   const [Offer, setOffer] = useState([]);

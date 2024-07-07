@@ -7,13 +7,35 @@ import font from '../fonts/aukim/AukimLight.otf'
 
 
 export const GlobalStyle = createGlobalStyle`
-	body {
+    body {
         font-family: myFont;
         font-size: 1.5rem;
-	}
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+    }
+
     @font-face {
         font-family: myFont;
         src: url(${font});
+        color: black;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(${BackgroundImage});
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        z-index: -1;
     }
 `;
 
@@ -56,19 +78,6 @@ export const ButtonContainer = styled.div`
     width: 100%;
 `;
 
-export const Background = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${BackgroundImage});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.6; 
-  z-index: -1; // Asegúrate de que el fondo esté detrás de los otros elementos
-`;
 
 export const DescriptionContainer = styled.div`
 
