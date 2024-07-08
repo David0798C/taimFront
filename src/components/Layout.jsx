@@ -102,7 +102,7 @@ const Li = styled.li`
     border: 2px solid white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: transparent;
-    padding-left: 10px;
+    margin-left: 40px;
 
     &:hover {
         transition: 0.2s;
