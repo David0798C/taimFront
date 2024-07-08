@@ -9,7 +9,7 @@ import {
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
 import { useUserContext } from "../providers/UserProvider";
-import {GlobalStyle} from "../styledComponents/StyledHomePages.js";
+import { GlobalStyle } from "../styledComponents/StyledHomePages.js";
 
 const Create = () => {
   const [title, setOfferTitle] = useState();
@@ -83,8 +83,8 @@ const Create = () => {
             placeholder="Horas de la oferta"
             onChange={(e) => setOfferTime(e.target.value)}
           ></InputNumber>
+          <Button onClick={handleClickCrear}>Crear Oferta</Button>
         </ContainerInput>
-        <Button onClick={handleClickCrear}>Crear Oferta</Button>
       </ContainerCreate>
     </div>
   );

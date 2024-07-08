@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-
 export const ContainerCreate = styled.div`
   width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 350px;
+  padding: 20px;
 `;
 
 export const H1 = styled.h1`
@@ -15,14 +14,19 @@ export const H1 = styled.h1`
 `;
 
 export const ContainerInput = styled.div`
-  width: 70%;
+  width: 40%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fcfdfcd2;
+  border-radius: 5px;
+
+  padding: 20px;
 `;
 
 export const Input = styled.input`
+  padding: 5px;
   margin: auto;
   margin-top: 20px;
   background-image: linear-gradient(#64e320, #64e320),
@@ -35,7 +39,7 @@ export const Input = styled.input`
   background-repeat: no-repeat;
   background-size: 0 2px, 100% 1px;
   background-color: transparent;
-  padding: 0;
+
   color: #bfbfbf;
   min-height: 35px;
   width: 50%;
@@ -55,6 +59,7 @@ export const InputNumber = styled.input`
   padding: 0.8em 0.9em;
   border-radius: 2em;
   color: #000000;
+  background-color: transparent;
 `;
 
 export const Button = styled.button`

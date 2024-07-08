@@ -12,7 +12,7 @@ import {
 } from "../styledComponents/StyledOfertes.js";
 
 import { getTask } from "../services/task.js";
-import {GlobalStyle} from "../styledComponents/StyledHomePages.js";
+import { GlobalStyle } from "../styledComponents/StyledHomePages.js";
 
 const Ofertas = () => {
   const [Offer, setOffer] = useState([]);
@@ -33,16 +33,16 @@ const Ofertas = () => {
         <ContainerRow>
           {Offer?.map((oferta) => (
             <ContainerColumn key={oferta.id}>
-              <H3>{oferta.title}</H3>
+              <H3>{oferta?.title}</H3>
 
               <H4>
-                {oferta?.name} {oferta?.surname}
+                {oferta?.user.name} {oferta?.user.surname}
               </H4>
               <Image></Image>
 
-              <P>{oferta.description}</P>
+              <P>{oferta?.description}</P>
 
-              <P>{oferta.hours}</P>
+              <P>{oferta?.hours}</P>
 
               <Button>Añadir Oferta</Button>
             </ContainerColumn>
