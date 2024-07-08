@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import font from '../fonts/aukim/AukimLight.otf';
+import font from "../fonts/aukim/AukimLight.otf";
 
 export const ContainerCreate = styled.div`
   width: 100%;
@@ -47,12 +47,12 @@ export const Input = styled.input`
   outline: none;
   font-size: 15px;
   font-family: myFont;
-  
+
   @font-face {
-        font-family: myFont;
-        src: url(${font});
-        color: black;
-    }
+    font-family: myFont;
+    src: url(${font});
+    color: black;
+  }
   &:focus {
     background-size: 100% 2px, 100% 1px;
     outline: 0 none;
@@ -69,12 +69,12 @@ export const InputNumber = styled.input`
   color: #000000;
   background-color: transparent;
   font-family: myFont;
-  
+
   @font-face {
-        font-family: myFont;
-        src: url(${font});
-        color: black;
-    }
+    font-family: myFont;
+    src: url(${font});
+    color: black;
+  }
 `;
 
 export const Button = styled.button`
@@ -88,12 +88,12 @@ export const Button = styled.button`
   color: black;
   display: block;
   font-family: myFont;
-  
+
   @font-face {
-        font-family: myFont;
-        src: url(${font});
-        color: black;
-    }
+    font-family: myFont;
+    src: url(${font});
+    color: black;
+  }
 
   &:hover {
     transition: 0.2s;
