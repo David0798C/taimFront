@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const CardContainer = styled.div`
 background-color: white;
-  max-width: 24rem;
+  max-width: 34rem;
   padding: 1.5rem;
   margin-bottom:1rem;
   border-radius: 0.5rem;
@@ -118,8 +118,8 @@ export const Gif = styled.img`
 `;
 
 export const LogoutButtonContainer = styled.div`
-  position: absolute;
-  top: 250px;
+  position: fixed;
+  bottom: 20px;
   right: 20px;
 `;
 
