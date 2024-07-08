@@ -1,27 +1,40 @@
 import styled from "styled-components";
 
 export const ContainerOfertas = styled.div`
-  width: 100%;
+  max-width: 100%;
   margin: auto;
+  padding: 0px;
 `;
 
 export const ContainerRow = styled.div`
-  padding: 20px;
+  padding: 10px;
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 50px;
-  border-radius: 5px;
-  background-color: red;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const ContainerColumn = styled.div`
   padding: 20px;
-  background-color: #ffffff;
+  background-color: white;
   margin: 10px;
-  box-shadow: 10px 5px 10px#d9d9d9;
-  border-left: 1px solid #22df22;
-  border-top: 1px solid #22df22;
+  box-shadow: 8px 5px 10px #d1d1d1;
+  border-left: 2px solid #22df22;
+  border-top: 2px solid #22df22;
+  border-left-style: dashed;
+  border-top-style: dashed;
   border-radius: 5px;
+
+  @media (max-width: 800px) {
+    display: block;
+  }
 `;
 
 //IMAGENES, BOTONES Y INPUTS-----------------------
@@ -64,8 +77,5 @@ export const H4 = styled.h4`
 `;
 
 export const P = styled.p`
-  text-align: left;
-  background-color: #f4f4f4;
-  padding: 10px;
-  border-radius: 5px;
+  text-align: center;
 `;
