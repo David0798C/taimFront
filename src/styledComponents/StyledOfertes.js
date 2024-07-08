@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-//DIV Y CONTAINERS-------------
-
 export const ContainerOfertas = styled.div`
   max-width: 100%;
   margin: auto;

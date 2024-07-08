@@ -12,6 +12,7 @@ import {
 } from "../styledComponents/StyledOfertes.js";
 
 import { getTask } from "../services/task.js";
+import {GlobalStyle} from "../styledComponents/StyledHomePages.js";
 
 const Ofertas = () => {
   const [Offer, setOffer] = useState([]);
@@ -25,6 +26,7 @@ const Ofertas = () => {
 
   return (
     <div>
+      <GlobalStyle />
       <ContainerOfertas>
         <H1>Ofertas</H1>
 

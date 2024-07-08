@@ -8,18 +8,22 @@ const UserProvider = ({ children }) => {
 
     useEffect(() => {
         if (user) {
-          localStorage.setItem("user", JSON.stringify(user));
-          //setAuth(user.username, user.password); Más abajo tienes la definición de este método
+            localStorage.setItem("user", JSON.stringify(user));
         } else {
-          const userAux = JSON.parse(localStorage.getItem("user"));
-          if (userAux) {
-            setUser(userAux);
-          }
+            const userAux = JSON.parse(localStorage.getItem("user"));
+            if (userAux) {
+                setUser(userAux);
+            }
         }
-      }, [user]);
+    }, [user]);
+
+    const logout = () => {
+        setUser(null);
+        localStorage.removeItem("user");
+    };
 
     return (
-        <AppContext.Provider value={[user, setUser]}>
+        <AppContext.Provider value={[user, setUser, logout]}>
             {children}
         </AppContext.Provider>
     );

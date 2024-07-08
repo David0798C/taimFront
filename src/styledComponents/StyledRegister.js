@@ -42,7 +42,7 @@ export const Input = styled.input`
   background-size: 0 2px, 100% 1px;
   padding: 0;
 
-  color: #bfbfbf;
+  color: black;
   min-height: 35px;
   display: initial;
   width: 100%;

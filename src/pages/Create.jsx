@@ -9,6 +9,7 @@ import {
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
 import { useUserContext } from "../providers/UserProvider";
+import {GlobalStyle} from "../styledComponents/StyledHomePages.js";
 
 const Create = () => {
   const [title, setOfferTitle] = useState();
@@ -46,6 +47,7 @@ const Create = () => {
 
   return (
     <div>
+      <GlobalStyle />
       <ContainerCreate>
         <H1>Crear Oferta</H1>
 

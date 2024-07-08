@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+
 export const LoginContainer = styled.div`
   max-width: 40%;
   padding-top: 12%;
@@ -72,4 +73,9 @@ export const Enlace = styled(Link)`
   text-decoration: none;
   color: black;
   display: block;
+`;
+export const Parrafo = styled.p`
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
 `;

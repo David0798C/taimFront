@@ -1,40 +1,39 @@
-import gifAnimado from "../pic/gitAnimado.gif";
-import gifEstatico from "../pic/gitEstatico.png";
 import {
   Enlace,
   Button,
   Container,
   ButtonContainer,
-  Background,
   DescriptionContainer,
   Description,
   H1,
+  GlobalStyle,
 } from "../styledComponents/StyledHomePages.js";
-import { useState } from "react";
-import { Gif } from "../styledComponents/StyledHomePages.js";
-import { useContext } from "react";
+
+import { useContext, useEffect } from "react";
 import { MyContext } from "../MyContext.js";
+import 'animate.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Importa los estilos CSS de AOS
 
 const HomePage = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duración de la animación en milisegundos
+      once: true, // La animación ocurre solo una vez
+    });
+  }, []);
+
   const { logged, setLogged } = useContext(MyContext);
 
-  const handleMouseEnter = () => {
-    if (!isAnimating) {
-      setIsHovered(true);
-      setIsAnimating(true);
-      setTimeout(() => {
-        setIsHovered(false);
-        setIsAnimating(false);
-      }, 2500); // La duración del GIF en milisegundos
-    }
-  };
 
   return (
     <>
-      <Background />{" "}
+      <GlobalStyle />
+      <H1 className="animate__animated animate__slideInLeft">T A I M</H1>
+
+      {" "}
       {!logged && (
+        
         <ButtonContainer>
           <Button>
             <Enlace to="/login">Inicio Sesión</Enlace>
@@ -44,12 +43,9 @@ const HomePage = () => {
           </Button>
         </ButtonContainer>
       )}
-      <Container onMouseEnter={handleMouseEnter}>
-        <Gif src={isHovered ? gifAnimado : gifEstatico} alt="Mi GIF" />
-        <H1>T A I M</H1>
-
+      <Container>
         <DescriptionContainer>
-          <Description>
+          <Description data-aos="fade-up">
             <h1>¿Qué es TAIM?</h1>
             <p>
               TAIM, Tiempo Acumulado de Intercamvio Mutuo, <br /> es una web de
@@ -57,14 +53,14 @@ const HomePage = () => {
               tiempo. <br /> Somos los poco conocidos Bancos del Tiempo.
             </p>
           </Description>
-          <Description>
+          <Description data-aos="fade-up">
             <h1>¿Qué ofrecemos?</h1>
             <p>
               En esta web encontrarás a personas que ofrecen sus habilidades y
               conocimientos a cambio de las tuyas.
             </p>
           </Description>
-          <Description>
+          <Description data-aos="fade-up">
             <h1>¿Cómo funciona?</h1>
             <p>
               Lo primero de todo será registrarse en la página. <br />

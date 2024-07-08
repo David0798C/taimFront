@@ -1,7 +1,43 @@
 // HomePageStyles.js
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import BackgroundImage from '../pic/fondo2.jpg'
+import BackgroundImage from '../pic/fondo4.jpg'
+import { createGlobalStyle } from 'styled-components';
+import font from '../fonts/aukim/AukimLight.otf'
+
+
+export const GlobalStyle = createGlobalStyle`
+    body {
+        font-family: myFont;
+        font-size: 1.5rem;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+    }
+
+    @font-face {
+        font-family: myFont;
+        src: url(${font});
+        color: black;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(${BackgroundImage});
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        z-index: -1;
+    }
+`;
 
 export const Enlace = styled(Link)`
     text-decoration: none;
@@ -42,19 +78,6 @@ export const ButtonContainer = styled.div`
     width: 100%;
 `;
 
-export const Background = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${BackgroundImage});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.6; 
-  z-index: -1; // Asegúrate de que el fondo esté detrás de los otros elementos
-`;
 
 export const DescriptionContainer = styled.div`
 
@@ -73,7 +96,7 @@ export const Description = styled.div`
 `;
 
 export const Gif = styled.img`
-    width: 120%;
+    width: 100%;
     height: auto;
     display: block;
     text-align: center;
@@ -82,7 +105,16 @@ export const Gif = styled.img`
 `;
 
 export const H1 = styled.h1`
-    margin-top: 0px;
-    font-size: 10rem;
-    font-family:Arial, Helvetica, sans-serif;
-`;
+padding-bottom: 0;
+    display: flex;
+    font-size: 12rem;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: baseline;
+
+    .animate__animated {
+        animation-delay: 0.2s;
+        animation-duration: 10s;
+    }
+    `;

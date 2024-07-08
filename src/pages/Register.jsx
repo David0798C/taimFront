@@ -7,6 +7,7 @@ import {
 } from "../styledComponents/StyledRegister.js";
 
 import { insertUser } from "../services/auth.js";
+import {GlobalStyle} from "../styledComponents/StyledHomePages.js";
 
 const Register = () => {
   const [name, setName] = useState();
@@ -20,6 +21,7 @@ const Register = () => {
     if (password === password2) {
       insertUser({ name, surname, username, email, password }).then((res) => {
         console.log(res)
+        alert("Usuario registrado correctamente");
       });
     } else {
       alert("Las contraseñas no coinciden");
@@ -28,6 +30,7 @@ const Register = () => {
 
   return (
     <div>
+      <GlobalStyle />
       <RegisterContainer>
         <h1>Register</h1>
 
