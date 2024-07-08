@@ -54,10 +54,10 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   width: 100px;
   border-radius: 5px;
-  padding: 5px;
   background-color: transparent;
   border: 2px solid black;
   color: black;
