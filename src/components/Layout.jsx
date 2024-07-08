@@ -6,15 +6,38 @@ import gifAnimado from '../pic/gitAnimado.gif';
 import gifEstatico from '../pic/gitEstatico.png';
 import {createGlobalStyle} from 'styled-components';
 import font from '../fonts/aukim/AukimLight.otf';
+import BackgroundImage from '../pic/fondo4.jpg';
 
 export const GlobalStyle = createGlobalStyle`
-	body {
+    body {
         font-family: myFont;
         font-size: 1.5rem;
-	}
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+    }
+
     @font-face {
         font-family: myFont;
         src: url(${font});
+        color: black;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(${BackgroundImage});
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        z-index: -1;
     }
 `;
 
@@ -88,6 +111,13 @@ const Li = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: myFont;
+  
+  @font-face {
+        font-family: myFont;
+        src: url(${font});
+        color: black;
+    }
 
   @media (max-width: 768px) {
     margin: 10px 0;
@@ -100,7 +130,6 @@ const Li = styled.li`
     padding: 10px 20px;
     border-radius: 8px;
     border: 2px solid white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: transparent;
     margin-left: 40px;
 
@@ -112,6 +141,7 @@ const Li = styled.li`
       font-size: 14px;
       padding: 8px 16px;
     }
+
   }
 `;
 
@@ -189,7 +219,9 @@ const Layout = ({ children }) => {
   };
 
   return (
+    
     <LayoutContainer>
+      <GlobalStyle />
       <Container>
         <NavIcon onMouseEnter={handleMouseEnter}>
           <Link to="/"><Img src={isHovered ? gifAnimado : gifEstatico} alt="Home" /></Link>
