@@ -12,6 +12,7 @@ import {
 } from "../styledComponents/StyledOfertes.js";
 
 import { getTask } from "../services/task.js";
+import { getUser } from "../services/user.js";
 import { GlobalStyle } from "../styledComponents/StyledHomePages.js";
 
 const Ofertas = () => {
@@ -20,7 +21,13 @@ const Ofertas = () => {
   useEffect(() => {
     getTask().then((res) => {
       console.log(res.data);
+      const ids = res.data.map((d) => d.userId);
+      console.log(ids);
       setOffer(res.data);
+    });
+
+    getUser().then((res) => {
+      console.log(res.data);
     });
   }, []);
 
@@ -35,9 +42,7 @@ const Ofertas = () => {
             <ContainerColumn key={oferta.id}>
               <H3>{oferta?.title}</H3>
 
-              <H4>
-                {oferta?.user.name} {oferta?.user.surname}
-              </H4>
+              <H4>{oferta?.username}</H4>
               <Image></Image>
 
               <P>{oferta?.description}</P>
