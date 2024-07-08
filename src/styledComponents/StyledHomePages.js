@@ -56,6 +56,13 @@ export const Button = styled.button`
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: transparent;
     color: black;
+    font-family: myFont;
+
+@font-face {
+        font-family: myFont;
+        src: url(${font});
+        color: black;
+    }
 
     &:hover {
         transition: 0.2s;

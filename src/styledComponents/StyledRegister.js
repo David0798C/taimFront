@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import font from '../fonts/aukim/AukimLight.otf';
 
 export const RegisterContainer = styled.div`
   max-width: 80%;
@@ -48,6 +49,13 @@ export const Input = styled.input`
   width: 100%;
   outline: none;
   font-size: 15px;
+  font-family: myFont;
+  
+  @font-face {
+        font-family: myFont;
+        src: url(${font});
+        color: black;
+    }
   &:focus {
     background-size: 100% 2px, 100% 1px;
     outline: 0 none;
@@ -65,6 +73,13 @@ export const Button = styled.button`
   border: 2px solid black;
   color: black;
   height: 40px;
+  font-family: myFont;
+  
+  @font-face {
+        font-family: myFont;
+        src: url(${font});
+        color: black;
+    }
 
   &:hover {
     transition: 0.2s;
