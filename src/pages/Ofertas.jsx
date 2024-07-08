@@ -32,15 +32,15 @@ const Ofertas = () => {
           {Offer?.map((oferta) => (
             <ContainerColumn key={oferta.id}>
               <H3>{oferta.title}</H3>
-              <Image></Image>
 
               <H4>
-                {oferta.user?.name} {oferta.user?.surname}
+                {oferta?.name} {oferta?.surname}
               </H4>
+              <Image></Image>
 
-              <P>{oferta?.description}</P>
+              <P>{oferta.description}</P>
 
-              <P>{oferta?.hours}</P>
+              <P>{oferta.hours}</P>
 
               <Button>Añadir Oferta</Button>
             </ContainerColumn>

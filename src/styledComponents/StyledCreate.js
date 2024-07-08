@@ -4,7 +4,6 @@ export const ContainerCreate = styled.div`
   width: 100%;
   margin: auto;
   display: flex;
-
   flex-direction: column;
   align-items: center;
   height: 350px;
