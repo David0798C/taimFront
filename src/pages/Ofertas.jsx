@@ -21,13 +21,7 @@ const Ofertas = () => {
   useEffect(() => {
     getTask().then((res) => {
       console.log(res.data);
-      const ids = res.data.map((d) => d.userId);
-      console.log(ids);
       setOffer(res.data);
-    });
-
-    getUser().then((res) => {
-      console.log(res.data);
     });
   }, []);
 
