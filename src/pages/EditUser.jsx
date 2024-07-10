@@ -36,7 +36,7 @@ const UserProfile = () => {
                         <input type="text" className="input" placeholder={user?.location} />
                         <p className="description-edit">Acerca de Mi</p>
                         <textarea name="description-box" rows={4} cols={40} className="input" placeholder={user?.description}></textarea>
-                        <Enlace to="/user"><IoIosSave className="edit" size={25} /></Enlace>
+                        <Enlace to="/user"> <button onClick><IoIosSave className="edit" size={25} /></button> </Enlace>
                     </div>
                 </CardContainer>
                 <SkillsContainer>
