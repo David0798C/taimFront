@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 
 export const CardContainer = styled.div`
-background-color: white;
+  background-color: white;
   max-width: 34rem;
   padding: 1.5rem;
   margin-bottom:1rem;
@@ -21,7 +21,8 @@ background-color: white;
   gap: 1rem;
   position: relative;
 
-.edit{
+  
+  .edit{
     position: absolute;
     top: 10px; 
     right: 10px; 
@@ -45,6 +46,42 @@ background-color: white;
     margin: 0px;
   }
 
+  .name-edit{
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0px;
+  }
+  
+  .input{
+  background-image: linear-gradient(#64e320, #64e320),
+  linear-gradient(#bfbfbf, #bfbfbf);
+  border: 0 none;
+  border-radius: 0;
+  box-shadow: none;
+  float: none;
+  background-color: transparent;
+  background-position: center bottom, center calc(100% - 1px);
+  background-repeat: no-repeat;
+  background-size: 0 2px, 100% 1px;
+  padding: 0;
+  margin-top:10px;
+  margin-bottom:10px;
+
+  color: #bfbfbf;
+  min-height: 35px;
+  display: initial;
+  width: 100%;
+  outline: none;
+  font-size: 15px;
+  font-family: myFont;
+  &:focus {
+    background-size: 100% 2px, 100% 1px;
+    outline: 0 none;
+    transition-duration: 0.3s;
+    color: #525252;
+  }
+  }
+
   .username {
     margin: 0px;
     margin-top: 0.5rem;
@@ -54,8 +91,36 @@ background-color: white;
 
   .email {
     margin-top: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .email-edit{
+    margin-bottom: 0px;
+    font-size: 1rem;
+    font-weight: bold;
   }
 
+  .location {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .location-edit{
+    margin-bottom: 0px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .description {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .description-edit{
+    margin-bottom: 0px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
 `;
 export const InterestContainer = styled.div`
 background-color: white;

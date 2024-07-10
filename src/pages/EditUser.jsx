@@ -6,9 +6,9 @@ import {
     SkillsContainer,
     LogoutButtonContainer
 } from "../styledComponents/StyledUserPage";
-import { } from "react-icons/ri";
+import { IoIosSave } from "react-icons/io";
 import { useUserContext } from "../providers/UserProvider";
-import { GlobalStyle } from '../styledComponents/StyledHomePages.js';
+import { GlobalStyle, Enlace } from '../styledComponents/StyledHomePages.js';
 
 const UserProfile = () => {
     const [user, logout] = useUserContext();
@@ -26,11 +26,17 @@ const UserProfile = () => {
                         className="profile-image"
                     />
                     <div>
-                        <h2 className="name" > {user?.name} {user?.surname}</h2>
-                        <h4 className="username">@{user?.username}</h4>
-                        <p className="email">{user?.email}</p>
-                        <p>{user?.location}</p>
-                        <p>{user?.description}</p>
+                        <p className="name-edit">Nombre </p>
+                        <input type="text" className="input" placeholder={user?.name} />
+                        <p className="username">Nombre de usuario</p>
+                        <input type="text" className="input" placeholder={user?.username} />
+                        <p className="email-edit">Email</p>
+                        <input type="email" className="input" placeholder={user?.email} />
+                        <p className="location-edit">Zona</p>
+                        <input type="text" className="input" placeholder={user?.location} />
+                        <p className="description-edit">Acerca de Mi</p>
+                        <textarea name="description-box" rows={4} cols={40} className="input" placeholder={user?.description}></textarea>
+                        <Enlace to="/user"><IoIosSave className="edit" size={25} /></Enlace>
                     </div>
                 </CardContainer>
                 <SkillsContainer>
