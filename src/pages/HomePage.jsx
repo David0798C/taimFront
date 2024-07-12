@@ -8,14 +8,15 @@ import {
   H1,
   GlobalStyle,
 } from "../styledComponents/StyledHomePages.js";
-
-import { useContext, useEffect } from "react";
-import { MyContext } from "../MyContext.js";
 import 'animate.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Importa los estilos CSS de AOS
+import { useEffect } from "react";
+import { useUserContext } from '../providers/UserProvider.jsx'; // Importa el contexto del usuario
 
 const HomePage = () => {
+  const [user] = useUserContext(); // Obtén el estado del usuario
+
   useEffect(() => {
     AOS.init({
       duration: 1000, // Duración de la animación en milisegundos
@@ -23,17 +24,12 @@ const HomePage = () => {
     });
   }, []);
 
-  const { logged, setLogged } = useContext(MyContext);
-
-
   return (
     <>
       <GlobalStyle />
       <H1 className="animate__animated animate__slideInLeft">T A I M</H1>
 
-      {" "}
-      {!logged && (
-        
+      {!user && ( // Condiciona la renderización de los botones
         <ButtonContainer>
           <Button>
             <Enlace to="/login">Inicio Sesión</Enlace>
@@ -43,6 +39,7 @@ const HomePage = () => {
           </Button>
         </ButtonContainer>
       )}
+
       <Container>
         <DescriptionContainer>
           <Description data-aos="fade-up">
@@ -81,3 +78,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
