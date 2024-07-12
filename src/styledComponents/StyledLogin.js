@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import font from '../fonts/aukim/AukimLight.otf';
-
+import font from "../fonts/aukim/AukimLight.otf";
 
 export const LoginContainer = styled.div`
   max-width: 40%;
@@ -12,6 +11,7 @@ export const LoginContainer = styled.div`
   margin: auto;
   text-align: center;
   border-radius: 5px;
+
   @media (min-width: 900px) {
     width: 100%;
   }
@@ -39,25 +39,24 @@ export const Input = styled.input`
   background-repeat: no-repeat;
   background-size: 0 2px, 100% 1px;
   padding: 0;
-
-  color: #bfbfbf;
+  color: black;
   min-height: 35px;
   display: initial;
   width: 100%;
   outline: none;
   font-size: 15px;
   font-family: myFont;
-  
+
   @font-face {
-        font-family: myFont;
-        src: url(${font});
-        color: black;
-    }
+    font-family: myFont;
+    src: url(${font});
+    color: black;
+  }
   &:focus {
     background-size: 100% 2px, 100% 1px;
     outline: 0 none;
     transition-duration: 0.3s;
-    color: #525252;
+    color: black;
   }
 `;
 
@@ -71,12 +70,12 @@ export const Button = styled.button`
   color: black;
   height: 40px;
   font-family: myFont;
-  
+
   @font-face {
-        font-family: myFont;
-        src: url(${font});
-        color: black;
-    }
+    font-family: myFont;
+    src: url(${font});
+    color: black;
+  }
 
   &:hover {
     transition: 0.2s;
