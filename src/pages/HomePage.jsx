@@ -45,7 +45,7 @@ const HomePage = () => {
           <Description data-aos="fade-up">
             <h1>¿Qué es TAIM?</h1>
             <p>
-              TAIM, Tiempo Acumulado de Intercamvio Mutuo, <br /> es una web de
+              TAIM, Tiempo Acumulado de Intercambio Mutuo, <br /> es una web de
               intercambio de servicios en el cual la moneda de cambio es el
               tiempo. <br /> Somos los poco conocidos Bancos del Tiempo.
             </p>
