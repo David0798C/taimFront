@@ -6,6 +6,34 @@ import { createGlobalStyle } from 'styled-components';
 import font from '../fonts/aukim/AukimLight.otf'
 
 
+export const Gif = styled.img`
+    width: 100%;
+    height: auto;
+    display: block;
+    text-align: center;
+    margin-bottom: 0;
+    transition: 0.5s;
+`;
+
+export const H1 = styled.h1`
+padding-bottom: 0;
+    display: flex;
+    font-size: 12rem;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: baseline;
+
+    .animate__animated {
+        animation-delay: 0.2s;
+        animation-duration: 10s;
+    }
+    `;
+
+
+export const ContentContainer = styled.div`
+  flex: 1; /* Hace que este contenedor ocupe todo el espacio disponible */
+`;
 export const GlobalStyle = createGlobalStyle`
     body {
         font-family: myFont;
@@ -58,25 +86,19 @@ export const Button = styled.button`
     color: black;
     font-family: myFont;
 
-@font-face {
-        font-family: myFont;
-        src: url(${font});
-        color: black;
-    }
-
     &:hover {
         transition: 0.2s;
         border-color: #4ad627;
-}
+    }
 `;
 
 export const Container = styled.div`
-padding: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-  position: relative; // Añadir posición relativa para que los hijos puedan usar posiciones absolutas
+    min-height: 100vh;
+    position: relative;
 `;
 
 export const ButtonContainer = styled.div`
@@ -86,11 +108,10 @@ export const ButtonContainer = styled.div`
     width: 100%;
 `;
 
-
 export const DescriptionContainer = styled.div`
-
     margin-top: 20px;
     font-size: 1.2em;
+    max-width: 1200px;
 `;
 
 export const Description = styled.div`
@@ -103,26 +124,131 @@ export const Description = styled.div`
     max-width: 1200px;
 `;
 
-export const Gif = styled.img`
-    width: 100%;
-    height: auto;
-    display: block;
+export const TeamContainer = styled.div`
+    margin: 50px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-bottom: 0;
-    transition: 0.5s;
+    max-width: 1200px;
+    width: 100%;
 `;
 
-export const H1 = styled.h1`
-padding-bottom: 0;
-    display: flex;
-    font-size: 12rem;
-    flex-wrap: wrap;
-    align-content: stretch;
-    justify-content: center;
-    align-items: baseline;
+export const TeamCarousel = styled.div`
+    margin-top: 20px;
+`;
 
-    .animate__animated {
-        animation-delay: 0.2s;
-        animation-duration: 10s;
+export const TeamMember = styled.div`
+    padding: 10px;
+`;
+
+export const MemberPhoto = styled.img`
+    width: 100%;
+    height: auto;
+    border-radius: 10%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+export const MemberDescription = styled.div`
+    margin-top: 10px;
+`;
+
+export const ODSContainer = styled.div`
+    margin: 50px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+`;
+
+export const Circle = styled.div`
+    margin-top: 20px;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #4ad627;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+        transition: all 0.5s ease-in-out;
+        width: 160px;
+        height: 160px;
     }
-    `;
+`;
+
+export const ODSDetails = styled.div`
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(10px);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 10;
+
+    ${Circle}:hover & {
+        display: block;
+    }
+`;
+
+export const ODSDetail = styled.div`
+    margin-bottom: 10px;
+`;
+
+export const FooterContainer = styled.footer`
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    border-top: 2px solid #4ad627;
+    flex-shrink: 0;
+    width: 100%;
+`;
+
+export const FooterLeft = styled.div`
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+`;
+
+export const FooterLeftImages = styled.div`
+    margin-right: 20px;
+`;
+
+export const FooterSocials = styled.div`
+    line-height: 1.6;
+`;
+
+export const FooterCenter = styled.div`
+    text-align: center;
+    flex: 1;
+`;
+
+export const FooterRight = styled.div`
+    flex: 1;
+    text-align: right;
+`;
+
+export const SmallImage = styled.img`
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+`;
+
+export const LargeImage = styled.img`
+    max-width: 100%;
+    height: auto;
+`;
+
