@@ -16,14 +16,6 @@ import {
   Circle,
   ODSDetails,
   ODSDetail,
-  FooterContainer,
-  FooterLeft,
-  FooterLeftImages,
-  FooterSocials,
-  FooterCenter,
-  FooterRight,
-  SmallImage,
-  LargeImage,
   ContentContainer
 } from "../styledComponents/StyledHomePages.js";
 import 'animate.css';
@@ -37,10 +29,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 // Importa las imágenes del equipo
 import fondo9 from '../pic/fondo6.jpg';
-// Importa más imágenes según sea necesario
-import smallImage1 from "../pic/fondo9.jpg";
-import smallImage2 from "../pic/fondo9.jpg"; // Imagen pequeña 2
-import largeImage from "../pic/fondo9.jpg"; // Imagen grande del logo
 
 const HomePage = () => {
   const [user] = useUserContext(); // Obtén el estado del usuario
@@ -194,28 +182,8 @@ const HomePage = () => {
               </ODSDetails>
             </Circle>
           </ODSContainer>
-          </Container>
+        </Container>
       </ContentContainer>
-
-      <FooterContainer>
-        <FooterLeft>
-          <FooterLeftImages>
-            <SmallImage src={smallImage1} alt="Pequeña Imagen 1" />
-            <SmallImage src={smallImage2} alt="Pequeña Imagen 2" />
-          </FooterLeftImages>
-          <FooterSocials>
-            <p>Redes Sociales: @tuEmpresa</p>
-            <p>Email: contacto@tuempresa.com</p>
-            <p>Dirección: Calle Ejemplo 123</p>
-          </FooterSocials>
-        </FooterLeft>
-        <FooterCenter>
-          <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
-        </FooterCenter>
-        <FooterRight>
-          <LargeImage src={largeImage} alt="Logo de la Empresa" />
-        </FooterRight>
-      </FooterContainer>
     </>
   );
 };
