@@ -42,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         overflow-x: hidden;
         position: relative;
-        min-height: 100vh;
+        min-height: 100%;
     }
 
     @font-face {
@@ -97,7 +97,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100%;
     position: relative;
 `;
 
