@@ -154,4 +154,24 @@ export const MemberDescription = styled.div`
     margin-top: 10px;
 `;
 
+export const Footer = styled.footer`
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 20px 0;
+    text-align: center;
+`;
 
+export const Content = styled.div`
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+`;
+
+export const Paragraph = styled.p`
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+`;

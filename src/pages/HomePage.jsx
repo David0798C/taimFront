@@ -12,7 +12,8 @@ import {
   TeamMember,
   MemberPhoto,
   MemberDescription,
-  ContentContainer
+  ContentContainer,
+  Footer
 } from "../styledComponents/StyledHomePages.js";
 import 'animate.css';
 import AOS from 'aos';
@@ -164,6 +165,11 @@ const HomePage = () => {
           </TeamContainer>
         </Container>
       </ContentContainer>
+      <Footer className="fixed_footer">
+        <div className="content">
+          <p>derechos reservado @TAIM</p>
+        </div>
+      </Footer>
     </>
   );
 };
