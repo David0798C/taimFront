@@ -62,7 +62,7 @@ export const GlobalStyle = createGlobalStyle`
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        opacity: 0.3;
+        opacity: 0.8;
         z-index: -1;
     }
 `;
@@ -154,54 +154,4 @@ export const MemberDescription = styled.div`
     margin-top: 10px;
 `;
 
-export const ODSContainer = styled.div`
-    margin: 50px 0;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 1200px;
-    width: 100%;
-`;
-
-export const Circle = styled.div`
-    margin-top: 20px;
-    position: relative;
-    width: 150px;
-    height: 150px;
-    border: 2px solid #4ad627;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    &:hover {
-        transition: all 0.5s ease-in-out;
-        width: 160px;
-        height: 160px;
-    }
-`;
-
-export const ODSDetails = styled.div`
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    transform: translateX(10px);
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 8px;
-    z-index: 10;
-
-    ${Circle}:hover & {
-        display: block;
-    }
-`;
-
-export const ODSDetail = styled.div`
-    margin-bottom: 10px;
-`;
 

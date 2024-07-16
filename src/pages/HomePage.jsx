@@ -12,10 +12,6 @@ import {
   TeamMember,
   MemberPhoto,
   MemberDescription,
-  ODSContainer,
-  Circle,
-  ODSDetails,
-  ODSDetail,
   ContentContainer
 } from "../styledComponents/StyledHomePages.js";
 import 'animate.css';
@@ -149,8 +145,8 @@ const HomePage = () => {
             </Description>
           </DescriptionContainer>
 
-          <TeamContainer>
-            <h2>Conoce a nuestro equipo</h2>
+          <TeamContainer data-aos="fade-up">
+            <h1>Conoce a nuestro equipo</h1>
             <TeamCarousel>
               <Slider {...settings}>
                 {teamMembers.map((member, index) => (
@@ -166,22 +162,6 @@ const HomePage = () => {
               </Slider>
             </TeamCarousel>
           </TeamContainer>
-
-          <ODSContainer>
-            <h2>Nuestros Objetivos de Desarrollo Sostenible</h2>
-            <Circle>
-              <ODSDetails>
-                <ODSDetail>
-                  <h3>1. Fin de la Pobreza</h3>
-                  <p>Descripción del objetivo 1...</p>
-                </ODSDetail>
-                <ODSDetail>
-                  <h3>10. Reducción de las Desigualdades</h3>
-                  <p>Descripción del objetivo 10...</p>
-                </ODSDetail>
-              </ODSDetails>
-            </Circle>
-          </ODSContainer>
         </Container>
       </ContentContainer>
     </>
