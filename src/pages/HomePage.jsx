@@ -13,48 +13,26 @@ import {
   MemberPhoto,
   MemberDescription,
   ContentContainer,
-  Footer
+  Footer // Asegúrate de importar el Footer
 } from "../styledComponents/StyledHomePages.js";
 import 'animate.css';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Importa los estilos CSS de AOS
-import { useEffect, useState } from "react";
-import { useUserContext } from '../providers/UserProvider.jsx'; // Importa el contexto del usuario
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
+import { useUserContext } from '../providers/UserProvider.jsx';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-// Importa las imágenes del equipo
 import fondo9 from '../pic/fondo6.jpg';
 
 const HomePage = () => {
-  const [user] = useUserContext(); // Obtén el estado del usuario
-  const [showFooter, setShowFooter] = useState(false);
+  const [user] = useUserContext();
 
   useEffect(() => {
-    // Inicializa AOS
     AOS.init({
-      duration: 1000, // Duración de la animación en milisegundos
-      once: true, // La animación ocurre solo una vez
+      duration: 1000,
+      once: true,
     });
-
-    const handleScroll = () => {
-      const scrollPosition = window.innerHeight + window.pageYOffset;
-      const pageHeight = document.documentElement.scrollHeight;
-      if (scrollPosition >= pageHeight - 100) {
-        setShowFooter(true);
-      } else {
-        setShowFooter(false);
-      }
-    };
-
-    // Añade el event listener para el scroll
-    window.addEventListener("scroll", handleScroll);
-
-    // Limpia el event listener cuando el componente se desmonta
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, []);
 
   const teamMembers = [
@@ -121,7 +99,7 @@ const HomePage = () => {
       <GlobalStyle />
       <H1 className="animate__animated animate__slideInLeft">T A I M</H1>
 
-      {!user && ( // Condiciona la renderización de los botones
+      {!user && (
         <ButtonContainer>
           <Button>
             <Enlace to="/login">Inicio Sesión</Enlace>
@@ -185,15 +163,14 @@ const HomePage = () => {
           </TeamContainer>
         </Container>
       </ContentContainer>
-      {showFooter && (
-        <Footer className="fixed_footer">
-          <div className="content">
-            <p>derechos reservado @TAIM</p>
-          </div>
-        </Footer>
-      )}
+
+      {/* Agregar el footer al final */}
+      <Footer>
+        Aquí va tu contenido del footer
+      </Footer>
     </>
   );
 };
 
 export default HomePage;
+
