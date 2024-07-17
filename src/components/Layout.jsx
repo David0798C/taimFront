@@ -175,8 +175,8 @@ const LayoutContainer = styled.div`
 const Content = styled.div`
   flex: 1;
   width: 100%;
-  max-width: 1200px;
-  padding: 20px;
+ // max-width: 1200px;
+ // padding: 20px;
   box-sizing: border-box;
 
   @media (max-width: 1200px) {

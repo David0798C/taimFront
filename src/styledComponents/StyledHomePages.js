@@ -40,7 +40,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1.5rem;
         margin: 0;
         padding: 0;
-        overflow-x: hidden;
+         overflow-x: hidden;
         position: relative;
         min-height: 100%;
     }
@@ -62,7 +62,7 @@ export const GlobalStyle = createGlobalStyle`
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        opacity: 0.3;
+        opacity: 0.8;
         z-index: -1;
     }
 `;
@@ -93,12 +93,12 @@ export const Button = styled.button`
 `;
 
 export const Container = styled.div`
-    padding: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100%;
-    position: relative;
+    padding: 0; /* Asegúrate de que no haya padding */
+    margin: 0; /* Asegúrate de que no haya margen */
 `;
 
 export const ButtonContainer = styled.div`
@@ -112,6 +112,7 @@ export const DescriptionContainer = styled.div`
     margin-top: 20px;
     font-size: 1.2em;
     max-width: 1200px;
+    width: 100%;
 `;
 
 export const Description = styled.div`
@@ -154,54 +155,23 @@ export const MemberDescription = styled.div`
     margin-top: 10px;
 `;
 
-export const ODSContainer = styled.div`
-    margin: 50px 0;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 1200px;
+
+export const Content = styled.div`
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
     width: 100%;
 `;
 
-export const Circle = styled.div`
-    margin-top: 20px;
-    position: relative;
-    width: 150px;
-    height: 150px;
-    border: 2px solid #4ad627;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    &:hover {
-        transition: all 0.5s ease-in-out;
-        width: 160px;
-        height: 160px;
-    }
+export const Paragraph = styled.p`
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
 `;
-
-export const ODSDetails = styled.div`
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    transform: translateX(10px);
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 8px;
-    z-index: 10;
-
-    ${Circle}:hover & {
-        display: block;
-    }
+export const Footer = styled.footer`
+    background-color: #4ad627;
+    width: 100%;
+    padding: 20px 0; /* Puedes ajustar el padding según necesites */
+    color: white;
+    text-align: center;
 `;
-
-export const ODSDetail = styled.div`
-    margin-bottom: 10px;
-`;
-
