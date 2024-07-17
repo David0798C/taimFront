@@ -18,7 +18,7 @@ import {
 import 'animate.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Importa los estilos CSS de AOS
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useUserContext } from '../providers/UserProvider.jsx'; // Importa el contexto del usuario
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -29,12 +29,32 @@ import fondo9 from '../pic/fondo6.jpg';
 
 const HomePage = () => {
   const [user] = useUserContext(); // Obtén el estado del usuario
+  const [showFooter, setShowFooter] = useState(false);
 
   useEffect(() => {
+    // Inicializa AOS
     AOS.init({
       duration: 1000, // Duración de la animación en milisegundos
       once: true, // La animación ocurre solo una vez
     });
+
+    const handleScroll = () => {
+      const scrollPosition = window.innerHeight + window.pageYOffset;
+      const pageHeight = document.documentElement.scrollHeight;
+      if (scrollPosition >= pageHeight - 100) {
+        setShowFooter(true);
+      } else {
+        setShowFooter(false);
+      }
+    };
+
+    // Añade el event listener para el scroll
+    window.addEventListener("scroll", handleScroll);
+
+    // Limpia el event listener cuando el componente se desmonta
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const teamMembers = [
@@ -165,11 +185,13 @@ const HomePage = () => {
           </TeamContainer>
         </Container>
       </ContentContainer>
-      <Footer className="fixed_footer">
-        <div className="content">
-          <p>derechos reservado @TAIM</p>
-        </div>
-      </Footer>
+      {showFooter && (
+        <Footer className="fixed_footer">
+          <div className="content">
+            <p>derechos reservado @TAIM</p>
+          </div>
+        </Footer>
+      )}
     </>
   );
 };
