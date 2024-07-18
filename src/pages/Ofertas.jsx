@@ -13,9 +13,14 @@ import {
 
 import { getTask } from "../services/task.js";
 import { GlobalStyle } from "../styledComponents/StyledHomePages.js";
+import { useUserContext } from "../providers/UserProvider.jsx";
+import { postRequest } from "../services/request.js";
 
 const Ofertas = () => {
   const [Offer, setOffer] = useState([]);
+  const [status, setStatus] = useState(0);
+  const [user_id, setUser_id] = useState();
+  const [user] = useUserContext();
 
   useEffect(() => {
     getTask().then((res) => {
@@ -24,7 +29,17 @@ const Ofertas = () => {
     });
   }, []);
 
-  const User = Offer.map((user) => user.user);
+  console.log(
+    Offer.map((oferta) => oferta?.user.map((username) => username.name))
+  );
+
+  const enviarRequest = (task_id) => {
+    console.log(status, task_id, user_id);
+    const obj = { status, task_id: { id: task_id }, user_id: { id: user.id } };
+    postRequest({ obj }).then((res) => {
+      console.log(res);
+    });
+  };
 
   return (
     <div>
@@ -37,15 +52,15 @@ const Ofertas = () => {
             <ContainerColumn key={oferta.id}>
               <H3>{oferta?.title}</H3>
 
-              <H4>{User.map((user) => user.name)}</H4>
-
               <Image></Image>
 
               <P>{oferta?.description}</P>
 
               <P>{oferta?.hours}</P>
 
-              <Button>Añadir Oferta</Button>
+              <Button onClick={() => enviarRequest(oferta.id)}>
+                Añadir Oferta
+              </Button>
             </ContainerColumn>
           ))}
         </ContainerRow>
