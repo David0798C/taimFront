@@ -31,7 +31,6 @@ const UserProfile = () => {
   const [description, setUserDesc] = useState();
 
   const handleUpdate = async () => {
-    console.log("11111");
     const userAux = {
       name,
       surname,
