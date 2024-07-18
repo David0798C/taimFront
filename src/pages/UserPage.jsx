@@ -5,11 +5,6 @@ import {
   InterestContainer,
   SkillsContainer,
   LogoutButtonContainer,
-  TaskContainer,
-  H1,
-  Task,
-  TaskText,
-  TaskButton,
 } from "../styledComponents/StyledUserPage";
 import { RiEdit2Fill } from "react-icons/ri";
 import { useUserContext } from "../providers/UserProvider";
@@ -17,13 +12,6 @@ import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
 
 const UserProfile = () => {
   const [user, , logout] = useUserContext();
-  const tasks = user.task;
-
-  console.log(tasks);
-
-  console.log(
-    tasks.map((task) => task.request.map((taskRequest) => taskRequest))
-  );
 
   return (
     <>
@@ -62,21 +50,6 @@ const UserProfile = () => {
             <li>{user?.interests}</li>
           </ul>
         </InterestContainer>
-        <TaskContainer>
-          <H1>Tareas</H1>
-
-          {tasks.map((task) => (
-            <Task key={task.id}>
-              <TaskText>{task.title}</TaskText>
-
-              <TaskText>{task.description}</TaskText>
-
-              <TaskText>{task.location}</TaskText>
-              <TaskText>{task.hours}</TaskText>
-              <TaskButton>Peticiones</TaskButton>
-            </Task>
-          ))}
-        </TaskContainer>
       </Container>
     </>
   );
