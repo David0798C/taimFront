@@ -7,6 +7,8 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 export const CardContainer = styled.div`
@@ -120,26 +122,29 @@ export const CardContainer = styled.div`
     font-weight: bold;
   }
 `;
+
 export const InterestContainer = styled.div`
-  background-color: white;
-  max-width: 40rem;
+  background-color: rgba(226, 226, 226, 0.79);
+  max-width: 34rem;
   padding: 1.5rem;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   display: flex;
   gap: 1rem;
+  position: relative;
 `;
 
 export const SkillsContainer = styled.div`
-  background-color: white;
-  max-width: 40rem;
+  background-color: rgba(226, 226, 226, 0.79);
+  max-width: 34rem;
   padding: 1.5rem;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   display: flex;
   gap: 1rem;
+  position: relative;
 `;
 
 export const Button = styled.button`
@@ -189,6 +194,8 @@ export const LogoutButtonContainer = styled.div`
 export const TaskContainer = styled.div`
   width: 100%;
   background-color: rgba(226, 226, 226, 0.79);
+  padding: 20px; /* Añadido padding */
+  box-sizing: border-box;
 `;
 
 export const Task = styled.div`
@@ -199,6 +206,7 @@ export const Task = styled.div`
   text-align: center;
   background-color: #797979;
   box-sizing: border-box;
+  margin-bottom: 10px; /* Añadido margen inferior */
 `;
 
 export const H1 = styled.h1`
