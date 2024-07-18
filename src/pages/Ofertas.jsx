@@ -35,8 +35,9 @@ const Ofertas = () => {
 
   const enviarRequest = (task_id) => {
     console.log(status, task_id, user_id);
-    const obj = { status, task_id: { id: task_id }, user_id: { id: user.id } };
-    postRequest({ obj }).then((res) => {
+    const obj = { status, taskId: task_id, userId: user.id };
+    console.log("zzzzzzzzzzzzzzzzzz", obj);
+    postRequest(obj).then((res) => {
       console.log(res);
     });
   };

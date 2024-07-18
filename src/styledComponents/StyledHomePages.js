@@ -1,7 +1,7 @@
 // HomePageStyles.js
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import BackgroundImage from '../pic/fondo4.jpg'
+import BackgroundImage from '../pic/StockCake-Digital Data Stream_1721312349.jpg'
 import { createGlobalStyle } from 'styled-components';
 import font from '../fonts/aukim/AukimLight.otf'
 
