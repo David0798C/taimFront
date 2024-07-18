@@ -1,6 +1,6 @@
 import { instance } from "../services/api";
 
-export const deleteUser = async (id) => await instance.get("/user/" + id);
+export const deleteUser = async (id) => await instance.delete("/user/" + id);
 
 export const updateUser = async (id, obj) =>
   await instance.put("/user/" + id, obj);

@@ -14,9 +14,16 @@ import {
 import { getTask } from "../services/task.js";
 import { getUser } from "../services/user.js";
 import { GlobalStyle } from "../styledComponents/StyledHomePages.js";
+import { useUserContext } from '../providers/UserProvider.jsx';
+import { postRequest } from "../services/request.js";
 
 const Ofertas = () => {
   const [Offer, setOffer] = useState([]);
+  const [status, setStatus] = useState(0);
+  const [user_id, setUser_id] = useState();
+  const [user] = useUserContext(); 
+
+ 
 
   useEffect(() => {
     getTask().then((res) => {
@@ -30,6 +37,15 @@ const Ofertas = () => {
       console.log(res.data);
     });
   }, []);
+
+  const enviarRequest = (task_id) => {
+      console.log(status, task_id, user_id)
+      const obj = {status, task_id:{id: task_id} , user_id:{id: user.id}}
+      postRequest({obj}).then((res) => {
+        console.log(res);
+        
+      });
+  } 
 
   return (
     <div>
@@ -49,7 +65,7 @@ const Ofertas = () => {
 
               <P>{oferta?.hours}</P>
 
-              <Button>Añadir Oferta</Button>
+              <Button onClick={()=>enviarRequest(oferta.id)}>Añadir Oferta</Button>
             </ContainerColumn>
           ))}
         </ContainerRow>

@@ -87,7 +87,7 @@ const Create = () => {
       hours,
       user: {
         id: user.id,
-      },
+      }, 
     });
 
     alert("Has creado una oferta");
