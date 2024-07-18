@@ -1,15 +1,17 @@
+import Select from "react-select";
+
 import { useState } from "react";
 import {
   ContainerCreate,
   H1,
   ContainerInput,
   Input,
-  InputNumber,
   Button,
 } from "../styledComponents/StyledCreate";
 import { createTask } from "../services/task";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle } from "../styledComponents/StyledHomePages.js";
+import { customStyles } from "../styledComponents/StyledSelect.js";
 
 const Create = () => {
   const [title, setOfferTitle] = useState();
@@ -22,14 +24,59 @@ const Create = () => {
 
   const [date, setOfferDate] = useState();
 
-  const [hours, setOfferTime] = useState();
+  const [hours, setOfferTime] = useState([]);
 
   const [user] = useUserContext();
+
+  const horas = [
+    {
+      value: "30min",
+      label: "30min",
+    },
+
+    {
+      value: "45min",
+      label: "45min",
+    },
+
+    {
+      value: "1h",
+      label: "1h",
+    },
+
+    {
+      value: "1:30h",
+      label: "1:30h",
+    },
+
+    {
+      value: "2h",
+      label: "2H",
+    },
+
+    {
+      value: "2:30h",
+      label: "2:30h",
+    },
+    {
+      value: "3h",
+      label: "3h",
+    },
+
+    {
+      value: "3:30h",
+      label: "3:30h",
+    },
+
+    {
+      value: "4h",
+      label: "4h",
+    },
+  ];
 
   // const [setUserId] = useState();
 
   const handleClickCrear = async () => {
-    console.log(user);
     await createTask({
       title,
       description,
@@ -41,7 +88,6 @@ const Create = () => {
         id: user.id,
       },
     });
-
     alert("Has creado una oferta");
   };
 
@@ -78,11 +124,12 @@ const Create = () => {
             onChange={(e) => setOfferDate(e.target.value)}
           ></Input>
 
-          <InputNumber
-            type="number"
-            placeholder="Horas de la oferta"
-            onChange={(e) => setOfferTime(e.target.value)}
-          ></InputNumber>
+          <Select
+            onChange={({ value }) => setOfferTime(value)}
+            options={horas}
+            styles={customStyles}
+          />
+
           <Button onClick={handleClickCrear}>Crear Oferta</Button>
         </ContainerInput>
       </ContainerCreate>

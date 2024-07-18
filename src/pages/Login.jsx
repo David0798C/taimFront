@@ -56,6 +56,10 @@ const Login = () => {
           <Button onClick={loginUsuario}>
             <Enlace to="">Login</Enlace>
           </Button>
+          <p>Si no es estás Registrado, pulsa aquí.</p>
+          <Button>
+            <Enlace to="/register">Registrarse</Enlace>
+          </Button>
         </LoginStyle>
       </LoginContainer>
     </div>

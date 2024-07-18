@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import font from "../fonts/aukim/AukimLight.otf";
 
 export const ContainerOfertas = styled.div`
   max-width: 100%;
@@ -56,6 +57,13 @@ export const Button = styled.button`
   border: 2px solid black;
   color: black;
   display: block;
+  font-family: myFont;
+
+  @font-face {
+    font-family: myFont;
+    src: url(${font});
+    color: black;
+  }
 
   &:hover {
     transition: 0.2s;
