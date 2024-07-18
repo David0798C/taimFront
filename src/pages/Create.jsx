@@ -77,7 +77,6 @@ const Create = () => {
   // const [setUserId] = useState();
 
   const handleClickCrear = async () => {
-    console.log(user);
     await createTask({
       title,
       description,
@@ -89,7 +88,6 @@ const Create = () => {
         id: user.id,
       }, 
     });
-
     alert("Has creado una oferta");
   };
 

@@ -16,6 +16,7 @@ const UserProfile = () => {
   const [user, setUser, logout] = useUserContext();
 
   const id = user.id;
+  console.log(user.id);
 
   const [name, setName] = useState();
 
@@ -38,6 +39,7 @@ const UserProfile = () => {
       location,
       description,
     };
+    console.log("22222");
     await updateUser(id, userAux);
     setUser({ ...user, ...userAux });
 
@@ -96,7 +98,6 @@ const UserProfile = () => {
               rows={4}
               cols={40}
               className="input"
-              placeholder={user?.description}
               onChange={(e) => setUserDesc(e.target.value)}
             ></textarea>
             <Enlace to={"/user"}>

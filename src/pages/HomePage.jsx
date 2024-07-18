@@ -12,27 +12,26 @@ import {
   TeamMember,
   MemberPhoto,
   MemberDescription,
-  ContentContainer
+  ContentContainer,
+  Footer // Asegúrate de importar el Footer
 } from "../styledComponents/StyledHomePages.js";
 import 'animate.css';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Importa los estilos CSS de AOS
+import 'aos/dist/aos.css';
 import { useEffect } from "react";
-import { useUserContext } from '../providers/UserProvider.jsx'; // Importa el contexto del usuario
+import { useUserContext } from '../providers/UserProvider.jsx';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-// Importa las imágenes del equipo
 import fondo9 from '../pic/fondo6.jpg';
 
 const HomePage = () => {
-  const [user] = useUserContext(); // Obtén el estado del usuario
+  const [user] = useUserContext();
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Duración de la animación en milisegundos
-      once: true, // La animación ocurre solo una vez
+      duration: 1000,
+      once: true,
     });
   }, []);
 
@@ -100,7 +99,7 @@ const HomePage = () => {
       <GlobalStyle />
       <H1 className="animate__animated animate__slideInLeft">T A I M</H1>
 
-      {!user && ( // Condiciona la renderización de los botones
+      {!user && (
         <ButtonContainer>
           <Button>
             <Enlace to="/login">Inicio Sesión</Enlace>
@@ -164,8 +163,14 @@ const HomePage = () => {
           </TeamContainer>
         </Container>
       </ContentContainer>
+
+      {/* Agregar el footer al final */}
+      <Footer>
+        Aquí va tu contenido del footer
+      </Footer>
     </>
   );
 };
 
 export default HomePage;
+
