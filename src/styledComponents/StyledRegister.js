@@ -27,7 +27,7 @@ export const InputContainer = styled.div`
   margin: auto;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 8px 5px 10px #9a9a9ac0;
+  box-shadow: 8px 5px 10px #9a9a9a98;
 `;
 
 export const Input = styled.input`
