@@ -18,8 +18,8 @@ import { postRequest } from "../services/request.js";
 
 const Ofertas = () => {
   const [Offer, setOffer] = useState([]);
-  const [status, setStatus] = useState(0);
-  const [user_id, setUser_id] = useState();
+  const [status] = useState(0);
+  const [user_id] = useState();
   const [user] = useUserContext();
 
   useEffect(() => {
@@ -28,10 +28,6 @@ const Ofertas = () => {
       setOffer(res.data);
     });
   }, []);
-
-  console.log(
-    Offer.map((oferta) => oferta?.user.map((username) => username.name))
-  );
 
   const enviarRequest = (task_id) => {
     console.log(status, task_id, user_id);
@@ -52,6 +48,8 @@ const Ofertas = () => {
           {Offer?.map((oferta) => (
             <ContainerColumn key={oferta.id}>
               <H3>{oferta?.title}</H3>
+
+              <H4>{oferta?.user.name}</H4>
 
               <Image></Image>
 
