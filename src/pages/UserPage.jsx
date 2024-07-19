@@ -12,6 +12,7 @@ import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
 
 const UserProfile = () => {
   const [user, , logout] = useUserContext();
+  const skillsList = user?.skills?.split(",");
 
   return (
     <>
@@ -40,7 +41,9 @@ const UserProfile = () => {
         <SkillsContainer>
           <h1>Habilidades</h1>
           <ul>
-            <li>{user?.skills}</li>
+            {skillsList.map((skill) => (
+          <li key={skill}>{skill}</li>
+        ))}
           </ul>
         </SkillsContainer>
         <InterestContainer>
