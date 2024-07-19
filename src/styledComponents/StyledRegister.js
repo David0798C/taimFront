@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import font from '../fonts/aukim/AukimLight.otf';
+import font from "../fonts/aukim/AukimLight.otf";
 
 export const RegisterContainer = styled.div`
   max-width: 80%;
@@ -22,11 +22,12 @@ export const RegisterContainer = styled.div`
 // `;
 
 export const InputContainer = styled.div`
-  /* background-color: #e0e0e0b0; */
-  width: 30%;
+  background-color: #e0e0e0e4;
+  max-width: 70%;
   margin: auto;
   padding: 20px;
   border-radius: 5px;
+  box-shadow: 8px 5px 10px #9a9a9ac0;
 `;
 
 export const Input = styled.input`
@@ -50,12 +51,12 @@ export const Input = styled.input`
   outline: none;
   font-size: 15px;
   font-family: myFont;
-  
+
   @font-face {
-        font-family: myFont;
-        src: url(${font});
-        color: black;
-    }
+    font-family: myFont;
+    src: url(${font});
+    color: black;
+  }
   &:focus {
     background-size: 100% 2px, 100% 1px;
     outline: 0 none;
@@ -74,12 +75,12 @@ export const Button = styled.button`
   color: black;
   height: 40px;
   font-family: myFont;
-  
+
   @font-face {
-        font-family: myFont;
-        src: url(${font});
-        color: black;
-    }
+    font-family: myFont;
+    src: url(${font});
+    color: black;
+  }
 
   &:hover {
     transition: 0.2s;

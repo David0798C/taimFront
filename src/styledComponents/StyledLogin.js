@@ -3,26 +3,29 @@ import { Link } from "react-router-dom";
 import font from "../fonts/aukim/AukimLight.otf";
 
 export const LoginContainer = styled.div`
-  max-width: 40%;
-  padding-top: 12%;
+  max-width: 80%;
+  float: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
   text-align: center;
   border-radius: 5px;
-
-  @media (min-width: 900px) {
-    width: 100%;
+  position: relative;
+  top: 150px;
+  @media (max-width: 768px) {
+    max-width: 80%;
   }
 `;
 
 export const LoginStyle = styled.div`
   margin: auto;
-  width: 40%;
+  width: 70%;
   border-radius: 5px;
-  @media (min-width: 900px) {
-    width: 70%;
+  background-color: #ffffffcd;
+  padding: 30px;
+  @media (max-width: 768px) {
+    max-width: 100%;
   }
 `;
 
