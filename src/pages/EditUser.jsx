@@ -25,6 +25,10 @@ const UserProfile = () => {
   const [email, setUserMail] = useState(user?.email);
   const [location, setLocation] = useState(user?.location);
   const [description, setDescription] = useState(user?.description);
+  const [skills, setSkills] = useState(user?.skills);
+  const [interests, setInterests] = useState(user?.interests);
+  const [profilePic, setProfilePic] = useState(user?.profilePic);
+
 
   useEffect(() => {
     // Actualiza los estados cuando el usuario cambia
@@ -34,6 +38,9 @@ const UserProfile = () => {
     setUserMail(user?.email);
     setLocation(user?.location);
     setDescription(user?.description);
+    setSkills(user?.skills);
+    setInterests(user?.interests);
+    setProfilePic(user?.profilePic);
   }, [user]);
 
   const handleUpdate = async () => {
@@ -44,7 +51,10 @@ const UserProfile = () => {
       email,
       location,
       description,
-      password: user.password // Asegúrate de mantener la contraseña actual
+      skills,
+      interests,
+      profilePic,
+      password: user.password, // Asegúrate de mantener la contraseña actual
     };
     console.log("22222");
     await updateUser(id, userAux);
@@ -109,23 +119,35 @@ const UserProfile = () => {
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
             <Enlace to={"/user"}>
-              <button>
                 <IoIosSave className="edit" size={25} onClick={handleUpdate} />
-              </button>
             </Enlace>
           </div>
         </CardContainer>
         <SkillsContainer>
           <h1>Habilidades</h1>
           <ul>
-            <li>{user?.skills}</li>
+            <li>{user?.skills}<textarea
+              name="description-box"
+              rows={4}
+              cols={40}
+              className="input"
+              value={skills}
+              onChange={(e) => setSkills(e.target.value)}
+            ></textarea></li>
           </ul>
         </SkillsContainer>
         <InterestContainer>
           <h1>Intereses</h1>
           <br />
           <ul>
-            <li>{user?.interests}</li>
+            <li>{user?.interests}<textarea
+              name="description-box"
+              rows={4}
+              cols={40}
+              className="input"
+              value={interests}
+              onChange={(e) => setInterests(e.target.value)}
+            ></textarea></li>
           </ul>
         </InterestContainer>
       </Container>
