@@ -10,9 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^5.16.4",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "axios": "^1.7.2",
+    "framer-motion": "^11.3.8",
     "primereact": "^10.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,6 +25,7 @@
     "react-router-dom": "^6.23.1",
     "react-select": "^5.8.0",
     "react-slick": "^0.30.2",
+    "react-tabs": "^6.0.2",
     "scrollreveal": "^4.0.9",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.11"

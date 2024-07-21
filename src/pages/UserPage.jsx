@@ -4,24 +4,27 @@ import {
   Button,
   InterestContainer,
   SkillsContainer,
-  LogoutButtonContainer,
   TaskContainer,
   TaskText,
-  TaskButton,
   H1,
   Task,
+  LeftColumn,
+  RightColumn,
+  CustomTab,
 } from "../styledComponents/StyledUserPage";
 import { RiEdit2Fill } from "react-icons/ri";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
 import { useEffect, useState } from "react";
 import { getRequest } from "../services/request.js";
+import { TabList, TabPanel, Tabs } from "react-tabs";
 
 const UserProfile = () => {
   const [user, , logout] = useUserContext();
   const skillsList = user?.skills?.split(",");
-
+  const interestsList = user?.interests?.split(",");
   const [request, setRequest] = useState();
+
 
   //PARA CONSEGUIR LAS ID DE LAS REQUEST DE LAS TAREAS DEL USUARIO QUE HA INICIADO SESSION
   const idsRequestsUserTasks = user.task.map((task) => {
@@ -45,17 +48,14 @@ const UserProfile = () => {
   console.log("3333333333333", idsRequestsUserTasks);
 
   //FILTER QUE NO FUNCIONA PARA INTENTAR CONSEGUIR LAS ID DE TODAS LAS REQUEST DE LA BASE DE DATOS Y LUEGO COMPARARLAS CON LAS (idsRequestsUserTasks) PARA PODER GUARDAR LA ID DEL USUARIO QUE LA HA ENVIADO Y MOSTRAR LOS DATOS DEL USUARIO
-  const userId = request.filter((requestId) => requestId.id);
+  //const userId = request.filter((requestId) => requestId.id);
+//console.log(userId, "222222222222222");
 
-  console.log(userId, "222222222222222");
-
-  return (
-    <>
-      <GlobalStyle />
-      <LogoutButtonContainer>
-        <Button onClick={logout}>Cerrar Sesión</Button>
-      </LogoutButtonContainer>
-      <Container key={user?.id}>
+return (
+  <>
+    <GlobalStyle />
+    <Container key={user?.id}>
+      <LeftColumn>
         <CardContainer>
           <Enlace to="/edit">
             <RiEdit2Fill className="edit" size={25} />
@@ -63,42 +63,61 @@ const UserProfile = () => {
           <img src={user?.profilePic} className="profile-image" />
           <div>
             <h2 className="name">
-              {" "}
               {user?.name} {user?.surname}
             </h2>
             <h4 className="username">@{user?.username}</h4>
             <p className="email">{user?.email}</p>
             <p>{user?.location}</p>
             <p>{user?.description}</p>
-            <Button>Seguir</Button>
+            <Button onClick={logout}>Cerrar Sesión</Button>
           </div>
         </CardContainer>
         <SkillsContainer>
           <h1>Habilidades</h1>
           <ul>
             {skillsList.map((skill) => (
-          <li key={skill}>{skill}</li>
-        ))}
+              <li key={skill}>{skill}</li>
+            ))}
           </ul>
         </SkillsContainer>
         <InterestContainer>
           <h1>Intereses</h1>
           <br />
           <ul>
-            <li>{user?.interests}</li>
+            {interestsList.map((interest) => (
+              <li key={interest}>{interest}</li>
+            ))}
           </ul>
         </InterestContainer>
-
-        <TaskContainer>
-          <H1>Tareas</H1>
+      </LeftColumn>
+      <RightColumn>
+      <TaskContainer>
+      <H1>Tareas</H1>
+      <Tabs>
+        <TabList>
+          <CustomTab>Mis Ofertas</CustomTab>
+          <CustomTab>Ofertas Suscrito</CustomTab>
+        </TabList>
+        <TabPanel>
           <Task>
-            <TaskText>asdas</TaskText>
-            <TaskButton></TaskButton>
+            <TaskText>Oferta 1</TaskText>
+            <TaskText>Oferta 1</TaskText>
+            <TaskText>Oferta 1</TaskText>
           </Task>
-        </TaskContainer>
-      </Container>
-    </>
-  );
+        </TabPanel>
+        <TabPanel>
+          <Task>
+            <TaskText>Suscripción 1</TaskText>
+            <TaskText>Suscripción 1</TaskText>
+            <TaskText>Suscripción 1</TaskText>
+          </Task>
+        </TabPanel>
+      </Tabs>
+    </TaskContainer>
+      </RightColumn>
+    </Container>
+  </>
+);
 };
 
 export default UserProfile;

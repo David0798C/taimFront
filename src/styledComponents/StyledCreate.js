@@ -8,6 +8,7 @@ export const ContainerCreate = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  margin-top:3%;
 `;
 
 export const H1 = styled.h1`
