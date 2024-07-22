@@ -75,8 +75,8 @@ const UserProfile = () => {
             <H1>Tareas</H1>
             <Tabs>
               <TabList>
-                <CustomTab>Ofertas Suscrito</CustomTab>
                 <CustomTab>Mis ofertas</CustomTab>
+                <CustomTab>Ofertas Suscrito</CustomTab>
               </TabList>
               <TabPanel>
                 {user?.task?.map((offer, index) => (
