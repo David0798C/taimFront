@@ -44,7 +44,7 @@ export const RightColumn = styled.div`
 `;
 
 export const CardContainer = styled.div`
-  background-color: rgba(226, 226, 226, 0.79);
+  background-color: rgba(226, 226, 226, 0.95);
   max-width: 100%;
   padding: 1.5rem;
   border-radius: 0.5rem;
@@ -155,7 +155,7 @@ export const CardContainer = styled.div`
   }
 `;
 export const CenteredContainer = styled.div`
-  background-color: rgba(226, 226, 226, 0.79);
+  background-color: rgba(226, 226, 226, 0.95);
   max-width: 100%;
   padding: 1.5rem;
   border-radius: 0.5rem;
@@ -232,15 +232,15 @@ export const TaskContainer = styled.div`
 `;
 
 export const Task = styled.div`
-  background-color: white;
-  max-width: 100%;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  display: flex;
-  gap: 1rem;
-  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(226, 226, 226, 0.79);
+  border-radius: 5px;
+  padding: 20px;
   box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 `;
 
 export const H1 = styled.h1`

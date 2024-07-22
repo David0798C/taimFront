@@ -22,8 +22,18 @@ const UserProvider = ({ children }) => {
     localStorage.removeItem("user");
   };
 
+  const addSubscriptionToUser = (offer) => {
+    if (user) {
+      const updatedUser = {
+        ...user,
+        subscriptions: [...(user.subscriptions || []), offer],
+      };
+      setUser(updatedUser);
+    }
+  };
+
   return (
-    <AppContext.Provider value={[user, setUser, logout]}>
+    <AppContext.Provider value={[user, setUser, logout, addSubscriptionToUser]}>
       {children}
     </AppContext.Provider>
   );
