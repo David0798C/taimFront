@@ -25,6 +25,7 @@
     "react-router-dom": "^6.23.1",
     "react-select": "^5.8.0",
     "react-slick": "^0.30.2",
+    "react-tabs": "^6.0.2",
     "scrollreveal": "^4.0.9",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.11"

@@ -19,7 +19,7 @@ const Create = () => {
   const [location, setOfferLoc] = useState("");
   const [date, setOfferDate] = useState("");
   const [hours, setOfferTime] = useState([]);
-  const [user, , , addOfferToUser] = useUserContext();
+  const [user, , , , addOfferToUser] = useUserContext();
 
   const horas = [
     { value: "30min", label: "30min" },

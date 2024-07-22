@@ -1,17 +1,4 @@
-import {
-  Container,
-  CardContainer,
-  Button,
-  InterestContainer,
-  SkillsContainer,
-  TaskContainer,
-  TaskText,
-  H1,
-  Task,
-  LeftColumn,
-  RightColumn,
-  CustomTab,
-} from "../styledComponents/StyledUserPage";
+import { Container, CardContainer, Button, InterestContainer, SkillsContainer, TaskContainer, H1, LeftColumn, RightColumn, CustomTab, Task, TaskText } from "../styledComponents/StyledUserPage";
 import { RiEdit2Fill } from "react-icons/ri";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
@@ -31,24 +18,25 @@ const UserProfile = () => {
     });
   }, []);
 
+
   return (
     <>
       <GlobalStyle />
-      <Container key={user?.id}>
+      <Container key={user.id}>
         <LeftColumn>
           <CardContainer>
             <Enlace to="/edit">
               <RiEdit2Fill className="edit" size={25} />
             </Enlace>
-            <img src={user?.profilePic} className="profile-image" />
+            <img src={user.profilePic} className="profile-image" />
             <div>
               <h2 className="name">
-                {user?.name} {user?.surname}
+                {user.name} {user.surname}
               </h2>
-              <h4 className="username">@{user?.username}</h4>
-              <p className="email">{user?.email}</p>
-              <p>{user?.location}</p>
-              <p>{user?.description}</p>
+              <h4 className="username">@{user.username}</h4>
+              <p className="email">{user.email}</p>
+              <p>{user.location}</p>
+              <p>{user.description}</p>
               <Button onClick={logout}>Cerrar Sesión</Button>
             </div>
           </CardContainer>
@@ -79,13 +67,13 @@ const UserProfile = () => {
                 <CustomTab>Ofertas Suscrito</CustomTab>
               </TabList>
               <TabPanel>
-                {user?.task?.map((offer, index) => (
+                {user?.task?.map((task, index) => (
                   <Task key={index}>
                     <TaskText>
-                      <h2>{offer.title}</h2>
-                      <p>{offer.user?.name}</p>
-                      <p>{offer.description}</p>
-                      <p>{offer.hours}</p>
+                      <h2>{task.title}</h2>
+                      <div>{task.user?.name}</div>
+                      <div>{task.description}</div>
+                      <div>{task.hours}</div>
                     </TaskText>
                   </Task>
                 ))}
@@ -95,9 +83,9 @@ const UserProfile = () => {
                   <Task key={index}>
                     <TaskText>
                       <h2>{subscription.title}</h2>
-                      <p>{subscription.user?.name}</p>
-                      <p>{subscription.description}</p>
-                      <p>{subscription.hours}</p>
+                      <div>{subscription.user?.name}</div>
+                      <div>{subscription.description}</div>
+                      <div>{subscription.hours}</div>
                     </TaskText>
                   </Task>
                 ))}

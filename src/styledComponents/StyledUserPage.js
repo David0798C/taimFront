@@ -323,34 +323,21 @@ export const LogoutButtonContainer = styled.div`
 `;
 
 export const CustomTab = styled(Tab)`
-margin-top: 20px;
-  margin: auto;
-  width: 150px;
+display: flex;
+justify-content:center;
+margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
   border-radius: 5px;
-  padding: 10px;
-  background-color: transparent;
   border: 2px solid black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
   color: black;
-  display: block;
   font-family: myFont;
-
-  @font-face {
-    font-family: myFont;
-    src: url(${font});
-    color: black;
-  }
 
   &:hover {
     transition: 0.2s;
     border-color: #4ad627;
   }
-`;
-
-export const TabList = styled.div`
-  display: flex;
-  border-bottom: 1px solid #ccc;
-`;
-
-export const TabPanel = styled.div`
-  display: ${(props) => (props.active ? "block" : "none")};
 `;
