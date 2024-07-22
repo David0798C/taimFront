@@ -71,39 +71,39 @@ const UserProfile = () => {
           </InterestContainer>
         </LeftColumn>
         <RightColumn>
-          <TaskContainer>
-            <H1>Tareas</H1>
-            <Tabs>
-              <TabList>
-                <CustomTab>Mis ofertas</CustomTab>
-                <CustomTab>Ofertas Suscrito</CustomTab>
-              </TabList>
-              <TabPanel>
-                {user?.task?.map((offer, index) => (
-                  <Task key={index}>
-                    <TaskText>
-                      <h2>{offer.title}</h2>
-                      <p>{offer.user?.name}</p>
-                      <p>{offer.description}</p>
-                      <p>{offer.hours}</p>
-                    </TaskText>
-                  </Task>
-                ))}
-              </TabPanel>
-              <TabPanel>
-                {user?.subscriptions?.map((subscription, index) => (
-                  <Task key={index}>
-                    <TaskText>
-                      <h2>{subscription.title}</h2>
-                      <p>{subscription.user?.name}</p>
-                      <p>{subscription.description}</p>
-                      <p>{subscription.hours}</p>
-                    </TaskText>
-                  </Task>
-                ))}
-              </TabPanel>
-            </Tabs>
-          </TaskContainer>
+        <TaskContainer>
+      <H1>Tareas</H1>
+      <Tabs>
+        <TabList>
+          <CustomTab>Mis ofertas</CustomTab>
+          <CustomTab>Ofertas Suscrito</CustomTab>
+        </TabList>
+        <TabPanel>
+          {user?.task?.map((offer, index) => (
+            <Task key={index}>
+              <TaskText>
+                <h2>{offer.title}</h2>
+                <p>{offer.user?.name}</p>
+                <p>{offer.description}</p>
+                <p>{offer.hours}</p>
+              </TaskText>
+            </Task>
+          ))}
+        </TabPanel>
+        <TabPanel>
+          {user?.subscriptions?.map((subscription, index) => (
+            <Task key={index}>
+              <TaskText>
+                <h2>{subscription.title}</h2>
+                <p>{subscription.user?.name}</p>
+                <p>{subscription.description}</p>
+                <p>{subscription.hours}</p>
+              </TaskText>
+            </Task>
+          ))}
+        </TabPanel>
+      </Tabs>
+    </TaskContainer>
         </RightColumn>
       </Container>
     </>
