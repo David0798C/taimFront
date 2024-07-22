@@ -32,8 +32,17 @@ const UserProvider = ({ children }) => {
     }
   };
 
+  const addOfferToUser = (offer) => {
+    if (user) {
+      const updatedUser = {
+        ...user,
+        task: [...(user.task || []), offer],
+      };
+      setUser(updatedUser);
+    }
+  };
   return (
-    <AppContext.Provider value={[user, setUser, logout, addSubscriptionToUser]}>
+    <AppContext.Provider value={[user, setUser, logout, addSubscriptionToUser, addOfferToUser]}>
       {children}
     </AppContext.Provider>
   );

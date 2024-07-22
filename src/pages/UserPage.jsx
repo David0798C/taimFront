@@ -55,7 +55,7 @@ const UserProfile = () => {
           <SkillsContainer>
             <h1>Habilidades</h1>
             <ul>
-              {skillsList?.map((skill) => (
+              {skillsList.map((skill) => (
                 <li key={skill}>{skill}</li>
               ))}
             </ul>
@@ -64,46 +64,46 @@ const UserProfile = () => {
             <h1>Intereses</h1>
             <br />
             <ul>
-              {interestsList?.map((interest) => (
+              {interestsList.map((interest) => (
                 <li key={interest}>{interest}</li>
               ))}
             </ul>
           </InterestContainer>
         </LeftColumn>
         <RightColumn>
-        <TaskContainer>
-      <H1>Tareas</H1>
-      <Tabs>
-        <TabList>
-          <CustomTab>Mis ofertas</CustomTab>
-          <CustomTab>Ofertas Suscrito</CustomTab>
-        </TabList>
-        <TabPanel>
-          {user?.task?.map((offer, index) => (
-            <Task key={index}>
-              <TaskText>
-                <h2>{offer.title}</h2>
-                <p>{offer.user?.name}</p>
-                <p>{offer.description}</p>
-                <p>{offer.hours}</p>
-              </TaskText>
-            </Task>
-          ))}
-        </TabPanel>
-        <TabPanel>
-          {user?.subscriptions?.map((subscription, index) => (
-            <Task key={index}>
-              <TaskText>
-                <h2>{subscription.title}</h2>
-                <p>{subscription.user?.name}</p>
-                <p>{subscription.description}</p>
-                <p>{subscription.hours}</p>
-              </TaskText>
-            </Task>
-          ))}
-        </TabPanel>
-      </Tabs>
-    </TaskContainer>
+          <TaskContainer>
+            <H1>Tareas</H1>
+            <Tabs>
+              <TabList>
+                <CustomTab>Mis Ofertas</CustomTab>
+                <CustomTab>Ofertas Suscrito</CustomTab>
+              </TabList>
+              <TabPanel>
+                {user?.task?.map((offer, index) => (
+                  <Task key={index}>
+                    <TaskText>
+                      <h2>{offer.title}</h2>
+                      <p>{offer.user?.name}</p>
+                      <p>{offer.description}</p>
+                      <p>{offer.hours}</p>
+                    </TaskText>
+                  </Task>
+                ))}
+              </TabPanel>
+              <TabPanel>
+                {user?.subscriptions?.map((subscription, index) => (
+                  <Task key={index}>
+                    <TaskText>
+                      <h2>{subscription.title}</h2>
+                      <p>{subscription.user?.name}</p>
+                      <p>{subscription.description}</p>
+                      <p>{subscription.hours}</p>
+                    </TaskText>
+                  </Task>
+                ))}
+              </TabPanel>
+            </Tabs>
+          </TaskContainer>
         </RightColumn>
       </Container>
     </>
