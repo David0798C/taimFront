@@ -55,7 +55,7 @@ const UserProfile = () => {
           <SkillsContainer>
             <h1>Habilidades</h1>
             <ul>
-              {skillsList.map((skill) => (
+              {skillsList?.map((skill) => (
                 <li key={skill}>{skill}</li>
               ))}
             </ul>
@@ -64,7 +64,7 @@ const UserProfile = () => {
             <h1>Intereses</h1>
             <br />
             <ul>
-              {interestsList.map((interest) => (
+              {interestsList?.map((interest) => (
                 <li key={interest}>{interest}</li>
               ))}
             </ul>
