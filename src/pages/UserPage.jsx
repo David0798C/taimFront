@@ -1,4 +1,17 @@
-import { Container, CardContainer, Button, InterestContainer, SkillsContainer, TaskContainer, H1, LeftColumn, RightColumn, CustomTab, Task, TaskText } from "../styledComponents/StyledUserPage";
+import {
+  Container,
+  CardContainer,
+  Button,
+  InterestContainer,
+  SkillsContainer,
+  TaskContainer,
+  H1,
+  LeftColumn,
+  RightColumn,
+  CustomTab,
+  Task,
+  TaskText,
+} from "../styledComponents/StyledUserPage";
 import { RiEdit2Fill } from "react-icons/ri";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
@@ -17,7 +30,6 @@ const UserProfile = () => {
       setRequest(res.data);
     });
   }, []);
-
 
   return (
     <>
@@ -65,6 +77,7 @@ const UserProfile = () => {
               <TabList>
                 <CustomTab>Mis Ofertas</CustomTab>
                 <CustomTab>Ofertas Suscrito</CustomTab>
+                <CustomTab>Solicitudes</CustomTab>
               </TabList>
               <TabPanel>
                 {user?.task?.map((task, index) => (
@@ -78,6 +91,19 @@ const UserProfile = () => {
                   </Task>
                 ))}
               </TabPanel>
+              <TabPanel>
+                {user?.subscriptions?.map((subscription, index) => (
+                  <Task key={index}>
+                    <TaskText>
+                      <h2>{subscription.title}</h2>
+                      <div>{subscription.user?.name}</div>
+                      <div>{subscription.description}</div>
+                      <div>{subscription.hours}</div>
+                    </TaskText>
+                  </Task>
+                ))}
+              </TabPanel>
+
               <TabPanel>
                 {user?.subscriptions?.map((subscription, index) => (
                   <Task key={index}>
