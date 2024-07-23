@@ -1,4 +1,17 @@
-import { Container, CardContainer, Button, InterestContainer, SkillsContainer, TaskContainer, H1, LeftColumn, RightColumn, CustomTab, Task, TaskText } from "../styledComponents/StyledUserPage";
+import {
+  Container,
+  CardContainer,
+  Button,
+  InterestContainer,
+  SkillsContainer,
+  TaskContainer,
+  H1,
+  LeftColumn,
+  RightColumn,
+  CustomTab,
+  Task,
+  TaskText,
+} from "../styledComponents/StyledUserPage";
 import { RiEdit2Fill } from "react-icons/ri";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
@@ -17,7 +30,6 @@ const UserProfile = () => {
       setRequest(res.data);
     });
   }, []);
-
 
   return (
     <>
