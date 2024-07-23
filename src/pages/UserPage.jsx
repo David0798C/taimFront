@@ -4,6 +4,7 @@ import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
 import { useEffect, useState } from "react";
 import { getRequest } from "../services/request.js";
+import { getTask } from "../services/task.js";
 import { TabList, TabPanel, Tabs } from "react-tabs";
 
 const UserProfile = () => {
@@ -11,13 +12,25 @@ const UserProfile = () => {
   const skillsList = user?.skills?.split(",");
   const interestsList = user?.interests?.split(",");
   const [request, setRequest] = useState();
+  const [tasks, setTasks] = useState();
 
   useEffect(() => {
     getRequest().then((res) => {
+      console.log(res)
       setRequest(res.data);
     });
-  }, []);
 
+    getTask().then((ris) => {
+      console.log(ris)
+      setTasks(ris.data)
+    });
+  }, []);
+  console.log(user)
+
+  const filteredRequests = request?.filter(req => {
+    const taskes = tasks?.find(task => task.id === req.taskId);
+    return taskes && taskes.user.id === user.id
+  })
 
   return (
     <>
@@ -65,6 +78,7 @@ const UserProfile = () => {
               <TabList>
                 <CustomTab>Mis Ofertas</CustomTab>
                 <CustomTab>Ofertas Suscrito</CustomTab>
+                <CustomTab>Solicitudes</CustomTab>
               </TabList>
               <TabPanel>
                 {user?.task?.map((task, index) => (
@@ -86,6 +100,20 @@ const UserProfile = () => {
                       <div>{subscription.user?.name}</div>
                       <div>{subscription.description}</div>
                       <div>{subscription.hours}</div>
+                    </TaskText>
+                  </Task>
+                ))}
+              </TabPanel>
+              <TabPanel>
+                {filteredRequests?.map((filteredRequest, index) => (
+                  <Task key={index}>
+                    <TaskText>
+                      <h2>{filteredRequest.title}</h2>
+                      <div>{filteredRequest.description}</div>
+                      <div>{filteredRequest.hours}</div>
+                      <div>{filteredRequest.username}</div>
+                      <div>{filteredRequest.email}</div>
+                      <Button>ACEPTAR</Button><Button>RECHAZAR</Button>
                     </TaskText>
                   </Task>
                 ))}
