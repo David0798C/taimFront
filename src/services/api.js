@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-//xport const instance = axios.create({ baseURL: 'https://taimback.onrender.com' });
-export const instance = axios.create({ baseURL: 'http://localhost:8080' });
+export const instance = axios.create({ baseURL: 'https://taimback.onrender.com' });
+//export const instance = axios.create({ baseURL: 'http://localhost:8080' });
 
 export const setAuth = (username, password) => {
 
