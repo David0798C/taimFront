@@ -19,8 +19,7 @@ import { postRequest } from "../services/request.js";
 const Ofertas = () => {
   const [Offer, setOffer] = useState([]);
   const [status] = useState(0);
-  const [user_id] = useState();
-  const [user] = useUserContext();
+  const [user, , , addSubscriptionToUser] = useUserContext();
 
   useEffect(() => {
     getTask().then((res) => {
@@ -29,12 +28,17 @@ const Ofertas = () => {
     });
   }, []);
 
-  const enviarRequest = (task_id) => {
-    console.log(status, task_id, user_id);
+  const enviarRequest = (task_id, offer) => {
+    console.log(status, task_id);
     const obj = { status, taskId: task_id, userId: user.id };
     console.log("zzzzzzzzzzzzzzzzzz", obj);
     postRequest(obj).then((res) => {
       console.log(res);
+      addSubscriptionToUser(offer);
+      alert("Has añadido esta oferta correctamente");
+    }).catch(err => {
+      console.error(err);
+      alert("Ocurrió un error al añadir la oferta");
     });
   };
 
@@ -49,7 +53,7 @@ const Ofertas = () => {
             <ContainerColumn key={oferta.id}>
               <H3>{oferta?.title}</H3>
 
-              <H4>{oferta?.user.name}</H4>
+              <H4>{oferta?.user?.name}</H4>
 
               <Image></Image>
 
@@ -57,7 +61,7 @@ const Ofertas = () => {
 
               <P>{oferta?.hours}</P>
 
-              <Button onClick={() => enviarRequest(oferta.id)}>
+              <Button onClick={() => enviarRequest(oferta.id, oferta)}>
                 Añadir Oferta
               </Button>
             </ContainerColumn>

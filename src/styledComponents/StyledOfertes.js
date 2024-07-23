@@ -5,6 +5,7 @@ export const ContainerOfertas = styled.div`
   max-width: 100%;
   margin: auto;
   padding: 0px;
+  margin-top:3%;
 `;
 
 export const ContainerRow = styled.div`

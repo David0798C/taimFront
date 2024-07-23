@@ -1,11 +1,4 @@
-import {
-  Container,
-  CardContainer,
-  Button,
-  InterestContainer,
-  SkillsContainer,
-  LogoutButtonContainer,
-} from "../styledComponents/StyledUserPage";
+import {Container, CardContainer, Button, InterestContainer, SkillsContainer, LogoutButtonContainer, DeleteButton} from '../styledComponents/StyledUserPage';
 import { IoIosSave } from "react-icons/io";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
@@ -15,8 +8,7 @@ import { updateUser } from "../services/user.js";
 const UserProfile = () => {
   const [user, setUser, logout] = useUserContext();
   const id = user.id;
-  console.log(user.id);
-  // Inicializa los estados con los valores actuales del usuario
+
   const [name, setName] = useState(user?.name);
   const [surname, setSurname] = useState(user?.surname);
   const [username, setUserName] = useState(user?.username);
@@ -26,34 +18,41 @@ const UserProfile = () => {
   const [skills, setSkills] = useState(user?.skills);
   const [interests, setInterests] = useState(user?.interests);
   const [profilePic, setProfilePic] = useState(user?.profilePic);
-  const [skillsList, setSkillsList] = useState(user?.skills?.split(','));
-  const skillsListRef = useRef(skillsList);
+  const [lists, setLists] = useState({
+    skills: user?.skills?.split(',') || [],
+    interests: user?.interests?.split(',') || [],
+  });
 
-  // Actualiza la referencia cada vez que skillsList cambie
-  skillsListRef.current = skillsList;
+  const listsRef = useRef(lists);
 
-  const handleKeyDown = (e) => {
+  // Actualiza la referencia cada vez que lists cambie
+  useEffect(() => {
+    listsRef.current = lists;
+  }, [lists]);
+
+  const handleKeyDown = (e, type) => {
     if (e.key === "Enter") {
-      const newSkill = e.target.value.trim();
-      if (newSkill) {
-        setSkillsList(prevSkillsList => {
-          const updatedSkillsList = [...prevSkillsList, newSkill];
-          setSkills(updatedSkillsList.join(','));
-          return updatedSkillsList;
+      const newItem = e.target.value.trim();
+      if (newItem) {
+        setLists(prevLists => {
+          const updatedList = [...prevLists[type], newItem];
+          if (type === 'skills') setSkills(updatedList.join(','));
+          if (type === 'interests') setInterests(updatedList.join(','));
+          return { ...prevLists, [type]: updatedList };
         });
         e.target.value = "";
       }
     }
   };
 
-  const handleDelete = (index) => {
-    setSkillsList(prevSkillsList => {
-      const updatedSkillsList = prevSkillsList.filter((_, i) => i !== index);
-      setSkills(updatedSkillsList.join(',')); // Asumiendo que `setSkills` es una función que usas para algo más.
-      return updatedSkillsList;
+  const handleDelete = (index, type) => {
+    setLists(prevLists => {
+      const updatedList = prevLists[type].filter((_, i) => i !== index);
+      if (type === 'skills') setSkills(updatedList.join(','));
+      if (type === 'interests') setInterests(updatedList.join(','));
+      return { ...prevLists, [type]: updatedList };
     });
   };
-
 
   useEffect(() => {
     // Actualiza los estados cuando el usuario cambia
@@ -81,7 +80,6 @@ const UserProfile = () => {
       profilePic,
       password: user.password, // Asegúrate de mantener la contraseña actual
     };
-    console.log("22222");
     await updateUser(id, userAux);
     setUser({ ...user, ...userAux });
 
@@ -144,42 +142,50 @@ const UserProfile = () => {
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
             <Enlace to={"/user"}>
-                <IoIosSave className="edit" size={25} onClick={handleUpdate} />
+              <IoIosSave className="edit" size={25} onClick={handleUpdate} />
             </Enlace>
           </div>
         </CardContainer>
         <SkillsContainer>
-        <h1>Habilidades</h1>
-        <ul>
-        {skillsList.map((skill, index) => (
-          <li key={index}>
-            {skill}
-            <button onClick={() => handleDelete(index)}>Eliminar</button>
-          </li>
-        ))}
-        <li>
-          <input
-            name="description-box"
-            rows={4}
-            cols={40}
-            className="input"
-            onKeyDown={handleKeyDown}
-          />
-        </li>
-      </ul>
+          <h1>Habilidades</h1>
+          <ul>
+            {lists.skills.map((skill, index) => (
+              <li key={index}>
+                {skill}
+                <DeleteButton onClick={() => handleDelete(index, 'skills')}>X</DeleteButton>
+              </li>
+            ))}
+            <li>
+              <input
+                name="description-box"
+                rows={4}
+                cols={40}
+                className="input"
+                placeholder="Introduce tus Habilidades"
+                onKeyDown={(e) => handleKeyDown(e, 'skills')}
+              />
+            </li>
+          </ul>
         </SkillsContainer>
         <InterestContainer>
           <h1>Intereses</h1>
-          <br />
           <ul>
-            <li>{user?.interests}<input
-              name="description-box"
-              rows={4}
-              cols={40}
-              className="input"
-              value={interests}
-              onChange={(e) => setInterests(e.target.value)}
-            ></input></li>
+            {lists.interests.map((interest, index) => (
+              <li key={index}>
+                {interest}
+                <DeleteButton onClick={() => handleDelete(index, 'interests')}>X</DeleteButton>
+              </li>
+            ))}
+            <li>
+              <input
+                name="description-box"
+                rows={4}
+                cols={40}
+                className="input"
+                placeholder="Intrucude tus Intereses"
+                onKeyDown={(e) => handleKeyDown(e, 'interests')}
+              />
+            </li>
           </ul>
         </InterestContainer>
       </Container>
