@@ -27,8 +27,6 @@ const UserProfile = () => {
   const [request, setRequest] = useState();
   const [tasks, setTasks] = useState();
 
-  const [deleteRequestId, setDeleteRequestId] = useState();
-
   useEffect(() => {
     getRequest().then((res) => {
       console.log(res);
