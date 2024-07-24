@@ -16,7 +16,8 @@ import { RiEdit2Fill } from "react-icons/ri";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
 import { useEffect, useState } from "react";
-import { getRequest } from "../services/request.js";
+import { deleteRequest, getRequest } from "../services/request.js";
+import { getTask } from "../services/task.js";
 import { TabList, TabPanel, Tabs } from "react-tabs";
 
 const UserProfile = () => {
@@ -24,12 +25,37 @@ const UserProfile = () => {
   const skillsList = user?.skills?.split(",");
   const interestsList = user?.interests?.split(",");
   const [request, setRequest] = useState();
+  const [tasks, setTasks] = useState();
+
+  const [deleteRequestId, setDeleteRequestId] = useState();
 
   useEffect(() => {
     getRequest().then((res) => {
+      console.log(res);
       setRequest(res.data);
     });
+
+    getTask().then((ris) => {
+      console.log(ris);
+      setTasks(ris.data);
+    });
   }, []);
+  console.log(user);
+
+  const filteredRequests = request?.filter((req) => {
+    const taskes = tasks?.find((task) => task.id === req.taskId);
+    return taskes && taskes.user.id === user.id;
+  });
+
+  const handleDelete = async (filteredRequest_id) => {
+    console.log("111111");
+    await deleteRequest(filteredRequest_id).then(() => {
+      console.log("2222222");
+      alert("Solicitud rechazada correctamente");
+    });
+  };
+
+  console.log(filteredRequests);
 
   return (
     <>
@@ -103,15 +129,19 @@ const UserProfile = () => {
                   </Task>
                 ))}
               </TabPanel>
-
               <TabPanel>
-                {user?.subscriptions?.map((subscription, index) => (
+                {filteredRequests?.map((filteredRequest, index) => (
                   <Task key={index}>
                     <TaskText>
-                      <h2>{subscription.title}</h2>
-                      <div>{subscription.user?.name}</div>
-                      <div>{subscription.description}</div>
-                      <div>{subscription.hours}</div>
+                      <h2>{filteredRequest.title}</h2>
+                      <div>{filteredRequest.description}</div>
+                      <div>{filteredRequest.hours}</div>
+                      <div>{filteredRequest.username}</div>
+                      <div>{filteredRequest.email}</div>
+                      <Button>ACEPTAR</Button>
+                      <Button onClick={handleDelete(filteredRequest.id)}>
+                        RECHAZAR
+                      </Button>
                     </TaskText>
                   </Task>
                 ))}
