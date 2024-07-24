@@ -16,7 +16,11 @@ import { RiEdit2Fill } from "react-icons/ri";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
 import { useEffect, useState } from "react";
-import { deleteRequest, getRequest } from "../services/request.js";
+import {
+  deleteRequest,
+  getRequest,
+  updateRequestStatus,
+} from "../services/request.js";
 import { getTask } from "../services/task.js";
 import { TabList, TabPanel, Tabs } from "react-tabs";
 
@@ -26,6 +30,8 @@ const UserProfile = () => {
   const interestsList = user?.interests?.split(",");
   const [request, setRequest] = useState();
   const [tasks, setTasks] = useState();
+
+  const status = 1;
 
   useEffect(() => {
     getRequest().then((res) => {
@@ -50,6 +56,18 @@ const UserProfile = () => {
     await deleteRequest(filteredRequest_id).then(() => {
       console.log("2222222");
       alert("Solicitud rechazada correctamente");
+    });
+  };
+
+  const handleAccept = async (userId, taskId, id) => {
+    console.log("33333");
+    await updateRequestStatus(id, {
+      status,
+      userId,
+      taskId,
+    }).then(() => {
+      console.log("44444");
+      alert("Solicitud aceptada correctamente");
     });
   };
 
@@ -136,8 +154,18 @@ const UserProfile = () => {
                       <div>{filteredRequest.hours}</div>
                       <div>{filteredRequest.username}</div>
                       <div>{filteredRequest.email}</div>
-                      <Button>ACEPTAR</Button>
-                      <Button onClick={handleDelete(filteredRequest.id)}>
+                      <Button
+                        onClick={() =>
+                          handleAccept(
+                            filteredRequest.userId,
+                            filteredRequest.taskId,
+                            filteredRequest.id
+                          )
+                        }
+                      >
+                        ACEPTAR
+                      </Button>
+                      <Button onClick={() => handleDelete(filteredRequest.id)}>
                         RECHAZAR
                       </Button>
                     </TaskText>

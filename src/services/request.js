@@ -7,3 +7,7 @@ export const postRequest = async (obj) =>
 
 export const deleteRequest = async (id) =>
   await instance.delete("/requests/" + id);
+
+export const updateRequestStatus = async (id, obj) => {
+  await instance.put("/requests/" + id, obj);
+};
