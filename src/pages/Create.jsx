@@ -54,7 +54,6 @@ const Create = () => {
     <div>
       <GlobalStyle />
       <ContainerCreate>
-        <H1>Crear Oferta</H1>
         <ContainerInput>
           <Input
             placeholder="Nombre de la Oferta"

@@ -46,8 +46,6 @@ const Ofertas = () => {
     <div>
       <GlobalStyle />
       <ContainerOfertas>
-        <H1>Ofertas</H1>
-
         <ContainerRow>
           {Offer?.map((oferta) => (
             <ContainerColumn key={oferta.id}>

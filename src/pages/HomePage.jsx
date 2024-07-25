@@ -23,11 +23,13 @@ import { useUserContext } from '../providers/UserProvider.jsx';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
 import eric from '../pic/WhatsApp Image 2024-07-23 at 16.28.48.jpeg'
 import anna from '../pic/WhatsApp Image 2024-07-24 at 14.13.16.jpeg'
 import daria from '../pic/WhatsApp Image 2024-07-23 at 18.58.13.jpeg'
 import david from '../pic/WhatsApp Image 2024-07-24 at 14.19.58.jpeg'
 import carmen from '../pic/WhatsApp Image 2024-06-14 at 17.11.18.jpeg'
+import fundacion from '../pic/fundacionesplai.png'
 const HomePage = () => {
   const [user] = useUserContext();
 
@@ -168,10 +170,28 @@ const HomePage = () => {
         </Container>
       </ContentContainer>
 
-      {/* Agregar el footer al final */}
       <Footer>
-        Aquí va tu contenido del footer
-      </Footer>
+      <div className="footer-content">
+        <div className="social-media">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <FaFacebookF />
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+            <FaTwitter />
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <FaInstagram />
+          </a>
+        </div>
+        <div className="contact">
+          <p>Contacto: <a href="mailto:contacto@tuempresa.com">contacto@tuempresa.com</a></p>
+        </div>
+        <div className="images">
+          <img src={fundacion} alt="Imagen 1" />
+          <img src="/path/to/second-image.jpg" alt="Imagen 2" />
+        </div>
+      </div>
+    </Footer>
     </>
   );
 };

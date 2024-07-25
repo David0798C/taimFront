@@ -166,10 +166,53 @@ export const Paragraph = styled.p`
   line-height: 1.6;
   color: #333;
 `;
+
 export const Footer = styled.footer`
   background-color: #4ad627;
   width: 100%;
-  padding: 20px 0; /* Puedes ajustar el padding según necesites */
+  padding: 20px 0;
   color: white;
   text-align: center;
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-media {
+    margin-bottom: 15px;
+
+    a {
+      color: white;
+      margin: 0 10px;
+      font-size: 24px;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .contact {
+    margin-bottom: 15px;
+
+    a {
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .images {
+    img {
+      width: 100px;
+      height: auto;
+      margin: 5px;
+    }
+  }
 `;
