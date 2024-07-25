@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { BsStar } from "react-icons/bs";
 import gifAnimado from '../pic/gitAnimado.gif';
 import gifEstatico from '../pic/gitEstatico.png';
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import font from '../fonts/aukim/AukimLight.otf';
 import BackgroundImage from '../pic/fondo4.jpg';
 
@@ -219,7 +219,7 @@ const Layout = ({ children }) => {
   };
 
   return (
-    
+
     <LayoutContainer>
       <GlobalStyle />
       <Container>
@@ -232,8 +232,8 @@ const Layout = ({ children }) => {
           </HamburgerIcon>
           <Ul open={isOpen}>
             <Li><Link to="/ofertas">Ofertas</Link></Li>
-            <Li><Link to="/create">Create</Link></Li>
-            <Li><Link to="/user">User</Link></Li>
+            <Li><Link to="/create">Crear Oferta</Link></Li>
+            <Li><Link to="/user">Perfil</Link></Li>
           </Ul>
         </Nav>
       </Container>
