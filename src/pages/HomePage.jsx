@@ -23,7 +23,6 @@ import { useUserContext } from '../providers/UserProvider.jsx';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import fondo9 from '../pic/fondo6.jpg';
 import eric from '../pic/WhatsApp Image 2024-07-23 at 16.28.48.jpeg'
 import anna from '../pic/WhatsApp Image 2024-07-24 at 14.13.16.jpeg'
 import daria from '../pic/WhatsApp Image 2024-07-23 at 18.58.13.jpeg'
@@ -41,7 +40,7 @@ const HomePage = () => {
 
   const teamMembers = [
 
-        {
+    {
       name: "Carmen Sas",
       position: "Desarrolladora Frontend y Scrum Master",
       tasks: "Desarrollo de interfaces y experiencia de usuario. Diseño de interfaces y mejora de la usabilidad.",
