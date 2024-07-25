@@ -24,7 +24,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import fondo9 from '../pic/fondo6.jpg';
-
+import eric from '../pic/WhatsApp Image 2024-07-23 at 16.28.48.jpeg'
+import anna from '../pic/WhatsApp Image 2024-07-24 at 14.13.16.jpeg'
+import daria from '../pic/WhatsApp Image 2024-07-23 at 18.58.13.jpeg'
+import david from '../pic/WhatsApp Image 2024-07-24 at 14.19.58.jpeg'
+import carmen from '../pic/WhatsApp Image 2024-06-14 at 17.11.18.jpeg'
 const HomePage = () => {
   const [user] = useUserContext();
 
@@ -36,35 +40,36 @@ const HomePage = () => {
   }, []);
 
   const teamMembers = [
-    {
-      name: "David Casas",
-      position: "Desarrollador Frontend",
-      tasks: "Desarrollo de interfaces y experiencia de usuario.",
-      photo: fondo9,
-    },
-    {
-      name: "Anna Canivell",
-      position: "Desarrolladora Backend y frontend",
-      tasks: "Gestión de bases de datos y servidores.",
-      photo: fondo9,
+
+        {
+      name: "Carmen Sas",
+      position: "Desarrolladora Frontend y Scrum Master",
+      tasks: "Desarrollo de interfaces y experiencia de usuario. Diseño de interfaces y mejora de la usabilidad.",
+      photo: carmen,
     },
     {
       name: "Eric Gascó",
       position: "Desarrollador Frontend y Backend",
       tasks: "Gestión de bases de datos y servidores.",
-      photo: fondo9,
+      photo: eric,
     },
     {
-      name: "Carmen Sas",
-      position: "Desarrolladora Frontend y Scrum Master",
-      tasks: "Desarrollo de interfaces y experiencia de usuario. Diseño de interfaces y mejora de la usabilidad.",
-      photo: fondo9,
+      name: "Anna Canivell",
+      position: "Desarrolladora Backend y frontend",
+      tasks: "Gestión de bases de datos y servidores.",
+      photo: anna,
+    },
+    {
+      name: "David Casas",
+      position: "Desarrollador Frontend",
+      tasks: "Desarrollo de interfaces y experiencia de usuario.",
+      photo: david,
     },
     {
       name: "Daria Yerashova",
       position: "Desarrolladora Frontend y Scrum Master",
       tasks: "Desarrollo de interfaces y experiencia de usuario. Diseño de interfaces y mejora de la usabilidad.",
-      photo: fondo9,
+      photo: daria,
     },
   ];
 
@@ -152,7 +157,7 @@ const HomePage = () => {
                   <TeamMember key={index}>
                     <MemberPhoto src={member.photo} alt={member.name} />
                     <MemberDescription>
-                      <h3>{member.name}</h3>
+                      <h2>{member.name}</h2>
                       <p>{member.position}</p>
                       <p>{member.tasks}</p>
                     </MemberDescription>

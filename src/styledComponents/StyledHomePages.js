@@ -144,7 +144,7 @@ export const TeamMember = styled.div`
 
 export const MemberPhoto = styled.img`
   width: 100%;
-  height: auto;
+  height: 2%;
   border-radius: 10%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
