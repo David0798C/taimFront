@@ -210,7 +210,7 @@ export const Footer = styled.footer`
 
   .images {
     img {
-      width: 100px;
+      width: 250px;
       height: auto;
       margin: 5px;
     }

@@ -30,6 +30,7 @@ import daria from '../pic/WhatsApp Image 2024-07-23 at 18.58.13.jpeg'
 import david from '../pic/WhatsApp Image 2024-07-24 at 14.19.58.jpeg'
 import carmen from '../pic/WhatsApp Image 2024-06-14 at 17.11.18.jpeg'
 import fundacion from '../pic/fundacionesplai.png'
+import logo from '../pic/gitEstatico.png'
 const HomePage = () => {
   const [user] = useUserContext();
 
@@ -184,11 +185,11 @@ const HomePage = () => {
           </a>
         </div>
         <div className="contact">
-          <p>Contacto: <a href="mailto:contacto@tuempresa.com">contacto@tuempresa.com</a></p>
+          <p>Contacto: <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHvpJCgbXMxCNzvqCPcncSvnrjWkJCDltGjHxvdfCMsndTNhxqpSdKMLdLwFgmcwXhqVDnB">taimproject7@gmail.com</a></p>
         </div>
         <div className="images">
           <img src={fundacion} alt="Imagen 1" />
-          <img src="/path/to/second-image.jpg" alt="Imagen 2" />
+          <img src={logo} alt="Imagen 2" />
         </div>
       </div>
     </Footer>
