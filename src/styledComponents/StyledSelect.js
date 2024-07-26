@@ -10,11 +10,11 @@ export const customStyles = {
   control: (defaultStyles) => ({
     ...defaultStyles,
     // Notice how these are all CSS properties
-    backgroundColor: "#f8f8f80",
+    backgroundColor: "white",
     padding: "10px",
-    border: "none",
-    boxShadow: "none",
+    borderRadius: "20px",
     marginTop: "20px",
+    width: "200px",
   }),
   singleValue: (defaultStyles) => ({ ...defaultStyles, color: "#000000" }),
 };
