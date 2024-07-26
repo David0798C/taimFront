@@ -8,7 +8,9 @@ export const ContainerCreate = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin-top:3%;
+  margin-top: 3%;
+  background-color: #fcfdfc1e;
+  height: 100%;
 `;
 
 export const H1 = styled.h1`
@@ -16,12 +18,14 @@ export const H1 = styled.h1`
 `;
 
 export const ContainerInput = styled.div`
-  width: 40%;
+  width: 60%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fcfdfcd2;
+
+  background-color: #fcfdfcf8;
+
   border-radius: 5px;
 
   padding: 20px;

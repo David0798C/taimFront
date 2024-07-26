@@ -22,7 +22,7 @@ export const RegisterContainer = styled.div`
 // `;
 
 export const InputContainer = styled.div`
-  background-color: #e0e0e0e4;
+  background-color: #fdfdfd;
   max-width: 70%;
   margin: auto;
   padding: 20px;
