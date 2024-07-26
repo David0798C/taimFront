@@ -91,7 +91,7 @@ export const Button = styled.button`
 `;
 
 export const Container = styled.div`
-  width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,6 +178,7 @@ export const Footer = styled.footer`
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative; /* Para posicionar las imágenes */
   }
 
   .social-media {
@@ -209,10 +210,23 @@ export const Footer = styled.footer`
   }
 
   .images {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px; /* Ajusta según necesites */
+    left: 0;
+    padding: 0 20px; /* Ajusta según necesites */
+
     img {
       width: 250px;
       height: auto;
       margin: 5px;
     }
   }
+
+  .content-center {
+    padding-top: 150px; /* Ajusta según necesites para evitar superposición */
+  }
 `;
+

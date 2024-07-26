@@ -7,11 +7,6 @@ import {
   Description,
   H1,
   GlobalStyle,
-  TeamContainer,
-  TeamCarousel,
-  TeamMember,
-  MemberPhoto,
-  MemberDescription,
   ContentContainer,
   Footer // Asegúrate de importar el Footer
 } from "../styledComponents/StyledHomePages.js";
@@ -20,15 +15,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
 import { useUserContext } from '../providers/UserProvider.jsx';
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
-import eric from '../pic/WhatsApp Image 2024-07-23 at 16.28.48.jpeg'
-import anna from '../pic/WhatsApp Image 2024-07-24 at 14.13.16.jpeg'
-import daria from '../pic/WhatsApp Image 2024-07-23 at 18.58.13.jpeg'
-import david from '../pic/WhatsApp Image 2024-07-24 at 14.19.58.jpeg'
-import carmen from '../pic/WhatsApp Image 2024-06-14 at 17.11.18.jpeg'
 import fundacion from '../pic/fundacionesplai.png'
 import logo from '../pic/gitEstatico.png'
 const HomePage = () => {
@@ -41,70 +30,11 @@ const HomePage = () => {
     });
   }, []);
 
-  const teamMembers = [
-
-    {
-      name: "Carmen Sas",
-      position: "Desarrolladora Frontend y Scrum Master",
-      tasks: "Desarrollo de interfaces y experiencia de usuario. Diseño de interfaces y mejora de la usabilidad.",
-      photo: carmen,
-    },
-    {
-      name: "Eric Gascó",
-      position: "Desarrollador Frontend y Backend",
-      tasks: "Gestión de bases de datos y servidores.",
-      photo: eric,
-    },
-    {
-      name: "Anna Canivell",
-      position: "Desarrolladora Backend y frontend",
-      tasks: "Gestión de bases de datos y servidores.",
-      photo: anna,
-    },
-    {
-      name: "David Casas",
-      position: "Desarrollador Frontend",
-      tasks: "Desarrollo de interfaces y experiencia de usuario.",
-      photo: david,
-    },
-    {
-      name: "Daria Yerashova",
-      position: "Desarrolladora Frontend y Scrum Master",
-      tasks: "Desarrollo de interfaces y experiencia de usuario. Diseño de interfaces y mejora de la usabilidad.",
-      photo: daria,
-    },
-  ];
-
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: false,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
 
   return (
     <>
       <GlobalStyle />
-      <H1 className="animate__animated animate__slideInLeft">T A I M</H1>
+      <H1 className="animate__animated animate__flash">T A I M</H1>
 
       {!user && (
         <ButtonContainer>
@@ -150,49 +80,36 @@ const HomePage = () => {
               </p>
             </Description>
           </DescriptionContainer>
-
-          <TeamContainer data-aos="fade-up">
-            <h1>Conoce a nuestro equipo</h1>
-            <TeamCarousel>
-              <Slider {...settings}>
-                {teamMembers.map((member, index) => (
-                  <TeamMember key={index}>
-                    <MemberPhoto src={member.photo} alt={member.name} />
-                    <MemberDescription>
-                      <h2>{member.name}</h2>
-                      <p>{member.position}</p>
-                      <p>{member.tasks}</p>
-                    </MemberDescription>
-                  </TeamMember>
-                ))}
-              </Slider>
-            </TeamCarousel>
-          </TeamContainer>
         </Container>
       </ContentContainer>
 
       <Footer>
-      <div className="footer-content">
-        <div className="social-media">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <FaFacebookF />
-          </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-            <FaTwitter />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <FaInstagram />
-          </a>
-        </div>
-        <div className="contact">
-          <p>Contacto: <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHvpJCgbXMxCNzvqCPcncSvnrjWkJCDltGjHxvdfCMsndTNhxqpSdKMLdLwFgmcwXhqVDnB">taimproject7@gmail.com</a></p>
-        </div>
-        <div className="images">
-          <img src={fundacion} alt="Imagen 1" />
-          <img src={logo} alt="Imagen 2" />
-        </div>
+  <div className="footer-content">
+    <div className="images">
+      <img src={fundacion} alt="Imagen 1" style={{ float: 'left' }} />
+      <img src={logo} alt="Imagen 2" style={{ float: 'right' }} />
+    </div>
+    <div className="content-center">
+      
+      <div className="social-media">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+          <FaFacebookF />
+        </a>
+        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+          <FaTwitter />
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          <FaInstagram />
+        </a>
       </div>
-    </Footer>
+      <div className="contact">
+        <Enlace to="/about">CONOCE MÁS SOBRE NUESTRO EQUIPO</Enlace>
+        <p>Contacto: <a href="mailto:contacto@tuempresa.com">contacto@tuempresa.com</a></p>
+      </div>
+    </div>
+  </div>
+</Footer>
+
     </>
   );
 };
