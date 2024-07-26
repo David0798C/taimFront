@@ -5,47 +5,77 @@ import {
   InputContainer,
   Button,
 } from "../styledComponents/StyledRegister.js";
-import { insertUser, loginUser } from "../services/auth.js"; 
-import { useUserContext } from '../providers/UserProvider.jsx'; 
-import { useNavigate } from "react-router-dom"; 
+import { insertUser, loginUser } from "../services/auth.js";
+import { useUserContext } from "../providers/UserProvider.jsx";
+import { useNavigate } from "react-router-dom";
 import { GlobalStyle } from "../styledComponents/StyledHomePages.js";
 
+import Swal from "sweetalert2";
+
 const Register = () => {
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [password2, setPassword2] = useState('');
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [, setUser] = useUserContext();
   const navigate = useNavigate();
 
   const ConfirmPassword = () => {
     if (password === password2) {
-      insertUser({ name, surname, username, email, password }).then((res) => {
-        console.log(res);
-        alert("Usuario registrado correctamente");
+      insertUser({ name, surname, username, email, password })
+        .then((res) => {
+          console.log(res);
+          Swal.fire({
+            title: "Usuario registrado correctamente",
+            icon: "success",
+            showConfirmButton: true,
+            confirmButtonColor: "#4ad627",
+          });
 
-        // Realiza login después del registro
-        loginUser(username, password).then((loginRes) => {
-          console.log(loginRes);
-          if (loginRes.status === 200) {
-            setUser(loginRes.data);
-            navigate("/user"); // Redirecciona a la página de usuario
-          } else {
-            alert('Algo ha salido mal durante el login');
-          }
-        }).catch((loginErr) => {
-          console.error("Error en el login:", loginErr);
-          alert("Error en el login");
+          // Realiza login después del registro
+          loginUser(username, password)
+            .then((loginRes) => {
+              console.log(loginRes);
+              if (loginRes.status === 200) {
+                setUser(loginRes.data);
+                navigate("/user"); // Redirecciona a la página de usuario
+              } else {
+                Swal.fire({
+                  title: "Algo ha salido mal durante el login",
+                  icon: "error",
+                  showConfirmButton: true,
+                  confirmButtonColor: "#4ad627",
+                });
+              }
+            })
+            .catch((loginErr) => {
+              console.error("Error en el login:", loginErr);
+              Swal.fire({
+                title: "Error en el login",
+                icon: "error",
+                showConfirmButton: true,
+                confirmButtonColor: "#4ad627",
+              });
+            });
+        })
+        .catch((err) => {
+          console.error("Error en el registro:", err);
+          Swal.fire({
+            title: "Error en el registro",
+            icon: "error",
+            showConfirmButton: true,
+            confirmButtonColor: "#4ad627",
+          });
         });
-
-      }).catch((err) => {
-        console.error("Error en el registro:", err);
-        alert("Error en el registro");
-      });
     } else {
-      alert("Las contraseñas no coinciden");
+      Swal.fire({
+        title: "Las contraseñas no coinciden",
+        icon: "error",
+        showConfirmButton: true,
+        confirmButtonColor: "#4ad627",
+      });
     }
   };
 
@@ -102,4 +132,3 @@ const Register = () => {
 };
 
 export default Register;
-

@@ -21,6 +21,7 @@ import {
   getRequest,
   updateRequestStatus,
 } from "../services/request.js";
+import Swal from "sweetalert2";
 import { getTask } from "../services/task.js";
 import { TabList, TabPanel, Tabs } from "react-tabs";
 import { sendEmail } from "../services/email.js";
@@ -31,6 +32,8 @@ const UserProfile = () => {
   const interestsList = user?.interests?.split(",");
   const [request, setRequest] = useState();
   const [tasks, setTasks] = useState();
+  const [email, setEmail] = useState();
+  const [messages, setMessages] = useState();
 
   const status = 1;
 
@@ -60,6 +63,12 @@ const UserProfile = () => {
       sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we inform that your request to " + user.username + " about " + taskName + " has been declined"})
       .then(() =>{
       })
+      Swal.fire({
+        title: "Solicitud rechazada correctamente",
+        icon: "success",
+        showConfirmButton: true,
+        confirmButtonColor: "#4ad627",
+      });
     });
   };
 
@@ -75,6 +84,12 @@ const UserProfile = () => {
       sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we are happy to inform that your request to " + user.username + " about " + taskName + " has been accepted!"})
       .then(() =>{
       })
+      Swal.fire({
+        title: "Solicitud aceptada correctamente",
+        icon: "success",
+        showConfirmButton: true,
+        confirmButtonColor: "#4ad627",
+      });
     });
   };
 
