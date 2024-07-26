@@ -1,9 +1,18 @@
-import {Container, CardContainer, Button, InterestContainer, SkillsContainer, LogoutButtonContainer, DeleteButton} from '../styledComponents/StyledUserPage';
+import {
+  Container,
+  CardContainer,
+  Button,
+  InterestContainer,
+  SkillsContainer,
+  LogoutButtonContainer,
+  DeleteButton,
+} from "../styledComponents/StyledUserPage";
 import { IoIosSave } from "react-icons/io";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
 import { useState, useEffect, useRef } from "react";
 import { updateUser } from "../services/user.js";
+import Swal from "sweetalert2";
 
 const UserProfile = () => {
   const [user, setUser, logout] = useUserContext();
@@ -19,8 +28,8 @@ const UserProfile = () => {
   const [interests, setInterests] = useState(user?.interests);
   const [profilePic, setProfilePic] = useState(user?.profilePic);
   const [lists, setLists] = useState({
-    skills: user?.skills?.split(',') || [],
-    interests: user?.interests?.split(',') || [],
+    skills: user?.skills?.split(",") || [],
+    interests: user?.interests?.split(",") || [],
   });
 
   const listsRef = useRef(lists);
@@ -34,10 +43,10 @@ const UserProfile = () => {
     if (e.key === "Enter") {
       const newItem = e.target.value.trim();
       if (newItem) {
-        setLists(prevLists => {
+        setLists((prevLists) => {
           const updatedList = [...prevLists[type], newItem];
-          if (type === 'skills') setSkills(updatedList.join(','));
-          if (type === 'interests') setInterests(updatedList.join(','));
+          if (type === "skills") setSkills(updatedList.join(","));
+          if (type === "interests") setInterests(updatedList.join(","));
           return { ...prevLists, [type]: updatedList };
         });
         e.target.value = "";
@@ -46,10 +55,10 @@ const UserProfile = () => {
   };
 
   const handleDelete = (index, type) => {
-    setLists(prevLists => {
+    setLists((prevLists) => {
       const updatedList = prevLists[type].filter((_, i) => i !== index);
-      if (type === 'skills') setSkills(updatedList.join(','));
-      if (type === 'interests') setInterests(updatedList.join(','));
+      if (type === "skills") setSkills(updatedList.join(","));
+      if (type === "interests") setInterests(updatedList.join(","));
       return { ...prevLists, [type]: updatedList };
     });
   };
@@ -83,7 +92,12 @@ const UserProfile = () => {
     await updateUser(id, userAux);
     setUser({ ...user, ...userAux });
 
-    alert("Datos actualizados correctamente");
+    Swal.fire({
+      title: "Datos actualizados correctamente",
+      icon: "success",
+      showConfirmButton: true,
+      confirmButtonColor: "#4ad627",
+    });
   };
 
   return (
@@ -152,7 +166,9 @@ const UserProfile = () => {
             {lists.skills.map((skill, index) => (
               <li key={index}>
                 {skill}
-                <DeleteButton onClick={() => handleDelete(index, 'skills')}>X</DeleteButton>
+                <DeleteButton onClick={() => handleDelete(index, "skills")}>
+                  X
+                </DeleteButton>
               </li>
             ))}
             <li>
@@ -162,7 +178,7 @@ const UserProfile = () => {
                 cols={40}
                 className="input"
                 placeholder="Introduce tus Habilidades"
-                onKeyDown={(e) => handleKeyDown(e, 'skills')}
+                onKeyDown={(e) => handleKeyDown(e, "skills")}
               />
             </li>
           </ul>
@@ -173,7 +189,9 @@ const UserProfile = () => {
             {lists.interests.map((interest, index) => (
               <li key={index}>
                 {interest}
-                <DeleteButton onClick={() => handleDelete(index, 'interests')}>X</DeleteButton>
+                <DeleteButton onClick={() => handleDelete(index, "interests")}>
+                  X
+                </DeleteButton>
               </li>
             ))}
             <li>
@@ -183,7 +201,7 @@ const UserProfile = () => {
                 cols={40}
                 className="input"
                 placeholder="Intrucude tus Intereses"
-                onKeyDown={(e) => handleKeyDown(e, 'interests')}
+                onKeyDown={(e) => handleKeyDown(e, "interests")}
               />
             </li>
           </ul>

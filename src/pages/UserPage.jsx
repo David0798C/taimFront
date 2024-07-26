@@ -21,6 +21,7 @@ import {
   getRequest,
   updateRequestStatus,
 } from "../services/request.js";
+import Swal from "sweetalert2";
 import { getTask } from "../services/task.js";
 import { TabList, TabPanel, Tabs } from "react-tabs";
 
@@ -30,6 +31,8 @@ const UserProfile = () => {
   const interestsList = user?.interests?.split(",");
   const [request, setRequest] = useState();
   const [tasks, setTasks] = useState();
+  const [email, setEmail] = useState();
+  const [messages, setMessages] = useState();
 
   const status = 1;
 
@@ -55,7 +58,12 @@ const UserProfile = () => {
     console.log("111111");
     await deleteRequest(filteredRequest_id).then(() => {
       console.log("2222222");
-      alert("Solicitud rechazada correctamente");
+      Swal.fire({
+        title: "Solicitud rechazada correctamente",
+        icon: "success",
+        showConfirmButton: true,
+        confirmButtonColor: "#4ad627",
+      });
     });
   };
 
@@ -67,7 +75,12 @@ const UserProfile = () => {
       taskId,
     }).then(() => {
       console.log("44444");
-      alert("Solicitud aceptada correctamente");
+      Swal.fire({
+        title: "Solicitud aceptada correctamente",
+        icon: "success",
+        showConfirmButton: true,
+        confirmButtonColor: "#4ad627",
+      });
     });
   };
 
