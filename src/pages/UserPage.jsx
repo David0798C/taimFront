@@ -23,6 +23,7 @@ import {
 } from "../services/request.js";
 import { getTask } from "../services/task.js";
 import { TabList, TabPanel, Tabs } from "react-tabs";
+import { sendEmail } from "../services/email.js";
 
 const UserProfile = () => {
   const [user, , logout] = useUserContext();
@@ -56,10 +57,13 @@ const UserProfile = () => {
     await deleteRequest(filteredRequest_id).then(() => {
       console.log("2222222");
       alert("Solicitud rechazada correctamente");
+      sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we inform that your request to " + user.username + " about " + taskName + " has been declined"})
+      .then(() =>{
+      })
     });
   };
 
-  const handleAccept = async (userId, taskId, id) => {
+  const handleAccept = async (userId, taskId, id, email, username, taskName) => {
     console.log("33333");
     await updateRequestStatus(id, {
       status,
@@ -68,6 +72,9 @@ const UserProfile = () => {
     }).then(() => {
       console.log("44444");
       alert("Solicitud aceptada correctamente");
+      sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we are happy to inform that your request to " + user.username + " about " + taskName + " has been accepted!"})
+      .then(() =>{
+      })
     });
   };
 
@@ -159,7 +166,10 @@ const UserProfile = () => {
                           handleAccept(
                             filteredRequest.userId,
                             filteredRequest.taskId,
-                            filteredRequest.id
+                            filteredRequest.id,
+                            filteredRequest.email,
+                            filteredRequest.username,
+                            filteredRequest.title
                           )
                         }
                       >
