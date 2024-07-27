@@ -6,7 +6,7 @@ import gifAnimado from '../pic/gitAnimado.gif';
 import gifEstatico from '../pic/gitEstatico.png';
 import { createGlobalStyle } from 'styled-components';
 import font from '../fonts/aukim/AukimLight.otf';
-import BackgroundImage from '../pic/fondo4.jpg';
+import BackgroundImage from '../pic/StockCake-Splattered Water Abstract_1722089159.jpg';
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        opacity: 0.2;
+        opacity: 0.8;
         z-index: -1;
     }
 `;
@@ -52,7 +52,7 @@ const Container = styled.div`
 
 // Estilos para NavIcon
 const NavIcon = styled.div`
-  background-color: #fff;
+  background-color: #0202027b;
   opacity: 0.8;
   font-family: Arial, Helvetica, sans-serif;
   width: 50%;
@@ -64,7 +64,7 @@ const NavIcon = styled.div`
 
 // Estilos para Nav
 const Nav = styled.nav`
-  background-color: #fff;
+  background-color: #0202027b;
   opacity: 0.8;
   font-family: Arial, Helvetica, sans-serif;
   width: 50%;
@@ -125,12 +125,13 @@ const Li = styled.li`
 
   a {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
     font-size: 22px;
     padding: 10px 20px;
     border-radius: 8px;
     border: 2px solid white;
-    background-color: transparent;
+    background-color: black;
+    opacity:0.7;
     margin-left: 40px;
 
     &:hover {
