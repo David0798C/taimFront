@@ -6,7 +6,7 @@ import gifAnimado from '../pic/gitAnimado.gif';
 import gifEstatico from '../pic/gitEstatico.png';
 import { createGlobalStyle } from 'styled-components';
 import font from '../fonts/aukim/AukimLight.otf';
-import BackgroundImage from '../pic/StockCake-Splattered Water Abstract_1722089159.jpg';
+import BackgroundImage from '../pic/StockCake-Life Amidst Decay_1722169324.jpg';
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        opacity: 0.8;
+        opacity: 0.90;
         z-index: -1;
     }
 `;

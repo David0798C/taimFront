@@ -59,7 +59,7 @@ const UserProfile = () => {
     console.log("111111");
     await deleteRequest(filteredRequest_id).then(() => {
       console.log("2222222");
-      alert("Solicitud rechazada correctamente");
+
       sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we inform that your request to " + user.username + " about " + taskName + " has been declined"})
       .then(() =>{
       })
@@ -80,7 +80,6 @@ const UserProfile = () => {
       taskId,
     }).then(() => {
       console.log("44444");
-      alert("Solicitud aceptada correctamente");
       sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we are happy to inform that your request to " + user.username + " about " + taskName + " has been accepted!"})
       .then(() =>{
       })
