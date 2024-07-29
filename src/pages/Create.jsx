@@ -2,7 +2,6 @@ import Select from "react-select";
 import { useState } from "react";
 import {
   ContainerCreate,
-  H1,
   ContainerInput,
   Input,
   Button,
