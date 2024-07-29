@@ -6,6 +6,7 @@ import {
   DescriptionContainer,
   Description,
   H1,
+  H2,
   GlobalStyle,
   ContentContainer,
   Footer,
@@ -41,6 +42,7 @@ const HomePage = () => {
     <>
       <GlobalStyle />
       <H1 className="animate__animated animate__flash">T A I M</H1>
+      <H2 className="animate__animated animate__flash">Tiempo Acumulado de Intercambio Mutuo</H2>
       <img src="../pic/gitEstatico.png" alt="" />
       {!user && (
         <ButtonContainer>

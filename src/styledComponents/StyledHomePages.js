@@ -36,6 +36,21 @@ export const H1 = styled.h1`
     animation-duration: 10s;
   }
 `;
+export const H2 = styled.h2`
+  color: white;
+  display: flex;
+  font-size: 4rem;
+  padding-left: 20px;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content:left;
+  align-items: baseline;
+
+  .animate__animated {
+    animation-delay: 0.2s;
+    animation-duration: 10s;
+  }
+`;
 export const WhiteBackgroundContentContainer = styled.div`
   background-color: white; /* Fondo blanco */
   padding: 20px; /* Ajusta el padding según sea necesario */
