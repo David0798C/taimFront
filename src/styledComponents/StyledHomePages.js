@@ -52,7 +52,6 @@ export const H2 = styled.h2`
   }
 `;
 export const WhiteBackgroundContentContainer = styled.div`
-  background-color: white; /* Fondo blanco */
   padding: 20px; /* Ajusta el padding según sea necesario */
   opacity: 0.8;
 `;
