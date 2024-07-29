@@ -161,7 +161,7 @@ const HomePage = () => {
             </div>
             <div className="contact">
               <Enlace to="/about">CONOCE MÁS SOBRE NUESTRO EQUIPO</Enlace>
-              <p>Contacto: <a href="mailto:contacto@tuempresa.com">contacto@tuempresa.com</a></p>
+              <p>Contacto: <a href="mailto:contacto@tuempresa.com">taimproject7@gmail.com</a></p>
             </div>
           </div>
         </div>
