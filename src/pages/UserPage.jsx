@@ -26,6 +26,8 @@ import { getTask } from "../services/task.js";
 import { TabList, TabPanel, Tabs } from "react-tabs";
 import { sendEmail } from "../services/email.js";
 
+import User from "../pic/user.png"
+
 const UserProfile = () => {
   const [user, , logout] = useUserContext();
   const skillsList = user?.skills?.split(",");
@@ -103,7 +105,7 @@ const UserProfile = () => {
             <Enlace to="/edit">
               <RiEdit2Fill className="edit" size={25} />
             </Enlace>
-            <img src={user.profilePic} className="profile-image" />
+            <img src={User} className="profile-image" />
             <div>
               <h2 className="name">
                 {user.name} {user.surname}

@@ -2,11 +2,11 @@
 import { TeamContainer, TeamCarousel, TeamMember, MemberPhoto, MemberDescription } from '../styledComponents/StyledAboutUs.js';
 import {GlobalStyle} from '../styledComponents/StyledHomePages.js'
 import Slider from 'react-slick';
-import eric from '../pic/WhatsApp Image 2024-07-23 at 16.28.48.jpeg';
-import anna from '../pic/WhatsApp Image 2024-07-24 at 14.13.16.jpeg';
-import daria from '../pic/WhatsApp Image 2024-07-23 at 18.58.13.jpeg';
-import david from '../pic/WhatsApp Image 2024-07-24 at 14.19.58.jpeg';
-import carmen from '../pic/WhatsApp Image 2024-06-14 at 17.11.18.jpeg';
+import eric from '../pic/Eric.jpeg';
+import anna from '../pic/Anna.jpeg';
+import daria from '../pic/Daria.jpeg';
+import david from '../pic/David.jpeg';
+import carmen from '../pic/Carmen.jpeg';
 import { useUserContext } from '../providers/UserProvider.jsx';
 
 const AboutUs = () => {
