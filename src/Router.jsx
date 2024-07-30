@@ -8,6 +8,7 @@ import Create from "./pages/Create";
 import Register from "./pages/Register";
 import Ofertas from "./pages/Ofertas";
 import PrivateRoute from "./PrivateRoute"
+import AboutUs from "./pages/AboutUs";
 
 const Router = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const Router = () => (
         <Route path="/login" element={<Login />} />
         <Route path="/user" element={<PrivateRoute component={UserPage} />} />
         <Route path="/edit" element={<PrivateRoute component={EditUser} />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/create" element={<PrivateRoute component={Create} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/ofertas" element={<PrivateRoute component={Ofertas} />} />

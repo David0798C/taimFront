@@ -2,38 +2,38 @@ import styled from "styled-components";
 import font from "../fonts/aukim/AukimLight.otf";
 
 export const ContainerOfertas = styled.div`
-  max-width: 100%;
-  margin: auto;
-  padding: 0px;
-  margin-top:3%;
+  max-width: 85%;
+  margin: 3% auto;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 export const ContainerRow = styled.div`
-  padding: 10px;
   display: grid;
-  width: 100%;
-  grid-template-columns: repeat(3, 1fr);
-
-  @media (max-width: 768px) {
-    display: block;
-  }
-
-  @media (max-width: 1000px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+  padding: 10px;
 `;
 
 export const ContainerColumn = styled.div`
-  padding: 20px;
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* Distribute space evenly between elements */
+  padding: 15px;
+  background-color: #fff;
   margin: 10px;
-  box-shadow: 8px 5px 10px #d1d1d1;
-  border-left: 2px solid #22df22;
-  border-top: 2px solid #22df22;
-  border-left-style: dashed;
-  border-top-style: dashed;
-  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-left: 3px solid #4ad627;
+  border-top: 3px solid #4ad627;
+  border-radius: 10px;
+  transition: transform 0.3s;
 
+  &:hover {
+    transform: scale(1.05);
+  }
+  
   @media (max-width: 800px) {
     display: block;
   }
@@ -41,50 +41,66 @@ export const ContainerColumn = styled.div`
 
 //IMAGENES, BOTONES Y INPUTS-----------------------
 export const Image = styled.div`
-  width: 200px;
-  height: 300px;
-  margin: auto;
-  background-color: #22df22;
-  border-radius: 5px;
+  width: 100%;
+  height: 180px;
+  margin: 15px 0;
+  background-color: #eaeaea;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
 `;
 
 export const Button = styled.button`
-  margin-top: 20px;
-  margin: auto;
-  width: 150px;
+  width: 100%;
   border-radius: 5px;
-  padding: 10px;
-  background-color: transparent;
-  border: 2px solid black;
-  color: black;
-  display: block;
+  padding: 8px;
+  background-color: #4ad627;
+  border: none;
+  color: #fff;
   font-family: myFont;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: auto;  /* Push button to the bottom of the column */
 
   @font-face {
     font-family: myFont;
     src: url(${font});
-    color: black;
   }
 
   &:hover {
-    transition: 0.2s;
-    border-color: #4ad627;
+    background-color: #3ab020;
   }
 `;
 
 //TEXTOS--------------------------------------
 export const H1 = styled.h1`
   text-align: center;
+  margin-bottom: 30px;
+  font-family: myFont;
+  font-size: 2.2em;
+  color: #333;
 `;
 
 export const H3 = styled.h3`
   text-align: center;
+  font-family: myFont;
+  font-size: 1.3em;
+  color: #4ad627;
 `;
 
 export const H4 = styled.h4`
   text-align: center;
+  font-family: myFont;
+  font-size: 1em;
+  color: #777;
+  margin-bottom: 15px;
 `;
 
 export const P = styled.p`
   text-align: center;
+  font-family: myFont;
+  font-size: 0.9em;
+  color: #555;
+  margin: 8px 0;
 `;

@@ -2,7 +2,6 @@ import Select from "react-select";
 import { useState } from "react";
 import {
   ContainerCreate,
-  H1,
   ContainerInput,
   Input,
   Button,
@@ -11,6 +10,7 @@ import { createTask } from "../services/task";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle } from "../styledComponents/StyledHomePages.js";
 import { customStyles } from "../styledComponents/StyledSelect.js";
+import Swal from "sweetalert2";
 
 const Create = () => {
   const [title, setOfferTitle] = useState("");
@@ -47,14 +47,18 @@ const Create = () => {
     await createTask(newOffer);
     addOfferToUser(newOffer);
 
-    alert("Has creado una oferta");
+    Swal.fire({
+      title: "Has creado una oferta",
+      icon: "success",
+      showConfirmButton: true,
+      confirmButtonColor: "#4ad627",
+    });
   };
 
   return (
     <div>
       <GlobalStyle />
       <ContainerCreate>
-        <H1>Crear Oferta</H1>
         <ContainerInput>
           <Input
             placeholder="Nombre de la Oferta"

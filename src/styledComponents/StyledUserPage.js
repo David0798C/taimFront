@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import font from "../fonts/aukim/AukimLight.otf";
-import {Tab} from 'react-tabs';
+import { Tab } from "react-tabs";
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -21,16 +21,20 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Container = styled.div`
   display: grid;
-  margin-top:3%;
+  margin-top: 3%;
   grid-template-columns: 1fr 2fr;
   gap: 20px;
   padding: 20px;
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 export const LeftColumn = styled.div`
   display: flex;
-  border-radius:5px;
+  border-radius: 5px;
   flex-direction: column;
   gap: 20px;
 `;
@@ -41,6 +45,10 @@ export const RightColumn = styled.div`
   border-radius: 5px;
   box-sizing: border-box;
   height: 100%;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -183,38 +191,42 @@ export const CenteredContainer = styled.div`
     }
 
     input {
-    background-image: linear-gradient(#64e320, #64e320),
-    linear-gradient(#bfbfbf, #bfbfbf);
-    border: 0 none;
-    border-radius: 0;
-    box-shadow: none;
-    float: none;
-    background-color: transparent;
-    background-position: center bottom, center calc(100% - 1px);
-    background-repeat: no-repeat;
-    background-size: 0 2px, 100% 1px;
-    padding: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
+      background-image: linear-gradient(#64e320, #64e320),
+        linear-gradient(#bfbfbf, #bfbfbf);
+      border: 0 none;
+      border-radius: 0;
+      box-shadow: none;
+      float: none;
+      background-color: transparent;
+      background-position: center bottom, center calc(100% - 1px);
+      background-repeat: no-repeat;
+      background-size: 0 2px, 100% 1px;
+      padding: 0;
+      margin-top: 10px;
+      margin-bottom: 10px;
 
-    color: #bfbfbf;
-    min-height: 35px;
-    display: initial;
-    width: 100%;
-    outline: none;
-    font-size: 15px;
-    font-family: myFont;
-    &:focus {
-      background-size: 100% 2px, 100% 1px;
-      outline: 0 none;
-      transition-duration: 0.3s;
-      color: #525252;
-    }
+      color: #bfbfbf;
+      min-height: 35px;
+      display: initial;
+      width: 100%;
+      outline: none;
+      font-size: 15px;
+      font-family: myFont;
+      &:focus {
+        background-size: 100% 2px, 100% 1px;
+        outline: 0 none;
+        transition-duration: 0.3s;
+        color: #525252;
+      }
     }
 
     button {
       margin-left: 1rem;
     }
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
   }
 `;
 
@@ -312,8 +324,8 @@ export const Button = styled.button`
 `;
 
 export const DeleteButton = styled.button`
-background-color:rgba(146, 26, 26, 379); 
-border-radius:5px
+  background-color: rgba(146, 26, 26, 379);
+  border-radius: 5px;
 `;
 
 export const LogoutButtonContainer = styled.div`
@@ -323,9 +335,9 @@ export const LogoutButtonContainer = styled.div`
 `;
 
 export const CustomTab = styled(Tab)`
-display: flex;
-justify-content:center;
-margin: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
