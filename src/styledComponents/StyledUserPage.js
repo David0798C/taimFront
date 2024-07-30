@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
 export const Container = styled.div`
   display: grid;
   margin-top: 3%;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1.5fr 1fr 1fr;
   gap: 20px;
   padding: 20px;
   min-height: 100vh;
