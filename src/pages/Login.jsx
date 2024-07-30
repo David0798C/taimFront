@@ -53,12 +53,12 @@ const Login = () => {
         <LoginStyle>
           <Input
             type="text"
-            placeholder="Username"
+            placeholder="Usuario"
             onChange={(e) => setNombre(e.target.value)}
           />
           <Input
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             onChange={(e) => setPassword(e.target.value)}
           />
           <Parrafo>{errorMessage}</Parrafo>

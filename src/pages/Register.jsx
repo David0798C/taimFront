@@ -83,18 +83,18 @@ const Register = () => {
     <div>
       <GlobalStyle />
       <RegisterContainer>
-        <h1>Register</h1>
+        <h1>Registrarse</h1>
 
         <InputContainer>
           <Input
             type="text"
-            placeholder="First Name"
+            placeholder="Nombre"
             onChange={(e) => setName(e.target.value)}
           />
 
           <Input
             type="text"
-            placeholder="Last Name"
+            placeholder="Apellido"
             onChange={(e) => setSurname(e.target.value)}
           />
 
@@ -106,24 +106,24 @@ const Register = () => {
 
           <Input
             type="text"
-            placeholder="Username"
+            placeholder="Usuario"
             onChange={(e) => setUsername(e.target.value)}
           />
 
           <Input
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             onChange={(e) => setPassword(e.target.value)}
           />
 
           <Input
             type="password"
-            placeholder="Confirm Password"
+            placeholder="Confirmar Contraseña"
             onChange={(e) => setPassword2(e.target.value)}
           />
 
           <Button type="button" onClick={ConfirmPassword}>
-            Register
+            Registrarse
           </Button>
         </InputContainer>
       </RegisterContainer>
