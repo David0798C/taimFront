@@ -6,7 +6,7 @@ import {
   SkillsContainer,
   LogoutButtonContainer,
   DeleteButton,
-} from "../styledComponents/StyledUserPage";
+} from "../styledComponents/StyledEditPage";
 import { IoIosSave } from "react-icons/io";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
