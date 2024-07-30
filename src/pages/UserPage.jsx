@@ -60,9 +60,9 @@ const UserProfile = () => {
     await deleteRequest(filteredRequest_id).then(() => {
       console.log("2222222");
 
-      sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we inform that your request to " + user.username + " about " + taskName + " has been declined"})
-      .then(() =>{
-      })
+      sendEmail({ to: email, subject: "TAIM Request Update", text: "Hello " + username + " we inform that your request to " + user.username + " about " + taskName + " has been declined" })
+        .then(() => {
+        })
       Swal.fire({
         title: "Solicitud rechazada correctamente",
         icon: "success",
@@ -80,9 +80,9 @@ const UserProfile = () => {
       taskId,
     }).then(() => {
       console.log("44444");
-      sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we are happy to inform that your request to " + user.username + " about " + taskName + " has been accepted! /n /n Salutations from the TAIM team!"})
-      .then(() =>{
-      })
+      sendEmail({ to: email, subject: "TAIM Request Update", text: "Hello " + username + " we are happy to inform that your request to " + user.username + " about " + taskName + " has been accepted! /n /n Salutations from the TAIM team!" })
+        .then(() => {
+        })
       Swal.fire({
         title: "Solicitud aceptada correctamente",
         icon: "success",

@@ -22,6 +22,19 @@ export const GlobalStyle = createGlobalStyle`
 export const Container = styled.div`
   display: grid;
   margin-top: 3%;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const ContainerEdit = styled.div`
+  display: grid;
+  margin-top: 3%;
   grid-template-columns: 1.5fr 1fr 1fr;
   gap: 20px;
   padding: 20px;
@@ -329,9 +342,9 @@ export const DeleteButton = styled.button`
 `;
 
 export const LogoutButtonContainer = styled.div`
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 `;
 
 export const CustomTab = styled(Tab)`
