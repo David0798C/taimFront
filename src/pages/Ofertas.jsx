@@ -77,7 +77,7 @@ const Ofertas = () => {
   const imagen = (categoria) => {
     if (categoria === "Arte") {
       return <Image src={Artistico}></Image>;
-    } else if (categoria === "Cuidados") {
+    } else if (categoria == "Cuidados") {
       return <Image src={Cuidados}></Image>;
     } else if (categoria === "Educacion") {
       return <Image src={Educacion}></Image>;
@@ -87,7 +87,7 @@ const Ofertas = () => {
       return <Image src={Transporte}></Image>;
     } else if (categoria === "Servicios") {
       return <Image src={Servicios}></Image>;
-    }
+    } else console.log("2222");
   };
 
   return (
@@ -102,8 +102,9 @@ const Ofertas = () => {
               <ContainerColumn key={oferta.id}>
                 <H3>{oferta?.title}</H3>
                 <H4>{oferta?.user?.name}</H4>
-                {imagen(oferta.category)}
+                {imagen(oferta?.category)}
                 <P>{oferta?.description}</P>
+
                 <P>{oferta?.hours}</P>
                 <Button onClick={() => enviarRequest(oferta.id, oferta)}>
                   Añadir Oferta
