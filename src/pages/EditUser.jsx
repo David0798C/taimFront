@@ -1,4 +1,4 @@
-import { Container, CardContainer, Button, InterestContainer, SkillsContainer, LogoutButtonContainer, DeleteButton } from '../styledComponents/StyledUserPage';
+import { ContainerEdit, CardContainer, Button, InterestContainer, SkillsContainer, LogoutButtonContainer, DeleteButton } from '../styledComponents/StyledUserPage';
 import { IoIosSave } from "react-icons/io";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
@@ -88,10 +88,8 @@ const UserProfile = () => {
   return (
     <>
       <GlobalStyle />
-      <LogoutButtonContainer>
-        <Button onClick={logout}>Cerrar Sesión</Button>
-      </LogoutButtonContainer>
-      <Container key={user?.id}>
+
+      <ContainerEdit key={user?.id}>
         <CardContainer>
           <img src={user?.profilePic} className="profile-image" />
           <div>
@@ -142,7 +140,11 @@ const UserProfile = () => {
             <Enlace to={"/user"}>
               <IoIosSave className="edit" size={25} onClick={handleUpdate} />
             </Enlace>
+            <LogoutButtonContainer>
+              <Button onClick={logout}>Cerrar Sesión</Button>
+            </LogoutButtonContainer>
           </div>
+
         </CardContainer>
         <SkillsContainer>
           <h1>Habilidades</h1>
@@ -186,7 +188,7 @@ const UserProfile = () => {
             </li>
           </ul>
         </InterestContainer>
-      </Container>
+      </ContainerEdit>
     </>
   );
 };
