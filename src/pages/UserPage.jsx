@@ -55,7 +55,7 @@ const UserProfile = () => {
     return taskes && taskes.user.id === user.id;
   });
 
-  const handleDelete = async (filteredRequest_id) => {
+  const handleDelete = async (filteredRequest_id, username, taskName) => {
     console.log("111111");
     await deleteRequest(filteredRequest_id).then(() => {
       console.log("2222222");
@@ -80,7 +80,7 @@ const UserProfile = () => {
       taskId,
     }).then(() => {
       console.log("44444");
-      sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we are happy to inform that your request to " + user.username + " about " + taskName + " has been accepted!"})
+      sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we are happy to inform that your request to " + user.username + " about " + taskName + " has been accepted! /n /n Salutations from the TAIM team!"})
       .then(() =>{
       })
       Swal.fire({
