@@ -4,6 +4,7 @@ import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle, Enlace } from "../styledComponents/StyledHomePages.js";
 import { useState, useEffect, useRef } from "react";
 import { updateUser } from "../services/user.js";
+import Swal from "sweetalert2";
 
 const UserProfile = () => {
     const [user, setUser, logout] = useUserContext();
@@ -79,10 +80,26 @@ const UserProfile = () => {
             profilePic,
             password: user.password, // Asegúrate de mantener la contraseña actual
         };
-        await updateUser(id, userAux);
-        setUser({ ...user, ...userAux });
-
-        alert("Datos actualizados correctamente");
+        try {
+            await updateUser(id, userAux);
+            setUser({ ...user, ...userAux });
+    
+            Swal.fire({
+                title: "Datos actualizados correctamente",
+                color: "#000000",
+                icon: "success",
+                showConfirmButton: true,
+                confirmButtonColor: "#4ad627",
+            });
+        } catch (error) {
+            console.error(error);
+            Swal.fire({
+                title: "Ocurrió un error al actualizar los datos",
+                icon: "error",
+                showConfirmButton: true,
+                confirmButtonColor: "#4ad627",
+            });
+        }
     };
 
     return (
