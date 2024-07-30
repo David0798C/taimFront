@@ -5,8 +5,8 @@ import {
   ContainerColumn,
   H3,
   H4,
-  P,
   Image,
+  P,
   Button,
 } from "../styledComponents/StyledOfertes.js";
 
@@ -16,17 +16,17 @@ import { useUserContext } from "../providers/UserProvider.jsx";
 import { postRequest } from "../services/request.js";
 import Swal from "sweetalert2";
 
-import Artistico from "../pic/Artistico.png";
+import Artistico from "../../src/pic/Artistico.png";
 
-import Cuidados from "../pic/Cuidados.png";
+import Cuidados from "../../src/pic/Cuidados.png";
 
-import Salud from "../pic/Salud y Bienestar.png";
+import Salud from "../../src/pic/Salud y Bienestar.png";
 
-import Servicios from "../pic/Servicios.png";
+import Servicios from "../../src/pic/Servicios.png";
 
-import Educacion from "../pic/Educación.png";
+import Educacion from "../../src/pic/Educación.png";
 
-import Transporte from "../pic/Transporte.png";
+import Transporte from "../../src/pic/Transporte.png";
 
 const Ofertas = () => {
   const [Offer, setOffer] = useState([]);
@@ -76,18 +76,18 @@ const Ofertas = () => {
 
   const imagen = (categoria) => {
     if (categoria === "Arte") {
-      return <Image src={Artistico}></Image>;
-    } else if (categoria == "Cuidados") {
+      return <img src={Artistico}></img>;
+    } else if (categoria === "Cuidados") {
       return <Image src={Cuidados}></Image>;
     } else if (categoria === "Educacion") {
-      return <Image src={Educacion}></Image>;
+      return <img src={Educacion}></img>;
     } else if (categoria === "Salud y Bienestar") {
-      return <Image src={Salud}></Image>;
+      return <img src={Salud}></img>;
     } else if (categoria === "Transporte") {
-      return <Image src={Transporte}></Image>;
+      return <img src={Transporte}></img>;
     } else if (categoria === "Servicios") {
-      return <Image src={Servicios}></Image>;
-    } else console.log("2222");
+      return <img src={Servicios}></img>;
+    }
   };
 
   return (

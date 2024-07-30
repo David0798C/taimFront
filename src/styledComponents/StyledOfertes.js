@@ -20,7 +20,7 @@ export const ContainerRow = styled.div`
 export const ContainerColumn = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;  /* Distribute space evenly between elements */
+  justify-content: space-between; /* Distribute space evenly between elements */
   padding: 15px;
   background-color: #fff;
   margin: 10px;
@@ -33,18 +33,16 @@ export const ContainerColumn = styled.div`
   &:hover {
     transform: scale(1.05);
   }
-  
+
   @media (max-width: 800px) {
     display: block;
   }
 `;
 
 //IMAGENES, BOTONES Y INPUTS-----------------------
-export const Image = styled.div`
+export const Image = styled.img`
   width: 100%;
-  height: 180px;
   margin: 15px 0;
-  background-color: #eaeaea;
   border-radius: 10px;
   background-size: cover;
   background-position: center;
@@ -61,7 +59,7 @@ export const Button = styled.button`
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: auto;  /* Push button to the bottom of the column */
+  margin-top: auto; /* Push button to the bottom of the column */
 
   @font-face {
     font-family: myFont;
