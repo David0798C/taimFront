@@ -9,7 +9,10 @@ import {
 import { createTask } from "../services/task";
 import { useUserContext } from "../providers/UserProvider";
 import { GlobalStyle } from "../styledComponents/StyledHomePages.js";
-import { customStyles } from "../styledComponents/StyledSelect.js";
+import {
+  customStyles,
+  customStyles2,
+} from "../styledComponents/StyledSelect.js";
 import Swal from "sweetalert2";
 
 const Create = () => {
@@ -31,6 +34,15 @@ const Create = () => {
     { value: "3h", label: "3h" },
     { value: "3:30h", label: "3:30h" },
     { value: "4h", label: "4h" },
+  ];
+
+  const categories = [
+    { value: "Arte", label: "Arte" },
+    { value: "Cuidados", label: "Cuidados" },
+    { value: "Educacion", label: "Educacion" },
+    { value: "Salud y Bienestar", label: "Salud y Bienestar" },
+    { value: "Servicios", label: "Servicios" },
+    { value: "Transporte", label: "Transporte" },
   ];
 
   const handleClickCrear = async () => {
@@ -68,10 +80,10 @@ const Create = () => {
             placeholder="Breve descripcion "
             onChange={(e) => setOfferDesc(e.target.value)}
           />
-          <Input
+          {/* <Input
             placeholder="Categoria de la oferta"
             onChange={(e) => setOfferCat(e.target.value)}
-          />
+          /> */}
           <Input
             placeholder="Localizacion"
             onChange={(e) => setOfferLoc(e.target.value)}
@@ -81,7 +93,15 @@ const Create = () => {
             placeholder="Fecha de la Oferta"
             onChange={(e) => setOfferDate(e.target.value)}
           />
+
           <Select
+            onChange={({ value }) => setOfferCat(value)}
+            options={categories}
+            styles={customStyles2}
+            placeholder="Categorias"
+          />
+          <Select
+            placeholder="Horas"
             onChange={({ value }) => setOfferTime(value)}
             options={horas}
             styles={customStyles}

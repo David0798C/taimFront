@@ -16,6 +16,18 @@ import { useUserContext } from "../providers/UserProvider.jsx";
 import { postRequest } from "../services/request.js";
 import Swal from "sweetalert2";
 
+import Artistico from "../pic/Artistico.png";
+
+import Cuidados from "../pic/Cuidados.png";
+
+import Salud from "../pic/Salud y Bienestar.png";
+
+import Servicios from "../pic/Servicios.png";
+
+import Educacion from "../pic/Educación.png";
+
+import Transporte from "../pic/Transporte.png";
+
 const Ofertas = () => {
   const [Offer, setOffer] = useState([]);
   const [loading, setLoading] = useState(true); // Estado de carga
@@ -25,7 +37,7 @@ const Ofertas = () => {
   useEffect(() => {
     getTask()
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setOffer(res.data);
         setLoading(false); // Datos cargados, esconder indicador de carga
       })
@@ -62,6 +74,22 @@ const Ofertas = () => {
       });
   };
 
+  const imagen = () => {
+    if (Offer.category === "Arte") {
+      return <Image src={Artistico}></Image>;
+    } else if (Offer.category === "Cuidados") {
+      return <Image src={Cuidados}></Image>;
+    } else if (Offer.category === "Educacion") {
+      return <Image src={Educacion}></Image>;
+    } else if (Offer.category === "Salud y Bienestar") {
+      return <Image src={Salud}></Image>;
+    } else if (Offer.category === "Transporte") {
+      return <Image src={Transporte}></Image>;
+    } else if (Offer.category === "Servicios") {
+      return <Image src={Servicios}></Image>;
+    }
+  };
+
   return (
     <div>
       <GlobalStyle />
@@ -74,7 +102,7 @@ const Ofertas = () => {
               <ContainerColumn key={oferta.id}>
                 <H3>{oferta?.title}</H3>
                 <H4>{oferta?.user?.name}</H4>
-                <Image></Image>
+                {imagen()}
                 <P>{oferta?.description}</P>
                 <P>{oferta?.hours}</P>
                 <Button onClick={() => enviarRequest(oferta.id, oferta)}>
