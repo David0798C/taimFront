@@ -83,7 +83,7 @@ const Register = () => {
     <div>
       <GlobalStyle />
       <RegisterContainer>
-        <h1>Registrarse</h1>
+        <h1 className="titulo">Registrarse</h1>
 
         <InputContainer>
           <Input

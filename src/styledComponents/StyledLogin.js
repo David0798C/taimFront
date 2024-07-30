@@ -13,6 +13,10 @@ export const LoginContainer = styled.div`
   border-radius: 5px;
   position: relative;
   top: 150px;
+
+  .titulo {
+    color: white;
+  }
   @media (max-width: 768px) {
     max-width: 80%;
   }

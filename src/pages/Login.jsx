@@ -48,8 +48,7 @@ const Login = () => {
     <div>
       <GlobalStyle />
       <LoginContainer>
-        <h1>Login</h1>
-
+        <h1 className="titulo">Login</h1>
         <LoginStyle>
           <Input
             type="text"

@@ -89,7 +89,7 @@ export const Description = styled.div`
 
 export const Enlace = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: white;
   display: block;
   padding: 10px 20px;
 `;
@@ -100,9 +100,10 @@ export const Button = styled.button`
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
-  border: 2px solid black;
+  border: 2px solid white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: transparent;
+  background-color: black;
+  opacity:0.7;
   color: black;
   font-family: myFont;
 

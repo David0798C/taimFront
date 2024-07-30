@@ -7,19 +7,11 @@ export const RegisterContainer = styled.div`
   margin: auto;
   text-align: center;
 
-  h1 {
-    font-size: 50px;
+  .titulo {
+    color: white;
+
   }
 `;
-
-// export const Image = styled.div`
-//   width: 40%;
-//   height: auto;
-//   display: block;
-//   height: 300px;
-//   background-color: blue;
-//   margin: auto;
-// `;
 
 export const InputContainer = styled.div`
   background-color: #fdfdfd;
