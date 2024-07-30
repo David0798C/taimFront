@@ -76,17 +76,17 @@ const Ofertas = () => {
 
   const imagen = (categoria) => {
     if (categoria === "Arte") {
-      return <img src={Artistico}></img>;
+      return <Image src={Artistico}></Image>;
     } else if (categoria === "Cuidados") {
       return <Image src={Cuidados}></Image>;
     } else if (categoria === "Educacion") {
-      return <img src={Educacion}></img>;
+      return <Image src={Educacion}></Image>;
     } else if (categoria === "Salud y Bienestar") {
-      return <img src={Salud}></img>;
+      return <Image src={Salud}></Image>;
     } else if (categoria === "Transporte") {
-      return <img src={Transporte}></img>;
+      return <Image src={Transporte}></Image>;
     } else if (categoria === "Servicios") {
-      return <img src={Servicios}></img>;
+      return <Image src={Servicios}></Image>;
     }
   };
 
