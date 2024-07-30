@@ -18,3 +18,22 @@ export const customStyles = {
   }),
   singleValue: (defaultStyles) => ({ ...defaultStyles, color: "#000000" }),
 };
+
+export const customStyles2 = {
+  option: (defaultStyles, state) => ({
+    ...defaultStyles,
+    color: state.isSelected ? "#000000" : "#000000",
+    backgroundColor: state.isSelected ? "#ffffff0" : "#ffffff",
+  }),
+
+  control: (defaultStyles) => ({
+    ...defaultStyles,
+    // Notice how these are all CSS properties
+    backgroundColor: "white",
+    padding: "10px",
+    borderRadius: "10px",
+    marginTop: "20px",
+    width: "560px",
+  }),
+  singleValue: (defaultStyles) => ({ ...defaultStyles, color: "#000000" }),
+};
