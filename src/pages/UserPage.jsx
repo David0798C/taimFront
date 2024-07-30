@@ -32,6 +32,8 @@ const UserProfile = () => {
   const interestsList = user?.interests?.split(",");
   const [request, setRequest] = useState();
   const [tasks, setTasks] = useState();
+  const [email, setEmail] = useState();
+  const [messages, setMessages] = useState();
 
   const status = 1;
 
@@ -53,74 +55,41 @@ const UserProfile = () => {
     return taskes && taskes.user.id === user.id;
   });
 
-  const handleDelete = async (filteredRequest_id, username, taskName, userEmail) => {
-    try {
-      console.log("111111");
-      await deleteRequest(filteredRequest_id);
+  const handleDelete = async (filteredRequest_id, username, taskName) => {
+    console.log("111111");
+    await deleteRequest(filteredRequest_id).then(() => {
       console.log("2222222");
 
-      // Verificación del email antes de intentar enviar el correo
-      if (!userEmail) {
-        console.error("Email is undefined or null");
-        return;
-      }
-
-      await sendEmail({
-        to: userEmail,
-        subject: "TAIM Request Update",
-        text: "Hello " + username + ", we inform that your request to " + user.username + " about " + taskName + " has been declined"
-      });
-
+      sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we inform that your request to " + user.username + " about " + taskName + " has been declined"})
+      .then(() =>{
+      })
       Swal.fire({
         title: "Solicitud rechazada correctamente",
         icon: "success",
         showConfirmButton: true,
         confirmButtonColor: "#4ad627",
       });
-    } catch (error) {
-      console.error("Error rejecting request or sending email: ", error);
-      Swal.fire({
-        title: "Error al rechazar la solicitud",
-        text: "Hubo un problema al rechazar la solicitud o al enviar el correo electrónico.",
-        icon: "error",
-        showConfirmButton: true,
-        confirmButtonColor: "#d33",
-      });
-    }
+    });
   };
 
-  const handleAccept = async (userId, taskId, id, userEmail, username, taskName) => {
-    try {
-      console.log("33333");
-      await updateRequestStatus(id, {
-        status,
-        userId,
-        taskId,
-      });
+  const handleAccept = async (userId, taskId, id, email, username, taskName) => {
+    console.log("33333");
+    await updateRequestStatus(id, {
+      status,
+      userId,
+      taskId,
+    }).then(() => {
       console.log("44444");
-
-      await sendEmail({
-        to: userEmail,
-        subject: "TAIM Request Update",
-        text: "Hello " + username + ", we are happy to inform that your request to " + user.username + " about " + taskName + " has been accepted! /n /n Salutations from the TAIM team!"
-      });
-
+      sendEmail({to: email, subject: "TAIM Request Update", text: "Hello " +  username + " we are happy to inform that your request to " + user.username + " about " + taskName + " has been accepted! /n /n Salutations from the TAIM team!"})
+      .then(() =>{
+      })
       Swal.fire({
         title: "Solicitud aceptada correctamente",
         icon: "success",
         showConfirmButton: true,
         confirmButtonColor: "#4ad627",
       });
-    } catch (error) {
-      console.error("Error accepting request or sending email: ", error);
-      Swal.fire({
-        title: "Error al aceptar la solicitud",
-        text: "Hubo un problema al aceptar la solicitud o al enviar el correo electrónico.",
-        icon: "error",
-        showConfirmButton: true,
-        confirmButtonColor: "#d33",
-      });
-    }
+    });
   };
 
   console.log(filteredRequests);
@@ -138,7 +107,7 @@ const UserProfile = () => {
             <div>
               <h2 className="name">
                 {user.name} {user.surname}
-              </h2> {/* Corregido el cierre de la etiqueta */}
+              </h2>
               <h4 className="username">@{user.username}</h4>
               <p className="email">{user.email}</p>
               <p>{user.location}</p>
@@ -220,16 +189,7 @@ const UserProfile = () => {
                       >
                         ACEPTAR
                       </Button>
-                      <Button
-                        onClick={() =>
-                          handleDelete(
-                            filteredRequest.id,
-                            filteredRequest.username,
-                            filteredRequest.title,
-                            filteredRequest.email // asegúrate de pasar el email aquí
-                          )
-                        }
-                      >
+                      <Button onClick={() => handleDelete(filteredRequest.id)}>
                         RECHAZAR
                       </Button>
                     </TaskText>
